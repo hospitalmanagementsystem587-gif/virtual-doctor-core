@@ -29,35 +29,49 @@ class MedicalVectorRetriever:
     def retrieve(self, query: str, top_k: int = 3) -> List[Dict[str, Any]]:
         """
         Semantic/token similarity matching against clinical knowledge base.
-        Returns top_k most relevant medical protocols.
+        Matches keywords, anatomical location, clinical hallmarks, and ICD-10 topic definitions.
         """
         if not self.documents:
             return []
 
         # Common stop words to exclude from weighting
-        stop_words = {"and", "the", "with", "after", "before", "over", "under", "for", "from", "into", "when", "lying"}
-        query_tokens = [w for w in query.lower().split() if len(w) > 2 and w not in stop_words]
+        stop_words = {
+            "and", "the", "with", "after", "before", "over", "under", "for", "from", "into", "when",
+            "lying", "has", "have", "had", "are", "was", "were", "been", "being", "this", "that"
+        }
+        query_lower = query.lower()
+        query_tokens = [w.strip(".,;:?!") for w in query_lower.split() if len(w.strip(".,;:?!")) > 2 and w.strip(".,;:?!") not in stop_words]
         scored_docs = []
 
         for doc in self.documents:
-            topic_lower = doc["topic"].lower()
-            specialty_lower = doc["specialty"].lower()
-            content_lower = doc["content"].lower()
-            doc_text = f"{topic_lower} {specialty_lower} {content_lower}"
+            topic_lower = doc.get("topic", "").lower()
+            specialty_lower = doc.get("specialty", "").lower()
+            organ_lower = doc.get("organ_system", "").lower()
+            keywords = [k.lower() for k in doc.get("keywords", [])]
+            content_lower = doc.get("content", "").lower()
+
+            doc_text = f"{topic_lower} {specialty_lower} {organ_lower} {' '.join(keywords)} {content_lower}"
             doc_tokens = doc_text.split()
 
             score = 0.0
-            for token in query_tokens:
-                if token in doc_text:
-                    # High boost for exact keyword in topic title
-                    weight = 4.0 if token in topic_lower else (2.0 if token in specialty_lower else 1.0)
-                    tf = doc_tokens.count(token)
-                    score += weight * (1.0 + math.log(1.0 + tf))
 
-            # Phrase boost for exact medical condition name
-            for word in query_tokens:
-                if word in topic_lower:
-                    score += 5.0
+            # 1. Exact multi-word keyword phrases matching
+            for kw in keywords:
+                if len(kw) > 3 and kw in query_lower:
+                    score += 6.0
+
+            # 2. Token matching with hierarchical anatomical & organ weighting
+            for token in query_tokens:
+                if token in doc_tokens:
+                    tf = doc_tokens.count(token)
+                    weight = 1.0
+                    if token in topic_lower:
+                        weight = 3.5
+                    elif token in keywords:
+                        weight = 2.5
+                    elif token in specialty_lower or token in organ_lower:
+                        weight = 2.0
+                    score += weight * (1.0 + math.log(1.0 + tf))
 
             if score > 0:
                 scored_docs.append({
@@ -66,6 +80,7 @@ class MedicalVectorRetriever:
                     "topic": doc.get("topic"),
                     "icd10": doc.get("icd10"),
                     "specialty": doc.get("specialty"),
+                    "organ_system": doc.get("organ_system"),
                     "content": doc.get("content"),
                 })
 

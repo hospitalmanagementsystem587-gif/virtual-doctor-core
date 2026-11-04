@@ -18,18 +18,12 @@
     constructor(config = {}) {
       this.config = { ...DEFAULT_CONFIG, ...config };
       this.isOpen = false;
-      this.step = 1; // 1: Demographics, 2: Chief Complaint & OPQRST, 3: Assessment
+      this.sessionId = null;
+      this.step = 0; // 0: Init demographics, 1: Conversation turns
       this.formData = {
         age: 35,
         gender: "female",
         chronic_conditions: "",
-        chief_complaint: "",
-        onset: "",
-        quality_character: "",
-        radiation: "",
-        severity_scale: 5,
-        associated_symptoms: "",
-        pertinent_negatives: "",
       };
       this.init();
     }
@@ -355,6 +349,24 @@
       return html;
     }
 
+    renderChatContainer(firstGreeting, firstQuestion) {
+      return `
+        <div class="vd-chat-messages" id="vd-chat-msgs" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; max-height: 400px; overflow-y: auto;">
+          <div style="background: #FAF8F5; border: 1px solid #E8D5C4; border-radius: 12px; padding: 10px 14px; font-size: 12px; color: #44403c;">
+            <strong>Virtual Doctor Copilot:</strong><br/>
+            ${firstGreeting}
+          </div>
+          <div style="background: #FAF8F5; border: 1px solid #E8D5C4; border-radius: 12px; padding: 10px 14px; font-size: 13px; font-weight: 600; color: #1c1917;">
+            ${firstQuestion}
+          </div>
+        </div>
+        <div id="vd-chat-input-area" style="display: flex; gap: 8px;">
+          <input type="text" id="vd-user-input" class="vd-input" placeholder="Type your answer here..." style="flex: 1;" />
+          <button class="vd-btn-primary" id="vd-send-msg" style="width: auto; padding: 0 16px; margin: 0;">Send</button>
+        </div>
+      `;
+    }
+
     bindEvents() {
       this.launcher.addEventListener("click", () => this.toggleModal());
       document.getElementById("vd-close").addEventListener("click", () => this.toggleModal());
@@ -366,83 +378,82 @@
           this.formData.age = parseInt(document.getElementById("vd-age").value) || 35;
           this.formData.gender = document.getElementById("vd-gender").value;
           this.formData.chronic_conditions = document.getElementById("vd-chronic").value;
-          body.innerHTML = this.renderStep2();
-          this.bindStep2Events();
-        } else if (e.target && e.target.id === "vd-back-step-2") {
-          body.innerHTML = this.renderStep1();
-        } else if (e.target && e.target.id === "vd-submit-assessment") {
-          this.collectStep2Form();
           body.innerHTML = this.renderLoading();
+
           try {
-            const data = await this.callAssessmentAPI();
-            body.innerHTML = this.renderAssessment(data);
-            document.getElementById("vd-start-new").addEventListener("click", () => {
-              body.innerHTML = this.renderStep1();
+            const initRes = await fetch(`${this.config.apiBase}/api/v1/session/start`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                patient: {
+                  age: this.formData.age,
+                  gender: this.formData.gender,
+                  chronic_conditions: this.formData.chronic_conditions
+                    ? this.formData.chronic_conditions.split(",").map((s) => s.trim()).filter(Boolean)
+                    : [],
+                },
+                language_preference: "en",
+              }),
             });
+            const initData = await initRes.json();
+            this.sessionId = initData.session_id;
+            body.innerHTML = this.renderChatContainer(initData.greeting, initData.next_question);
+            this.bindChatEvents();
           } catch (err) {
-            body.innerHTML = `
-              <div style="color: #991b1b; padding: 20px; text-align: center;">
-                <h4>Assessment Error</h4>
-                <p style="font-size: 12px;">${err.message}</p>
-                <button class="vd-btn-primary" onclick="location.reload()">Retry</button>
-              </div>
-            `;
+            body.innerHTML = `<div style="color: #991b1b; padding: 20px; text-align: center;">Error: ${err.message}</div>`;
           }
         }
       });
     }
 
-    bindStep2Events() {
-      const slider = document.getElementById("vd-severity");
-      const valLabel = document.getElementById("vd-severity-val");
-      if (slider && valLabel) {
-        slider.addEventListener("input", (e) => {
-          valLabel.innerText = `${e.target.value} / 10`;
-        });
-      }
-    }
+    bindChatEvents() {
+      const input = document.getElementById("vd-user-input");
+      const sendBtn = document.getElementById("vd-send-msg");
+      const msgContainer = document.getElementById("vd-chat-msgs");
 
-    collectStep2Form() {
-      this.formData.chief_complaint = document.getElementById("vd-complaint").value.trim();
-      this.formData.onset = document.getElementById("vd-onset").value.trim();
-      this.formData.quality_character = document.getElementById("vd-quality").value.trim();
-      this.formData.severity_scale = parseInt(document.getElementById("vd-severity").value) || 5;
-      this.formData.associated_symptoms = document.getElementById("vd-associated").value.trim();
-    }
+      const handleSend = async () => {
+        const text = input.value.trim();
+        if (!text) return;
+        input.value = "";
 
-    async callAssessmentAPI() {
-      const payload = {
-        patient: {
-          age: this.formData.age,
-          gender: this.formData.gender,
-          is_pregnant: false,
-          known_allergies: [],
-          chronic_conditions: this.formData.chronic_conditions
-            ? this.formData.chronic_conditions.split(",").map((s) => s.trim()).filter(Boolean)
-            : [],
-          current_medications: [],
-        },
-        chief_complaint: this.formData.chief_complaint || "Unspecified symptom",
-        onset: this.formData.onset,
-        quality_character: this.formData.quality_character,
-        severity_scale: this.formData.severity_scale,
-        associated_symptoms: this.formData.associated_symptoms
-          ? this.formData.associated_symptoms.split(",").map((s) => s.trim()).filter(Boolean)
-          : [],
-        pertinent_negatives: [],
+        // Append patient message
+        const pBubble = document.createElement("div");
+        pBubble.style.cssText = "align-self: flex-end; background: #53172a; color: #fff; border-radius: 12px; padding: 10px 14px; font-size: 13px; max-width: 80%;";
+        pBubble.innerText = text;
+        msgContainer.appendChild(pBubble);
+        msgContainer.scrollTop = msgContainer.scrollHeight;
+
+        try {
+          const res = await fetch(`${this.config.apiBase}/api/v1/session/${this.sessionId}/message`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: text }),
+          });
+          const data = await res.json();
+
+          if (data.is_complete && data.final_assessment) {
+            const body = document.getElementById("vd-body");
+            body.innerHTML = this.renderAssessment(data.final_assessment);
+            document.getElementById("vd-start-new").addEventListener("click", () => {
+              body.innerHTML = this.renderStep1();
+            });
+          } else {
+            // Append doctor question
+            const dBubble = document.createElement("div");
+            dBubble.style.cssText = "background: #FAF8F5; border: 1px solid #E8D5C4; border-radius: 12px; padding: 10px 14px; font-size: 13px; font-weight: 600; color: #1c1917; max-width: 90%;";
+            dBubble.innerText = data.reply_text;
+            msgContainer.appendChild(dBubble);
+            msgContainer.scrollTop = msgContainer.scrollHeight;
+          }
+        } catch (err) {
+          alert("Error: " + err.message);
+        }
       };
 
-      const res = await fetch(`${this.config.apiBase}/api/v1/assess`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+      sendBtn.addEventListener("click", handleSend);
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") handleSend();
       });
-
-      if (!res.ok) {
-        throw new Error(`API returned status ${res.status}`);
-      }
-
-      return await res.json();
     }
 
     toggleModal() {
