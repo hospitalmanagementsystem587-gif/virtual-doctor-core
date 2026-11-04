@@ -19,18 +19,20 @@ from app.schemas.encounter import (
 )
 from app.rules.red_flags import RedFlagRuleEngine
 from app.rag.retriever import MedicalVectorRetriever
+from app.services.gemini_reasoner import GeminiClinicalReasoner
 from app.core.config import settings
 
 
 class ClinicalDiagnosticEngine:
     def __init__(self):
         self.retriever = MedicalVectorRetriever()
+        self.gemini_reasoner = GeminiClinicalReasoner()
 
     async def assess(self, encounter: SymptomEncounterInput) -> VirtualDoctorAssessmentResponse:
         encounter_id = f"ENC-{uuid.uuid4().hex[:10].upper()}"
         now_iso = datetime.now(timezone.utc).isoformat()
 
-        # Step 1: Immediate Red Flag Hard Rule Check
+        # Step 1: Immediate Red Flag Hard Rule Check (Deterministic Safety Layer)
         is_critical, red_flag, triage_level = RedFlagRuleEngine.evaluate(encounter)
 
         if is_critical and red_flag:
@@ -40,14 +42,71 @@ class ClinicalDiagnosticEngine:
         search_query = f"{encounter.chief_complaint} {encounter.quality_character or ''} {' '.join(encounter.associated_symptoms)}"
         retrieved_docs = self.retriever.retrieve(search_query, top_k=3)
 
-        # Step 3: Diagnostic Synthesis (SOAP Note & Ranked Differentials)
-        # In mock or production, this yields clinically rigorous, structured data.
+        # Step 3: LLM Cognitive Layer (Gemini 2.5 with RAG Context)
+        if self.gemini_reasoner.is_available:
+            llm_result = await self.gemini_reasoner.reason(encounter, retrieved_docs, triage_level)
+            if llm_result:
+                try:
+                    return self._build_llm_response(encounter_id, now_iso, triage_level, llm_result)
+                except Exception:
+                    pass  # Fall back gracefully to deterministic clinical synthesizer
+
+        # Step 4: Deterministic Grounded Synthesis (Reliable Baseline & Fallback)
         return self._synthesize_clinical_assessment(
             encounter_id=encounter_id,
             timestamp=now_iso,
             encounter=encounter,
             triage_level=triage_level,
             retrieved_docs=retrieved_docs,
+        )
+
+    def _build_llm_response(
+        self,
+        encounter_id: str,
+        timestamp: str,
+        triage_level: TriageLevel,
+        data: Dict[str, Any],
+    ) -> VirtualDoctorAssessmentResponse:
+        soap = SoapClinicalSummary(
+            subjective=data["soap_note"]["subjective"],
+            objective=data["soap_note"]["objective"],
+            assessment=data["soap_note"]["assessment"],
+            plan=data["soap_note"]["plan"],
+        )
+
+        differentials = [
+            DifferentialDiagnosisItem(
+                diagnosis_name=d["diagnosis_name"],
+                icd10_code=d.get("icd10_code"),
+                probability_rank=d.get("probability_rank", i + 1),
+                confidence_score=float(d.get("confidence_score", 0.75)),
+                clinical_rationale=d.get("clinical_rationale", ""),
+                supporting_symptoms=d.get("supporting_symptoms", []),
+                pertinent_negatives_evaluated=d.get("pertinent_negatives_evaluated", []),
+                citations_guidelines=d.get("citations_guidelines", []),
+            )
+            for i, d in enumerate(data.get("differential_diagnoses", []))
+        ]
+
+        workup = [
+            DiagnosticWorkupRecommendation(
+                investigation_type=w.get("investigation_type", "Laboratory"),
+                test_name=w.get("test_name", ""),
+                urgency=w.get("urgency", "Routine"),
+                clinical_purpose=w.get("clinical_purpose", ""),
+            )
+            for w in data.get("recommended_workup", [])
+        ]
+
+        return VirtualDoctorAssessmentResponse(
+            encounter_id=encounter_id,
+            timestamp=timestamp,
+            triage_level=triage_level,
+            red_flag_alert=None,
+            soap_note=soap,
+            differential_diagnoses=differentials,
+            recommended_workup=workup,
+            recommended_specialty_clinic=data.get("recommended_specialty_clinic", "General Medicine"),
         )
 
     def _build_emergency_response(

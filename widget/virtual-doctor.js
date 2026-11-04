@@ -224,7 +224,13 @@
     renderStep1() {
       return `
         <div style="margin-bottom: 16px;">
-          <h4 style="margin: 0 0 4px; font-size: 14px; font-weight: 700; color: #1c1917;">1. Patient Demographics</h4>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <h4 style="margin: 0; font-size: 14px; font-weight: 700; color: #1c1917;">1. Patient Demographics</h4>
+            <select id="vd-lang-toggle" style="font-size: 11px; padding: 3px 8px; border-radius: 6px; border: 1px solid #E8D5C4; background: #fff; cursor: pointer;">
+              <option value="en" selected>English</option>
+              <option value="hi">हिंदी (Hindi)</option>
+            </select>
+          </div>
           <p style="margin: 0; font-size: 12px; color: #78716c;">Basic profile to calibrate clinical age-risk stratification.</p>
         </div>
         <div class="vd-form-group">
@@ -362,6 +368,14 @@
         </div>
         <div id="vd-chat-input-area" style="display: flex; gap: 8px;">
           <input type="text" id="vd-user-input" class="vd-input" placeholder="Type your answer here..." style="flex: 1;" />
+          <button id="vd-mic-btn" title="Speak symptoms" style="background: #f5f5f4; border: 1px solid #E8D5C4; border-radius: 10px; padding: 0 12px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+          </button>
           <button class="vd-btn-primary" id="vd-send-msg" style="width: auto; padding: 0 16px; margin: 0;">Send</button>
         </div>
       `;
@@ -454,6 +468,48 @@
       input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") handleSend();
       });
+
+      // Voice recognition integration (Web Speech API)
+      const micBtn = document.getElementById("vd-mic-btn");
+      if (micBtn && ("webkitSpeechRecognition" in window || "SpeechRecognition" in window)) {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+        recognition.lang = this.selectedLang === "hi" ? "hi-IN" : "en-IN";
+        recognition.interimResults = false;
+
+        let isRecording = false;
+        micBtn.addEventListener("click", () => {
+          if (!isRecording) {
+            try {
+              recognition.start();
+              isRecording = true;
+              micBtn.style.background = "#fee2e2";
+              micBtn.style.borderColor = "#ef4444";
+            } catch (err) {
+              console.warn(err);
+            }
+          } else {
+            recognition.stop();
+            isRecording = false;
+            micBtn.style.background = "#f5f5f4";
+            micBtn.style.borderColor = "#E8D5C4";
+          }
+        });
+
+        recognition.onresult = (evt) => {
+          const transcript = evt.results[0][0].transcript;
+          input.value = (input.value ? input.value + " " : "") + transcript;
+          isRecording = false;
+          micBtn.style.background = "#f5f5f4";
+          micBtn.style.borderColor = "#E8D5C4";
+        };
+
+        recognition.onerror = () => {
+          isRecording = false;
+          micBtn.style.background = "#f5f5f4";
+          micBtn.style.borderColor = "#E8D5C4";
+        };
+      }
     }
 
     toggleModal() {
