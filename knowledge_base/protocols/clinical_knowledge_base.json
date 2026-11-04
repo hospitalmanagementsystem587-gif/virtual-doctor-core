@@ -2081,5 +2081,44 @@
       "no normal soft compressible abdomen"
     ],
     "content": "Life-threatening surgical catastrophe resulting from full-thickness erosion of gastric or duodenal wall. Leakage of acid, bile, and food causes acute chemical peritonitis progressing to bacterial sepsis. STAT resuscitation, broad-spectrum IV antibiotics, nasogastric suction, and emergent exploratory laparotomy with Graham omental patch repair."
+  },
+  {
+    "id": "CLIN-URI-071",
+    "topic": "Acute Viral Upper Respiratory Tract Infection (Common Cold / Nasopharyngitis)",
+    "icd10": "J00",
+    "specialty": "General Medicine / Pediatrics",
+    "organ_system": "Upper Respiratory Tract",
+    "keywords": [
+      "common cold",
+      "running nose",
+      "runny nose",
+      "rhinorrhea",
+      "nasal congestion",
+      "sneezing",
+      "scratchy throat",
+      "sore throat",
+      "mild cough",
+      "coryza",
+      "cold and flu"
+    ],
+    "red_flags": [
+      "severe shortness of breath / stridor",
+      "high unremitting fever > 39C (> 102F) for > 3 days",
+      "inability to swallow liquids / severe throat pain",
+      "signs of lower respiratory distress or chest pain"
+    ],
+    "clinical_hallmarks": [
+      "gradual onset of clear to cloudy rhinorrhea and nasal stuffiness",
+      "mild sore or scratchy throat typically preceding nasal symptoms by 24 hours",
+      "frequent sneezing and low-grade or absent fever in adults",
+      "mild malaise, self-limiting course typically resolving within 7 to 10 days"
+    ],
+    "pertinent_negatives": [
+      "absence of high fever with shaking chills (rules out influenza/pneumonia)",
+      "no purulent tonsillar exudates or anterior cervical lymphadenopathy (Centor criteria)",
+      "no localized facial bone tenderness or purulent discharge > 10 days (rules out acute bacterial sinusitis)",
+      "no wheezing or dyspnea on exertion"
+    ],
+    "content": "The common cold (acute nasopharyngitis) is a benign, self-limiting viral infection of the upper respiratory mucosa, most commonly caused by Rhinoviruses (30-50%), Coronaviruses, and Adenoviruses. Clinical hallmarks include clear-to-cloudy nasal discharge (rhinorrhea), sneezing, nasal congestion, mild scratchy throat, and occasional low-grade malaise. Antibiotics are strictly ineffective and contraindicated in uncomplicated viral colds. Management is supportive: adequate oral hydration, warm saline steam inhalations, saline nasal drops/sprays, oral paracetamol/ibuprofen for body aches, and short-term oral/topical decongestants if severe nasal obstruction is present. Patients should seek immediate care if high fever >102F develops, breathlessness occurs, or symptoms fail to improve after 10-14 days."
   }
 ]
