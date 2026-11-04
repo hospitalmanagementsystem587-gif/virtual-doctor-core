@@ -1,0 +1,72 @@
+[
+  {
+    "id": "ICD10-I20-I25",
+    "topic": "Ischemic Heart Disease and Angina Pectoris",
+    "icd10": "I20.9",
+    "specialty": "Cardiology",
+    "content": "Angina pectoris presents as retrosternal pressure, heaviness, or burning sensation lasting 2 to 15 minutes, typically provoked by physical exertion or emotional stress and relieved by rest or sublingual nitrates. Pain may radiate to the left shoulder, left arm, neck, or lower jaw. Pertinent negatives include absence of pleuritic chest pain or sharp focal tenderness. Diagnostic workup: 12-lead ECG (ST depressions or T-wave inversions), High-sensitivity Cardiac Troponin (hs-cTnI/T) to rule out NSTEMI, Echocardiography, and Treadmill Stress Test (TMT) or Coronary Angiography."
+  },
+  {
+    "id": "ICD10-J45",
+    "topic": "Bronchial Asthma & Acute Exacerbation",
+    "icd10": "J45.901",
+    "specialty": "Pulmonology",
+    "content": "Asthma exacerbation is characterized by episodic wheezing, breathlessness, chest tightness, and nighttime cough. Symptoms are triggered by cold air, viral respiratory infections, dust, or allergens. Key diagnostic markers: prolonged expiratory phase, bilateral polyphonic wheezes on auscultation, and reduced Peak Expiratory Flow Rate (PEFR). Pertinent negatives include absence of unilateral absent breath sounds (rules out pneumothorax) and absence of high fever with purulent rusty sputum (rules out lobar pneumonia). First line workup: Bedside PEFR measurement, Pulse Oximetry, Chest X-ray, and Nebulization with Beta-2 agonists."
+  },
+  {
+    "id": "ICD10-K21",
+    "topic": "Gastroesophageal Reflux Disease (GERD) & Reflux Esophagitis",
+    "icd10": "K21.9",
+    "specialty": "Gastroenterology",
+    "content": "GERD presents with retrosternal pyrosis (heartburn) and acid regurgitation, frequently exacerbated post-prandially or in the recumbent/supine position. Relief is often achieved with antacids or warm water. Must be distinguished from cardiac ischemia: GERD pain typically lacks radiation to the jaw or diaphoresis and does not correlate with physical exertion. Warning red flags (dysphagia, hematemesis, unintentional weight loss) warrant urgent Upper GI Endoscopy. Workup: Empirical trial of Proton Pump Inhibitor (PPI), H. pylori antigen test, and Upper GI Endoscopy if alarm symptoms are present."
+  },
+  {
+    "id": "ICD10-K25",
+    "topic": "Peptic Ulcer Disease & Acute Gastritis",
+    "icd10": "K25.9",
+    "specialty": "Gastroenterology",
+    "content": "Peptic ulcer disease typically presents with gnawing or burning epigastric pain. Duodenal ulcers characteristically produce pain 2-3 hours after meals or at night, relieved by food or antacids. Gastric ulcer pain is exacerbated by food ingestion. History of NSAID use or H. pylori infection is frequent. Sudden board-like abdominal rigidity suggests acute perforation. Diagnostic workup: Upper Gastrointestinal Endoscopy (gold standard), Complete Blood Count (to detect occult bleeding anemia), and H. pylori stool antigen test."
+  },
+  {
+    "id": "ICD10-E11",
+    "topic": "Type 2 Diabetes Mellitus & Hyperglycemic Triage",
+    "icd10": "E11.9",
+    "specialty": "Endocrinology / General Medicine",
+    "content": "Type 2 Diabetes commonly presents with osmotic symptoms: polyuria, polydipsia, polyphagia, unintentional weight loss, and recurrent fungal or urinary tract infections. Acute complications include Diabetic Ketoacidosis (DKA) and Hyperosmolar Hyperglycemic State (HHS), signaled by vomiting, Kussmaul breathing, fruity breath, or altered sensorium. Diagnostic workup: Fasting Blood Glucose (FBG >= 126 mg/dL), Random Blood Glucose (>= 200 mg/dL with symptoms), Glycated Hemoglobin (HbA1c >= 6.5%), and Serum Electrolytes with Urine Ketones."
+  },
+  {
+    "id": "ICD10-N39",
+    "topic": "Urinary Tract Infection (Cystitis & Pyelonephritis)",
+    "icd10": "N39.0",
+    "specialty": "Urology / Nephrology",
+    "content": "Acute cystitis presents with dysuria, urinary frequency, urgency, and suprapubic discomfort. Absence of fever and costovertebral angle (CVA) tenderness distinguishes lower UTI from acute pyelonephritis. Pyelonephritis features high spiking fevers, chills/rigors, nausea, and flank pain with positive renal angle tenderness. Workup: Urine Routine & Microscopy (pyuria, bacteriuria, leukocyte esterase), Urine Culture & Sensitivity, Complete Blood Count, and Renal Ultrasound if pyelonephritis or obstruction is suspected."
+  },
+  {
+    "id": "ICD10-M54",
+    "topic": "Lumbago & Lumbar Radiculopathy (Sciatica)",
+    "icd10": "M54.5",
+    "specialty": "Orthopedics / Spine Clinic",
+    "content": "Mechanical low back pain involves lumbosacral musculoligamentous strain, exacerbated by flexion or lifting and relieved by lying flat. Lumbar radiculopathy presents with radiating lancinating pain following dermatomal distribution (L4, L5, S1) below the knee, often with positive Straight Leg Raise (SLR). Cauda Equina Syndrome is a surgical emergency characterized by saddle anesthesia, bilateral lower limb weakness, and bowel/bladder incontinence. Diagnostic workup: Clinical neuro-deficit examination, Lumbosacral spine X-ray, and Non-contrast MRI Lumbosacral Spine if radiculopathy or red flags are present."
+  },
+  {
+    "id": "ICD10-G43",
+    "topic": "Migraine Headache without Aura",
+    "icd10": "G43.009",
+    "specialty": "Neurology",
+    "content": "Migraine typically presents with recurrent, unilateral, throbbing or pulsating headache of moderate-to-severe intensity lasting 4 to 72 hours. Classically aggravated by routine physical activity and accompanied by photophobia, phonophobia, nausea, or vomiting. Red flags (SNOOP criteria: Systemic symptoms, Neurological deficits, Onset sudden thunderclap, Older age > 50, Papilledema) require non-contrast Brain CT/MRI. Workup: Detailed neurological exam, fundoscopy, and trial of triptan / NSAID abortive therapy."
+  },
+  {
+    "id": "ICD10-J02",
+    "topic": "Acute Pharyngotonsillitis (Centor Criteria)",
+    "icd10": "J02.9",
+    "specialty": "ENT / Otorhinolaryngology",
+    "content": "Acute sore throat with fever, tonsillar exudates, and tender anterior cervical lymphadenopathy. Centor criteria evaluate likelihood of Group A Beta-Hemolytic Streptococcus (GABHS): fever (+1), tonsillar exudates (+1), tender cervical nodes (+1), absence of cough (+1). Score 0-1 suggests viral etiology; score 3-4 indicates potential bacterial infection warranting testing or empirical antibiotics. Red flag: trismus or uvular deviation indicates peritonsillar abscess (Quinsy). Workup: Throat swab for Rapid Antigen / Culture, Throat examination, and supportive analgesia."
+  },
+  {
+    "id": "ICD10-K35",
+    "topic": "Acute Appendicitis",
+    "icd10": "K35.80",
+    "specialty": "General Surgery",
+    "content": "Acute appendicitis characteristically starts as vague periumbilical visceral pain that over 12-24 hours migrates and localizes to the Right Lower Quadrant (McBurney's point). Accompanied by anorexia, low-grade fever, nausea, and vomiting. Physical signs include McBurney's point tenderness, Rovsing's sign, Psoas sign, and rebound tenderness. Alvarado score stratifies probability. Workup: Complete Blood Count (leukocytosis with left shift), Ultrasonography of Abdomen/Pelvis, or Contrast-enhanced CT Abdomen."
+  }
+]

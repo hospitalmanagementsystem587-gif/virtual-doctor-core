@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Virtual Doctor Embed Demo</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background: #fdfbf7;
+      color: #292524;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid #e7e5e4;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    h1 { color: #53172a; margin-top: 0; }
+    .badge {
+      display: inline-block;
+      background: #f3e8ee;
+      color: #53172a;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    pre {
+      background: #1c1917;
+      color: #fafaf9;
+      padding: 16px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="badge">Virtual Doctor Core SDK</span>
+    <h1>Hospital Website &amp; Portal Embed Demo</h1>
+    <p>This page demonstrates how easily the <strong>Virtual Doctor Copilot</strong> embeds into any existing hospital website (such as <code>sastahospital.in</code>, a patient portal, or an emergency triage kiosk).</p>
+
+    <h3>Embed Code Snippet</h3>
+    <pre><code>&lt;!-- 1. Include the Virtual Doctor Widget Script --&gt;
+&lt;script src="https://your-virtual-doctor.onrender.com/widget/virtual-doctor.js"&gt;&lt;/script&gt;
+
+&lt;!-- 2. Initialize the Copilot --&gt;
+&lt;script&gt;
+  window.addEventListener('DOMContentLoaded', () => {
+    new VirtualDoctorWidget({
+      apiBase: "http://localhost:8010",
+      hospitalName: "Vedant Hospital &amp; Research Center",
+      themeColor: "#53172a"
+    });
+  });
+&lt;/script&gt;</code></pre>
+
+    <p style="margin-top: 24px; color: #78716c;">
+      👉 Look at the bottom-right of this page. Click <strong>"Virtual Doctor"</strong> to test live symptom intake, emergency red-flag triggers, and structured SOAP note generation.
+    </p>
+  </div>
+
+  <!-- Include Widget -->
+  <script src="/widget/virtual-doctor.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      new VirtualDoctorWidget({
+        apiBase: window.location.origin,
+        hospitalName: "Vedant Hospital Virtual Doctor",
+        themeColor: "#53172a"
+      });
+    });
+  </script>
+</body>
+</html>
