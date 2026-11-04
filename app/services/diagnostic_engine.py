@@ -35,12 +35,12 @@ class ClinicalDiagnosticEngine:
         # Step 1: Immediate Red Flag Hard Rule Check (Deterministic Safety Layer)
         is_critical, red_flag, triage_level = RedFlagRuleEngine.evaluate(encounter)
 
-        if is_critical and red_flag:
-            return self._build_emergency_response(encounter_id, now_iso, encounter, red_flag)
-
         # Step 2: Vector RAG Retrieval of Guidelines & ICD-10 Protocols
         search_query = f"{encounter.chief_complaint} {encounter.quality_character or ''} {' '.join(encounter.associated_symptoms)}"
         retrieved_docs = self.retriever.retrieve(search_query, top_k=3)
+
+        if is_critical and red_flag:
+            return self._build_emergency_response(encounter_id, now_iso, encounter, red_flag, retrieved_docs)
 
         # Step 3: LLM Cognitive Layer (Gemini 2.5 with RAG Context)
         if self.gemini_reasoner.is_available:
@@ -115,6 +115,7 @@ class ClinicalDiagnosticEngine:
         timestamp: str,
         encounter: SymptomEncounterInput,
         red_flag: RedFlagAlert,
+        retrieved_docs: Optional[List[Dict[str, Any]]] = None,
     ) -> VirtualDoctorAssessmentResponse:
         soap = SoapClinicalSummary(
             subjective=(
@@ -135,18 +136,35 @@ class ClinicalDiagnosticEngine:
             ),
         )
 
-        differentials = [
-            DifferentialDiagnosisItem(
-                diagnosis_name=red_flag.risk_category,
-                icd10_code="R57.9",
-                probability_rank=1,
-                confidence_score=0.95,
-                clinical_rationale=f"Triggered by acute red-flag pattern: '{red_flag.trigger_symptom}'. Urgent resuscitation indicated.",
-                supporting_symptoms=[encounter.chief_complaint, red_flag.trigger_symptom],
-                pertinent_negatives_evaluated=[],
-                citations_guidelines=["Emergency Medicine Advanced Life Support (ALS) Statutory Triage Protocol"],
+        differentials = []
+        if retrieved_docs:
+            for i, doc in enumerate(retrieved_docs):
+                differentials.append(
+                    DifferentialDiagnosisItem(
+                        diagnosis_name=doc.get("topic", red_flag.risk_category),
+                        icd10_code=doc.get("icd10", "R57.9"),
+                        probability_rank=i + 1,
+                        confidence_score=max(0.70, round(0.95 - (i * 0.10), 2)),
+                        clinical_rationale=f"Evaluated in context of acute presentation: '{red_flag.trigger_symptom}'. Key hallmarks: {', '.join(doc.get('clinical_hallmarks', []))}.",
+                        supporting_symptoms=[encounter.chief_complaint, red_flag.trigger_symptom],
+                        pertinent_negatives_evaluated=doc.get("pertinent_negatives", []),
+                        citations_guidelines=["Emergency Medicine Advanced Life Support (ALS) Statutory Triage Protocol"],
+                    )
+                )
+
+        if not differentials:
+            differentials.append(
+                DifferentialDiagnosisItem(
+                    diagnosis_name=red_flag.risk_category,
+                    icd10_code="R57.9",
+                    probability_rank=1,
+                    confidence_score=0.95,
+                    clinical_rationale=f"Triggered by acute red-flag pattern: '{red_flag.trigger_symptom}'. Urgent resuscitation indicated.",
+                    supporting_symptoms=[encounter.chief_complaint, red_flag.trigger_symptom],
+                    pertinent_negatives_evaluated=[],
+                    citations_guidelines=["Emergency Medicine Advanced Life Support (ALS) Statutory Triage Protocol"],
+                )
             )
-        ]
 
         workup = [
             DiagnosticWorkupRecommendation(

@@ -35,6 +35,12 @@ RED_FLAG_PATTERNS = [
         "level": TriageLevel.EMERGENCY_RED,
     },
     {
+        "category": "Diabetic Ketoacidosis / Severe Metabolic Crisis",
+        "pattern": r"\b(kussmaul|fruity breath|sweet breath odor|sweet odor breath|severe dehydration with vomiting)\b",
+        "recommendation": "Impending Diabetic Ketoacidosis (DKA) or hyperosmolar crisis. Immediate STAT intravenous fluids, blood glucose & blood gas evaluation.",
+        "level": TriageLevel.EMERGENCY_RED,
+    },
+    {
         "category": "Massive Hemorrhage or Shock",
         "pattern": r"\b(coughing up cup of blood|massive hemoptysis|vomiting blood|black tarry stool with dizziness|collapsed|unresponsive)\b",
         "recommendation": "Hemodynamic instability / severe gastrointestinal or pulmonary hemorrhage. Urgent resuscitation required.",
@@ -42,7 +48,7 @@ RED_FLAG_PATTERNS = [
     },
     {
         "category": "Severe Acute Abdomen",
-        "pattern": r"\b(rigid abdomen|board-like abdomen|rebound tenderness|sudden tearing abdominal pain)\b",
+        "pattern": r"\b(rigid abdomen|board-like abdomen|sudden tearing abdominal pain)\b",
         "recommendation": "Suspected peritonitis, visceral perforation, or aortic dissection. Urgent surgical evaluation and IV access.",
         "level": TriageLevel.EMERGENCY_RED,
     },
@@ -80,16 +86,19 @@ class RedFlagRuleEngine:
                 )
                 return True, alert, rule["level"]
 
-        # Secondary rule: Severe pain (>= 9/10) with unexplained acute onset
-        if encounter.severity_scale and encounter.severity_scale >= 9 and encounter.onset and "sudden" in encounter.onset.lower():
-            alert = RedFlagAlert(
-                is_critical=True,
-                trigger_symptom="Severe sudden distress (Pain 9+/10)",
-                risk_category="Hyperacute Severe Pain Protocol",
-                urgency_recommendation="Acute high-grade pain requires prompt emergency triage to rule out ischemic or perforative etiology.",
-                emergency_call_action="108",
-            )
-            return True, alert, TriageLevel.EMERGENCY_RED
+        # Secondary rule: Severe pain (>= 10/10) with unexplained sudden collapse or vascular tearing
+        if encounter.severity_scale and encounter.severity_scale >= 10 and encounter.onset and "sudden" in encounter.onset.lower():
+            # Exclude renal colic patterns from statutory red flag 108 transfer
+            is_renal = any(k in text_corpus for k in ["flank", "groin", "urine", "kidney", "nephro"])
+            if not is_renal:
+                alert = RedFlagAlert(
+                    is_critical=True,
+                    trigger_symptom="Severe sudden distress (Pain 10/10)",
+                    risk_category="Hyperacute Severe Pain Protocol",
+                    urgency_recommendation="Acute high-grade pain requires prompt emergency triage to rule out ischemic or perforative etiology.",
+                    emergency_call_action="108",
+                )
+                return True, alert, TriageLevel.EMERGENCY_RED
 
         # Default: Ambulatory / Yellow / Green
         if encounter.severity_scale and encounter.severity_scale >= 6:
