@@ -67,11 +67,11 @@
   </div>
 
   <!-- Include Widget -->
-  <script src="/widget/virtual-doctor.js"></script>
+  <script src="./virtual-doctor.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       new VirtualDoctorWidget({
-        apiBase: window.location.origin,
+        apiBase: "http://127.0.0.1:8010",
         hospitalName: "Vedant Hospital Virtual Doctor",
         themeColor: "#53172a"
       });
