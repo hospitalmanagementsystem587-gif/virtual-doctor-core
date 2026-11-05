@@ -24,7 +24,10 @@
       "syncope",
       "dyspnea at rest"
     ],
-    "clinical_hallmarks": "Retrosternal pressure or squeezing lasting 2-15 minutes, provoked by physical exertion or emotional stress and relieved by rest or sublingual nitroglycerin.",
+    "clinical_hallmarks": [
+      "Retrosternal pressure or squeezing lasting 2-15 minutes",
+      "provoked by physical exertion or emotional stress and relieved by rest or sublingual nitroglycerin."
+    ],
     "pertinent_negatives": [
       "absence of pleuritic chest pain",
       "no tenderness on chest wall palpation",
@@ -54,7 +57,13 @@
       "pink frothy sputum",
       "hypotension with cold extremities"
     ],
-    "clinical_hallmarks": "Progressive exertional dyspnea, orthopnea, paroxysmal nocturnal dyspnea (PND), bilateral lower extremity pitting edema, and elevated jugular venous pressure (JVP).",
+    "clinical_hallmarks": [
+      "Progressive exertional dyspnea",
+      "orthopnea",
+      "paroxysmal nocturnal dyspnea (PND)",
+      "bilateral lower extremity pitting edema",
+      "and elevated jugular venous pressure (JVP)."
+    ],
     "pertinent_negatives": [
       "no high fever",
       "no localized calf asymmetry/swelling",
@@ -82,7 +91,12 @@
       "acute ischemic chest pain",
       "focal neurological stroke deficits"
     ],
-    "clinical_hallmarks": "Irregularly irregular pulse rhythm, sudden palpitations, lightheadedness, and exercise intolerance. High thromboembolic stroke risk (CHA2DS2-VASc score).",
+    "clinical_hallmarks": [
+      "Irregularly irregular pulse rhythm",
+      "sudden palpitations",
+      "lightheadedness",
+      "and exercise intolerance. High thromboembolic stroke risk (CHA2DS2-VASc score)."
+    ],
     "pertinent_negatives": [
       "regular pounding pulse",
       "no chest wall tenderness"
@@ -111,7 +125,14 @@
       "pulsus paradoxus",
       "cyanosis"
     ],
-    "clinical_hallmarks": "Variable expiratory wheezing, dyspnea, and nocturnal cough triggered by cold air, viral infection, exercise, or allergens. Reversible airway obstruction on spirometry.",
+    "clinical_hallmarks": [
+      "Variable expiratory wheezing",
+      "dyspnea",
+      "and nocturnal cough triggered by cold air",
+      "viral infection",
+      "exercise",
+      "or allergens. Reversible airway obstruction on spirometry."
+    ],
     "pertinent_negatives": [
       "no high fever with purulent rusty sputum",
       "no unilateral absent breath sounds",
@@ -141,7 +162,9 @@
       "cyanosis",
       "respiratory exhaustion"
     ],
-    "clinical_hallmarks": "Chronic progressive exertional dyspnea and cough with increased sputum volume or purulence (Anthonisen criteria). Strong smoking or biomass fuel exposure history.",
+    "clinical_hallmarks": [
+      "Chronic progressive exertional dyspnea and cough with increased sputum volume or purulence (Anthonisen criteria). Strong smoking or biomass fuel exposure history."
+    ],
     "pertinent_negatives": [
       "no acute hemoptysis",
       "no sudden sharp pleuritic unilateral chest pain"
@@ -170,7 +193,13 @@
       "systolic BP < 90 mmHg",
       "multilobar consolidation"
     ],
-    "clinical_hallmarks": "Acute fever, rigors, productive cough with yellowish or rusty sputum, pleuritic chest pain, and localized bronchial breath sounds with inspiratory crackles on auscultation.",
+    "clinical_hallmarks": [
+      "Acute fever",
+      "rigors",
+      "productive cough with yellowish or rusty sputum",
+      "pleuritic chest pain",
+      "and localized bronchial breath sounds with inspiratory crackles on auscultation."
+    ],
     "pertinent_negatives": [
       "no chronic wheezing history",
       "no orthopnea or pedal edema"
@@ -198,7 +227,12 @@
       "acute right heart strain on ECG (S1Q3T3)",
       "cyanosis"
     ],
-    "clinical_hallmarks": "Sudden onset dyspnea and sharp pleuritic chest pain in a patient with DVT risk factors (recent surgery, prolonged bed rest/immobility, malignancy, oral contraceptives).",
+    "clinical_hallmarks": [
+      "Sudden onset dyspnea and sharp pleuritic chest pain in a patient with DVT risk factors (recent surgery",
+      "prolonged bed rest/immobility",
+      "malignancy",
+      "oral contraceptives)."
+    ],
     "pertinent_negatives": [
       "no chronic cough with purulent sputum",
       "no fever or purulent rhinitis"
@@ -228,7 +262,10 @@
       "hematemesis",
       "iron deficiency anemia"
     ],
-    "clinical_hallmarks": "Retrosternal burning pain (heartburn) and acid regurgitation occurring after meals or when recumbent, relieved by antacids. No association with physical exertion.",
+    "clinical_hallmarks": [
+      "Retrosternal burning pain (heartburn) and acid regurgitation occurring after meals or when recumbent",
+      "relieved by antacids. No association with physical exertion."
+    ],
     "pertinent_negatives": [
       "no radiation to left arm or jaw",
       "no diaphoresis or exertional angina",
@@ -258,7 +295,10 @@
       "sudden rigid board-like abdomen (perforation)",
       "hypovolemic shock"
     ],
-    "clinical_hallmarks": "Burning or gnawing epigastric pain. Duodenal ulcers characteristically produce pain 2-3 hours post-prandially or at night, relieved by food or antacids.",
+    "clinical_hallmarks": [
+      "Burning or gnawing epigastric pain. Duodenal ulcers characteristically produce pain 2-3 hours post-prandially or at night",
+      "relieved by food or antacids."
+    ],
     "pertinent_negatives": [
       "no right iliac fossa tenderness",
       "no jaundice",
@@ -290,7 +330,10 @@
       "involuntary guarding and rigidity",
       "septic shock"
     ],
-    "clinical_hallmarks": "Visceral periumbilical dull pain that shifts and localizes within 12-24 hours to the Right Iliac Fossa (McBurney's point), accompanied by anorexia (hamburger sign) and nausea.",
+    "clinical_hallmarks": [
+      "Visceral periumbilical dull pain that shifts and localizes within 12-24 hours to the Right Iliac Fossa (McBurney's point)",
+      "accompanied by anorexia (hamburger sign) and nausea."
+    ],
     "pertinent_negatives": [
       "no severe hematuria",
       "no bilateral lower quadrant pelvic tenderness with vaginal discharge"
@@ -317,7 +360,10 @@
       "Reynold pentad with hypotension and confusion",
       "peritoneal rigidity"
     ],
-    "clinical_hallmarks": "Severe Right Upper Quadrant (RUQ) or epigastric pain radiating to the right shoulder/infrascapular region, triggered 1-2 hours after fatty food ingestion. Positive Murphy's sign on deep inspiration.",
+    "clinical_hallmarks": [
+      "Severe Right Upper Quadrant (RUQ) or epigastric pain radiating to the right shoulder/infrascapular region",
+      "triggered 1-2 hours after fatty food ingestion. Positive Murphy's sign on deep inspiration."
+    ],
     "pertinent_negatives": [
       "no left iliac fossa tenderness",
       "no diarrhea with hematochezia"
@@ -344,7 +390,13 @@
       "SIRS criteria / organ failure",
       "hypocalcemic tetany"
     ],
-    "clinical_hallmarks": "Severe, sudden, epigastric boring pain radiating straight through to the back, characteristically partially relieved by sitting upright and leaning forward, with persistent vomiting.",
+    "clinical_hallmarks": [
+      "Severe",
+      "sudden",
+      "epigastric boring pain radiating straight through to the back",
+      "characteristically partially relieved by sitting upright and leaning forward",
+      "with persistent vomiting."
+    ],
     "pertinent_negatives": [
       "no focal lower abdominal pain",
       "no dysuria or flank colic"
@@ -372,7 +424,12 @@
       "high spiking septic fevers > 39C",
       "severe hypotension"
     ],
-    "clinical_hallmarks": "Acute watery diarrhea (>3 loose stools/day), cramping abdominal pain, nausea, and low-grade fever following contaminated food or water consumption.",
+    "clinical_hallmarks": [
+      "Acute watery diarrhea (>3 loose stools/day)",
+      "cramping abdominal pain",
+      "nausea",
+      "and low-grade fever following contaminated food or water consumption."
+    ],
     "pertinent_negatives": [
       "no localized rebound tenderness in RIF",
       "no radiating back pain",
@@ -402,7 +459,12 @@
       "gross hematuria with clots",
       "urinary retention"
     ],
-    "clinical_hallmarks": "Dysuria (burning during micturition), urinary frequency, urgency, and dull suprapubic aching without systemic signs or flank pain.",
+    "clinical_hallmarks": [
+      "Dysuria (burning during micturition)",
+      "urinary frequency",
+      "urgency",
+      "and dull suprapubic aching without systemic signs or flank pain."
+    ],
     "pertinent_negatives": [
       "no high fever with rigors",
       "no flank tenderness or CVA punch tenderness",
@@ -430,7 +492,15 @@
       "anuria with solitary kidney",
       "intractable vomiting"
     ],
-    "clinical_hallmarks": "Excruciating, sudden, paroxysmal colicky flank pain radiating along the ureter to the groin, testicle, or labia. Patient is characteristically restless, pacing, and unable to find a comfortable position.",
+    "clinical_hallmarks": [
+      "Excruciating",
+      "sudden",
+      "paroxysmal colicky flank pain radiating along the ureter to the groin",
+      "testicle",
+      "or labia. Patient is characteristically restless",
+      "pacing",
+      "and unable to find a comfortable position."
+    ],
     "pertinent_negatives": [
       "no peritoneal rebound tenderness or rigid abdomen",
       "no chronic burning with frequency only"
@@ -456,7 +526,14 @@
       "Diabetic Ketoacidosis (Kussmaul deep breathing, fruity acetone breath, vomiting, confusion)",
       "Hyperosmolar Hyperglycemic State (profound lethargy, dehydration)"
     ],
-    "clinical_hallmarks": "Classical triad of osmotic symptoms: polyuria, polydipsia, and polyphagia, accompanied by blurred vision, lethargy, and recurrent cutaneous or fungal infections.",
+    "clinical_hallmarks": [
+      "Classical triad of osmotic symptoms: polyuria",
+      "polydipsia",
+      "and polyphagia",
+      "accompanied by blurred vision",
+      "lethargy",
+      "and recurrent cutaneous or fungal infections."
+    ],
     "pertinent_negatives": [
       "no acute high fever",
       "no localized joint swelling",
@@ -484,7 +561,14 @@
     "red_flags": [
       "myxedema coma (hypothermia, severe bradycardia, hypoventilation, altered sensorium)"
     ],
-    "clinical_hallmarks": "Insidious onset of generalized fatigue, unexplained weight gain, cold intolerance, persistent constipation, dry brittle skin/hair, and delayed relaxation phase of deep tendon reflexes.",
+    "clinical_hallmarks": [
+      "Insidious onset of generalized fatigue",
+      "unexplained weight gain",
+      "cold intolerance",
+      "persistent constipation",
+      "dry brittle skin/hair",
+      "and delayed relaxation phase of deep tendon reflexes."
+    ],
     "pertinent_negatives": [
       "no heat intolerance or palpitations (rules out hyperthyroidism)",
       "no high fever"
@@ -510,7 +594,16 @@
     "red_flags": [
       "SNOOP criteria: Systemic fever, Neurological focal deficits, Onset thunderclap (peak < 1 min), Older age > 50, Papilledema/positional change"
     ],
-    "clinical_hallmarks": "Recurrent episodic headache attacks lasting 4-72 hours, typically unilateral, throbbing/pulsating in quality, moderate-to-severe intensity, aggravated by physical activity, with nausea, photophobia, and phonophobia.",
+    "clinical_hallmarks": [
+      "Recurrent episodic headache attacks lasting 4-72 hours",
+      "typically unilateral",
+      "throbbing/pulsating in quality",
+      "moderate-to-severe intensity",
+      "aggravated by physical activity",
+      "with nausea",
+      "photophobia",
+      "and phonophobia."
+    ],
     "pertinent_negatives": [
       "no sudden catastrophic thunderclap onset",
       "no neck stiffness or Kernig sign",
@@ -537,7 +630,13 @@
       "new headache in cancer patient",
       "focal neurological signs"
     ],
-    "clinical_hallmarks": "Bilateral, non-pulsating, pressing or tightening ('vise-like' or tight band around the head) sensation of mild-to-moderate intensity, not aggravated by routine physical activity, lacking severe nausea or vomiting.",
+    "clinical_hallmarks": [
+      "Bilateral",
+      "non-pulsating",
+      "pressing or tightening ('vise-like' or tight band around the head) sensation of mild-to-moderate intensity",
+      "not aggravated by routine physical activity",
+      "lacking severe nausea or vomiting."
+    ],
     "pertinent_negatives": [
       "no throbbing unilateral pain",
       "no vomiting or severe photophobia",
@@ -566,7 +665,13 @@
       "sudden ataxia or loss of balance",
       "sudden diplopia or visual field cut"
     ],
-    "clinical_hallmarks": "Acute focal neurological deficit corresponding to a cerebral vascular territory (MCA, ACA, PCA, or vertebrobasilar), lasting > 24 hours (stroke) or transiently resolving (TIA).",
+    "clinical_hallmarks": [
+      "Acute focal neurological deficit corresponding to a cerebral vascular territory (MCA",
+      "ACA",
+      "PCA",
+      "or vertebrobasilar)",
+      "lasting > 24 hours (stroke) or transiently resolving (TIA)."
+    ],
     "pertinent_negatives": [
       "no preceding trauma",
       "no gradual progression over weeks"
@@ -593,7 +698,10 @@
       "limb ataxia",
       "dysarthria"
     ],
-    "clinical_hallmarks": "Brief episodes (< 1 minute) of intense spinning vertigo provoked specifically by changes in head position relative to gravity (turning over in bed, looking upward). Associated with torsional nystagmus.",
+    "clinical_hallmarks": [
+      "Brief episodes (< 1 minute) of intense spinning vertigo provoked specifically by changes in head position relative to gravity (turning over in bed",
+      "looking upward). Associated with torsional nystagmus."
+    ],
     "pertinent_negatives": [
       "no hearing loss or tinnitus (rules out Meniere disease)",
       "no focal neurological motor/sensory deficits"
@@ -618,7 +726,14 @@
     "red_flags": [
       "Cauda Equina Syndrome: urinary retention/incontinence, fecal incontinence, saddle anesthesia, bilateral progressive motor weakness"
     ],
-    "clinical_hallmarks": "Lumbosacral pain radiating down the posterolateral aspect of the leg following L4, L5, or S1 dermatomes, provoked by bending, coughing, or sneezing. Positive Straight Leg Raise (SLR).",
+    "clinical_hallmarks": [
+      "Lumbosacral pain radiating down the posterolateral aspect of the leg following L4",
+      "L5",
+      "or S1 dermatomes",
+      "provoked by bending",
+      "coughing",
+      "or sneezing. Positive Straight Leg Raise (SLR)."
+    ],
     "pertinent_negatives": [
       "no unexplained fever or weight loss",
       "no history of cancer",
@@ -644,7 +759,11 @@
       "hot swollen erythematous joint with fever (septic arthritis emergency)",
       "inability to bear weight after acute trauma"
     ],
-    "clinical_hallmarks": "Chronic, activity-related joint pain that worsens with weight-bearing (walking, stairs) and improves with rest. Short-lived morning stiffness (< 30 minutes) and coarse crepitus.",
+    "clinical_hallmarks": [
+      "Chronic",
+      "activity-related joint pain that worsens with weight-bearing (walking",
+      "stairs) and improves with rest. Short-lived morning stiffness (< 30 minutes) and coarse crepitus."
+    ],
     "pertinent_negatives": [
       "no prolonged morning stiffness > 1 hour (rules out rheumatoid arthritis)",
       "no cutaneous erythema or warm effusion"
@@ -670,7 +789,14 @@
       "septic arthritis overlap",
       "polyarticular involvement with systemic toxicity"
     ],
-    "clinical_hallmarks": "Excruciating, acute monoarthritis reaching peak intensity within 12-24 hours, classically affecting the first metatarsophalangeal (MTP) joint (podagra). The joint is dusky red, exquisitely tender, swollen, and warm.",
+    "clinical_hallmarks": [
+      "Excruciating",
+      "acute monoarthritis reaching peak intensity within 12-24 hours",
+      "classically affecting the first metatarsophalangeal (MTP) joint (podagra). The joint is dusky red",
+      "exquisitely tender",
+      "swollen",
+      "and warm."
+    ],
     "pertinent_negatives": [
       "no trauma history",
       "no axial spine rigidity"
@@ -698,7 +824,12 @@
       "hot potato voice",
       "stridor"
     ],
-    "clinical_hallmarks": "Erythematous pharynx and tonsils with exudates, painful swallowing, fever, and tender anterior cervical lymphadenopathy without cough.",
+    "clinical_hallmarks": [
+      "Erythematous pharynx and tonsils with exudates",
+      "painful swallowing",
+      "fever",
+      "and tender anterior cervical lymphadenopathy without cough."
+    ],
     "pertinent_negatives": [
       "no persistent cough or coryza",
       "no stridor or neck mass"
@@ -724,7 +855,12 @@
       "post-auricular swelling, erythema, and tenderness with ear protrusion (acute mastoiditis)",
       "facial nerve palsy"
     ],
-    "clinical_hallmarks": "Rapid onset of severe unilateral otalgia (earache), fever, irritability in children, and conductive hearing dampening following an upper respiratory tract infection.",
+    "clinical_hallmarks": [
+      "Rapid onset of severe unilateral otalgia (earache)",
+      "fever",
+      "irritability in children",
+      "and conductive hearing dampening following an upper respiratory tract infection."
+    ],
     "pertinent_negatives": [
       "no pain on pulling the pinna or tragus (rules out otitis externa)"
     ],
@@ -748,7 +884,13 @@
     "red_flags": [
       "WHO warning signs: severe abdominal pain, persistent vomiting, mucosal bleeding (epistaxis/gum bleed), clinical fluid accumulation (ascites/pleural effusion), lethargy, rapid drop in platelets with rising hematocrit"
     ],
-    "clinical_hallmarks": "Abrupt onset high fever ('breakbone' fever), severe retro-orbital headache, generalized myalgias and arthralgias, flushed face, and maculopapular rash.",
+    "clinical_hallmarks": [
+      "Abrupt onset high fever ('breakbone' fever)",
+      "severe retro-orbital headache",
+      "generalized myalgias and arthralgias",
+      "flushed face",
+      "and maculopapular rash."
+    ],
     "pertinent_negatives": [
       "no focal lung consolidation",
       "no acute focal neurological deficit"
@@ -775,7 +917,15 @@
       "intestinal hemorrhage (melena, drop in Hb)",
       "typhoid encephalopathy"
     ],
-    "clinical_hallmarks": "Insidious onset of step-ladder pattern fever, malaise, dry cough, frontal headache, relative bradycardia (Faget's sign), coated tongue, and hepatosplenomegaly.",
+    "clinical_hallmarks": [
+      "Insidious onset of step-ladder pattern fever",
+      "malaise",
+      "dry cough",
+      "frontal headache",
+      "relative bradycardia (Faget's sign)",
+      "coated tongue",
+      "and hepatosplenomegaly."
+    ],
     "pertinent_negatives": [
       "no purulent productive cough",
       "no focal joint swelling"
@@ -804,7 +954,11 @@
       "Pulmonary edema / ARDS",
       "Hypoglycemia"
     ],
-    "clinical_hallmarks": "Classical malarial paroxysm occurring in three sequential stages: cold stage (shivering and rigors for 1-2h), hot stage (high fever > 40C with burning skin for 3-4h), and sweating stage (drenching diaphoresis with rapid defervescence).",
+    "clinical_hallmarks": [
+      "Classical malarial paroxysm occurring in three sequential stages: cold stage (shivering and rigors for 1-2h)",
+      "hot stage (high fever > 40C with burning skin for 3-4h)",
+      "and sweating stage (drenching diaphoresis with rapid defervescence)."
+    ],
     "pertinent_negatives": [
       "no localized neck rigidity (unless cerebral malaria)",
       "no productive purulent sputum"
@@ -830,7 +984,12 @@
       "eczema herpeticum (widespread punched-out umbilicated vesicles with high fever - HSV emergency)",
       "secondary bacterial superinfection (impetiginization with honey-colored crusts)"
     ],
-    "clinical_hallmarks": "Intensely pruritic, chronic relapsing eczematous skin lesions with xerosis (dry skin). Typical flexural distribution (antecubital and popliteal fossae, neck, wrists) in older children and adults; facial/extensor in infants.",
+    "clinical_hallmarks": [
+      "Intensely pruritic",
+      "chronic relapsing eczematous skin lesions with xerosis (dry skin). Typical flexural distribution (antecubital and popliteal fossae",
+      "neck",
+      "wrists) in older children and adults; facial/extensor in infants."
+    ],
     "pertinent_negatives": [
       "no targetoid erythema multiforme lesions",
       "no mucosal blistering or Nikolsky sign"

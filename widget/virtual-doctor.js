@@ -65,21 +65,21 @@
         }
         .vd-modal-container {
           position: fixed;
-          bottom: 84px;
-          right: 24px;
-          width: 420px;
+          bottom: 24px;
+          right: 90px;
+          width: 440px;
           max-width: calc(100vw - 32px);
-          height: 620px;
-          max-height: calc(100vh - 120px);
+          height: 640px;
+          max-height: calc(100vh - 48px);
           z-index: 999999;
-          background: #FFFDF9;
-          border: 1px solid #E8D5C4;
-          border-radius: 20px;
-          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+          background: #FFFFFF;
+          border: 1px solid #E2E8F0;
+          border-radius: 16px;
+          box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.1);
           display: none;
           flex-direction: column;
           overflow: hidden;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
         .vd-modal-header {
           background: ${this.config.themeColor};
@@ -88,32 +88,43 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         .vd-modal-header h3 {
           margin: 0;
           font-size: 15px;
           font-weight: 700;
+          letter-spacing: -0.01em;
         }
         .vd-modal-header p {
           margin: 2px 0 0;
-          font-size: 11px;
-          opacity: 0.85;
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.85);
         }
         .vd-close-btn {
-          background: transparent;
+          background: rgba(255, 255, 255, 0.15);
           border: none;
           color: #fff;
-          font-size: 20px;
+          font-size: 18px;
           cursor: pointer;
-          padding: 4px 8px;
-          border-radius: 6px;
+          width: 32px;
+          height: 32px;
+          line-height: 30px;
+          text-align: center;
+          border-radius: 8px;
+          transition: background 0.15s ease;
+        }
+        .vd-close-btn:hover {
+          background: rgba(255, 255, 255, 0.3);
         }
         .vd-modal-body {
           flex: 1;
           padding: 20px;
           overflow-y: auto;
           font-size: 13px;
-          color: #292524;
+          line-height: 1.5;
+          color: #1E293B;
+          background: #F8FAFC;
         }
         .vd-form-group {
           margin-bottom: 14px;
@@ -121,45 +132,52 @@
         .vd-form-group label {
           display: block;
           font-size: 11px;
-          font-weight: 600;
+          font-weight: 700;
           text-transform: uppercase;
-          color: #78716c;
-          margin-bottom: 4px;
+          letter-spacing: 0.04em;
+          color: #64748B;
+          margin-bottom: 6px;
         }
         .vd-input, .vd-select, .vd-textarea {
           width: 100%;
           box-sizing: border-box;
-          padding: 10px 12px;
-          border: 1px solid #E8D5C4;
-          border-radius: 10px;
+          padding: 10px 14px;
+          border: 1px solid #CBD5E1;
+          border-radius: 8px;
           font-size: 13px;
-          background: #fff;
-          color: #1c1917;
+          background: #FFFFFF;
+          color: #0F172A;
           outline: none;
+          transition: border-color 0.15s ease, box-shadow 0.15s ease;
         }
-        .vd-input:focus, .vd-textarea:focus {
+        .vd-input:focus, .vd-textarea:focus, .vd-select:focus {
           border-color: ${this.config.themeColor};
+          box-shadow: 0 0 0 3px rgba(83, 23, 42, 0.12);
         }
         .vd-btn-primary {
           background: ${this.config.themeColor};
-          color: #fff;
+          color: #FFFFFF;
           border: none;
-          border-radius: 10px;
-          padding: 12px;
+          border-radius: 8px;
+          padding: 12px 16px;
           font-size: 13px;
-          font-weight: 700;
+          font-weight: 600;
           cursor: pointer;
           width: 100%;
-          margin-top: 10px;
+          transition: opacity 0.15s ease;
+        }
+        .vd-btn-primary:hover {
+          opacity: 0.92;
         }
         .vd-alert-card {
-          padding: 14px;
-          border-radius: 12px;
-          margin-bottom: 14px;
+          padding: 14px 16px;
+          border-radius: 10px;
+          margin-bottom: 16px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
         .vd-alert-red {
           background: #FEF2F2;
-          border: 1px solid #FCA5A5;
+          border: 1px solid #F87171;
           color: #991B1B;
         }
         .vd-alert-green {
@@ -168,24 +186,69 @@
           color: #166534;
         }
         .vd-soap-box {
-          background: #FAF8F5;
-          border: 1px solid #E8D5C4;
+          background: #FFFFFF;
+          border: 1px solid #E2E8F0;
           border-radius: 10px;
-          padding: 12px;
-          margin-top: 12px;
+          padding: 16px;
+          margin-top: 16px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.04);
         }
         .vd-soap-box h4 {
-          margin: 0 0 6px;
-          font-size: 12px;
+          margin: 0 0 12px;
+          font-size: 13px;
           font-weight: 700;
           color: ${this.config.themeColor};
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          border-bottom: 1px solid #F1F5F9;
+          padding-bottom: 6px;
+        }
+        .vd-soap-section {
+          margin-bottom: 10px;
+        }
+        .vd-soap-section:last-child {
+          margin-bottom: 0;
+        }
+        .vd-soap-section strong {
+          display: block;
+          font-size: 11px;
+          text-transform: uppercase;
+          color: #64748B;
+          margin-bottom: 2px;
+        }
+        .vd-soap-section p {
+          margin: 0;
+          font-size: 12.5px;
+          line-height: 1.45;
+          color: #334155;
         }
         .vd-diff-item {
-          background: #fff;
-          border: 1px solid #E8D5C4;
-          border-radius: 8px;
-          padding: 10px;
-          margin-top: 8px;
+          background: #FFFFFF;
+          border: 1px solid #E2E8F0;
+          border-radius: 10px;
+          padding: 12px 14px;
+          margin-top: 10px;
+          box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+        .vd-diff-item strong {
+          color: #0F172A;
+          font-size: 13px;
+          font-weight: 600;
+        }
+        .vd-diff-badge {
+          font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+          font-size: 11px;
+          font-weight: 600;
+          background: #F1F5F9;
+          color: #475569;
+          padding: 2px 8px;
+          border-radius: 6px;
+        }
+        .vd-diff-rationale {
+          margin: 6px 0 0;
+          font-size: 12px;
+          line-height: 1.45;
+          color: #475569;
         }
       `;
       document.head.appendChild(style);
@@ -325,18 +388,18 @@
       }
 
       html += `
-        <div style="margin-top: 14px;">
-          <h4 style="margin: 0 0 6px; font-size: 13px; font-weight: 700;">Differential Considerations:</h4>
+        <div style="margin-top: 16px;">
+          <h4 style="margin: 0 0 8px; font-size: 13px; font-weight: 700; color: #0F172A;">Differential Diagnoses</h4>
       `;
 
       data.differential_diagnoses.forEach((d) => {
         html += `
           <div class="vd-diff-item">
-            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-              <strong style="color: #1c1917; font-size: 13px;">${d.probability_rank}. ${d.diagnosis_name}</strong>
-              <span style="font-family: monospace; font-size: 11px; background: #f5f5f4; padding: 2px 6px; border-radius: 4px;">${d.icd10_code || "ICD-10"}</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px;">
+              <strong>${d.probability_rank}. ${d.diagnosis_name}</strong>
+              <span class="vd-diff-badge">${d.icd10_code || "ICD-10"}</span>
             </div>
-            <p style="margin: 4px 0 0; font-size: 12px; color: #57534e; line-height: 1.35;">${d.clinical_rationale}</p>
+            <p class="vd-diff-rationale">${d.clinical_rationale}</p>
           </div>
         `;
       });
@@ -345,11 +408,24 @@
         </div>
         <div class="vd-soap-box">
           <h4>Clinical Summary (Physician Handoff)</h4>
-          <p style="margin: 0 0 6px; font-size: 11px; color: #44403c;"><strong>Subjective:</strong> ${data.soap_note.subjective}</p>
-          <p style="margin: 0 0 6px; font-size: 11px; color: #44403c;"><strong>Assessment:</strong> ${data.soap_note.assessment}</p>
-          <p style="margin: 0; font-size: 11px; color: #44403c;"><strong>Plan:</strong> ${data.soap_note.plan.replace(/\n/g, "<br/>")}</p>
+          <div class="vd-soap-section">
+            <strong>Subjective (HPI)</strong>
+            <p>${data.soap_note.subjective}</p>
+          </div>
+          <div class="vd-soap-section">
+            <strong>Objective Findings</strong>
+            <p>${data.soap_note.objective}</p>
+          </div>
+          <div class="vd-soap-section">
+            <strong>Clinical Assessment</strong>
+            <p>${data.soap_note.assessment}</p>
+          </div>
+          <div class="vd-soap-section">
+            <strong>Plan &amp; Recommendations</strong>
+            <p>${data.soap_note.plan.replace(/\n/g, "<br/>")}</p>
+          </div>
         </div>
-        <button class="vd-btn-primary" id="vd-start-new" style="margin-top: 14px;">Start New Consultation</button>
+        <button class="vd-btn-primary" id="vd-start-new" style="margin-top: 16px;">Start New Consultation</button>
       `;
 
       return html;
@@ -357,18 +433,18 @@
 
     renderChatContainer(firstGreeting, firstQuestion) {
       return `
-        <div class="vd-chat-messages" id="vd-chat-msgs" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; max-height: 400px; overflow-y: auto;">
-          <div style="background: #FAF8F5; border: 1px solid #E8D5C4; border-radius: 12px; padding: 10px 14px; font-size: 12px; color: #44403c;">
-            <strong>Virtual Doctor Copilot:</strong><br/>
+        <div class="vd-chat-messages" id="vd-chat-msgs" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 14px; max-height: 400px; overflow-y: auto;">
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 12px 14px; font-size: 13px; line-height: 1.45; color: #334155; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
+            <strong style="color: ${this.config.themeColor}; display: block; margin-bottom: 4px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em;">Virtual Doctor Copilot</strong>
             ${firstGreeting}
           </div>
-          <div style="background: #FAF8F5; border: 1px solid #E8D5C4; border-radius: 12px; padding: 10px 14px; font-size: 13px; font-weight: 600; color: #1c1917;">
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 12px 14px; font-size: 13px; line-height: 1.45; font-weight: 600; color: #0F172A; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">
             ${firstQuestion}
           </div>
         </div>
         <div id="vd-chat-input-area" style="display: flex; gap: 8px;">
           <input type="text" id="vd-user-input" class="vd-input" placeholder="Type your answer here..." style="flex: 1;" />
-          <button id="vd-mic-btn" title="Speak symptoms" style="background: #f5f5f4; border: 1px solid #E8D5C4; border-radius: 10px; padding: 0 12px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+          <button id="vd-mic-btn" title="Speak symptoms" style="background: #FFFFFF; border: 1px solid #CBD5E1; border-radius: 8px; padding: 0 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #475569;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
               <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
@@ -376,7 +452,7 @@
               <line x1="8" y1="23" x2="16" y2="23"/>
             </svg>
           </button>
-          <button class="vd-btn-primary" id="vd-send-msg" style="width: auto; padding: 0 16px; margin: 0;">Send</button>
+          <button class="vd-btn-primary" id="vd-send-msg" style="width: auto; padding: 0 18px; margin: 0;">Send</button>
         </div>
       `;
     }
