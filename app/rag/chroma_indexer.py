@@ -77,8 +77,15 @@ class ChromaMedicalIndexer:
         documents = []
         metadatas = []
 
-        for p in protocols:
-            doc_id = p.get("id", f"PROTO-{p.get('icd10', 'UNK')}")
+        import re
+        seen_ids = set()
+        for idx, p in enumerate(protocols):
+            base_id = p.get("id", f"PROTO-{p.get('icd10', 'UNK')}")
+            slug = re.sub(r'[^a-zA-Z0-9]', '_', p.get("topic", "").strip().lower())[:32]
+            doc_id = f"{base_id}_{slug}".strip("_")
+            if doc_id in seen_ids:
+                doc_id = f"{doc_id}_{idx}"
+            seen_ids.add(doc_id)
             topic = p.get("topic", "")
             icd10 = p.get("icd10", "")
             specialty = p.get("specialty", "")
