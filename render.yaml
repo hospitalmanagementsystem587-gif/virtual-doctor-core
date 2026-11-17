@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: virtual-doctor-core
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: APP_ENV
+        value: production
+      - key: DEBUG
+        value: "false"
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: GEMINI_API_KEY
+        sync: false
+      # JSON list of the landing page origin(s), e.g. ["https://example-hospital.in"]
+      - key: CORS_ORIGINS
+        sync: false
+      - key: HMS_API_URL
+        sync: false
+      - key: HMS_API_KEY
+        sync: false

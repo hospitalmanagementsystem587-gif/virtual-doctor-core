@@ -5,7 +5,7 @@
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688.svg)](https://fastapi.tiangolo.com/)
 
-A clinical-grade, fool-proof **Virtual Doctor & Clinical Triage Copilot** designed for direct embedding into hospital public websites (`sastahospital.in`, Vedant Hospital), patient portals, and outpatient department (OPD) intake desks.
+A clinical-grade, fool-proof **Virtual Doctor & Clinical Triage Copilot** designed for direct embedding into hospital public websites, patient portals, and outpatient department (OPD) intake desks.
 
 ---
 
