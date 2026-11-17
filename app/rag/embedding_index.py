@@ -9,6 +9,7 @@ import json
 import logging
 import math
 import os
+import time
 from typing import Any, Dict, List, Optional
 
 from app.core.config import settings
@@ -18,7 +19,7 @@ logger = logging.getLogger(__name__)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 KB_JSON_PATH = os.path.join(BASE_DIR, "knowledge_base", "protocols", "clinical_knowledge_base.json")
 INDEX_PATH = os.path.join(BASE_DIR, "knowledge_base", "embeddings", "protocol_embeddings.json")
-BATCH_SIZE = 100
+BATCH_SIZE = 25
 
 
 def protocol_text(p: Dict[str, Any]) -> str:
@@ -87,13 +88,24 @@ class GeminiEmbeddingIndex:
         )
         return [_normalize(list(e.values)) for e in result.embeddings]
 
+    def _embed_with_retry(self, texts: List[str], attempts: int = 5) -> List[List[float]]:
+        # Free-tier embedding quota is per-minute tokens; wait out 429s during offline builds.
+        for attempt in range(attempts):
+            try:
+                return self._embed(texts, "RETRIEVAL_DOCUMENT")
+            except Exception as e:
+                if getattr(e, "code", None) != 429 or attempt == attempts - 1:
+                    raise
+                logger.info("Embedding quota hit; waiting 60s before retrying.")
+                time.sleep(60)
+
     def build(self) -> int:
         if self._get_client() is None:
             raise RuntimeError("GEMINI_API_KEY is required to build the embedding index.")
         texts = [protocol_text(p) for p in self.protocols]
         vectors: List[List[float]] = []
         for start in range(0, len(texts), BATCH_SIZE):
-            vectors.extend(self._embed(texts[start:start + BATCH_SIZE], "RETRIEVAL_DOCUMENT"))
+            vectors.extend(self._embed_with_retry(texts[start:start + BATCH_SIZE]))
         os.makedirs(os.path.dirname(self.index_path), exist_ok=True)
         with open(self.index_path, "w", encoding="utf-8") as f:
             json.dump({
