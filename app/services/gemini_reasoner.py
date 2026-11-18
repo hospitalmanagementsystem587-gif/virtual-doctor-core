@@ -5,6 +5,7 @@ Synthesizes clinical history, RAG guidelines, and produces verified SOAP notes a
 Falls back seamlessly to local deterministic clinical RAG reasoning when GEMINI_API_KEY is unset or unavailable.
 """
 
+import asyncio
 import json
 import logging
 from typing import List, Dict, Any, Optional
@@ -20,11 +21,30 @@ from app.schemas.encounter import (
 
 logger = logging.getLogger(__name__)
 
+_TRANSIENT_ERROR_MARKERS = (
+    "503",
+    "429",
+    "unavailable",
+    "resource_exhausted",
+    "high demand",
+    "overloaded",
+    "timed out",
+    "timeout",
+)
+
+
+def _is_transient_error(exc: Exception) -> bool:
+    msg = str(exc).lower()
+    return any(marker in msg for marker in _TRANSIENT_ERROR_MARKERS)
+
 
 class GeminiClinicalReasoner:
     def __init__(self):
         self.api_key = settings.GEMINI_API_KEY
         self.model_name = settings.GEMINI_MODEL
+        self.fallback_models = list(settings.GEMINI_FALLBACK_MODELS)
+        self.max_retries = max(1, int(settings.GEMINI_MAX_RETRIES))
+        self.retry_base_delay = float(settings.GEMINI_RETRY_BASE_DELAY_SECONDS)
         self._client = None
         if self.api_key and self.api_key != "your-gemini-api-key":
             try:
@@ -37,6 +57,13 @@ class GeminiClinicalReasoner:
     def is_available(self) -> bool:
         return self._client is not None
 
+    def _candidate_models(self) -> List[str]:
+        models: List[str] = []
+        for name in [self.model_name, *self.fallback_models]:
+            if name and name not in models:
+                models.append(name)
+        return models
+
     async def reason(
         self,
         encounter: SymptomEncounterInput,
@@ -44,7 +71,8 @@ class GeminiClinicalReasoner:
         triage_level: TriageLevel,
     ) -> Optional[Dict[str, Any]]:
         """
-        Calls Gemini 2.5 with constrained clinical prompt and medical RAG context.
+        Calls Gemini with constrained clinical prompt and medical RAG context.
+        Retries transient 503/429 spikes with backoff and falls over across configured models.
         Returns validated structured dictionary or None if LLM is unavailable.
         """
         if not self.is_available:
@@ -52,26 +80,40 @@ class GeminiClinicalReasoner:
 
         prompt = self._build_clinical_prompt(encounter, retrieved_guidelines, triage_level)
 
-        try:
-            from google.genai import types
+        from google.genai import types
 
-            response = self._client.models.generate_content(
-                model=self.model_name,
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    temperature=0.1,  # Low temperature for clinical precision
-                    response_mime_type="application/json",
-                ),
-            )
+        config = types.GenerateContentConfig(
+            temperature=0.1,  # Low temperature for clinical precision
+            response_mime_type="application/json",
+        )
 
-            if response and response.text:
-                data = json.loads(response.text)
-                return data
+        for model in self._candidate_models():
+            for attempt in range(1, self.max_retries + 1):
+                try:
+                    response = await asyncio.to_thread(
+                        self._client.models.generate_content,
+                        model=model,
+                        contents=prompt,
+                        config=config,
+                    )
+                    if response and response.text:
+                        return json.loads(response.text)
+                except Exception as e:
+                    transient = _is_transient_error(e)
+                    logger.warning(
+                        "Gemini reasoning failed (model=%s, attempt=%d/%d, transient=%s): %s",
+                        model,
+                        attempt,
+                        self.max_retries,
+                        transient,
+                        e,
+                    )
+                    if transient and attempt < self.max_retries:
+                        await asyncio.sleep(self.retry_base_delay * attempt)
+                        continue
+                    break
 
-        except Exception as e:
-            logger.error(f"Gemini reasoning execution error: {e}")
-            return None
-
+        logger.error("Gemini reasoning exhausted all models and retries; falling back to local RAG.")
         return None
 
     def _build_clinical_prompt(

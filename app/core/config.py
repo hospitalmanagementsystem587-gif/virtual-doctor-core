@@ -19,7 +19,10 @@ class Settings(BaseSettings):
 
     LLM_PROVIDER: str = "gemini"  # "gemini" | "mock"
     GEMINI_API_KEY: str = ""
-    GEMINI_MODEL: str = "gemini-2.5-flash"
+    GEMINI_MODEL: str = "gemini-3.5-flash-lite"
+    GEMINI_FALLBACK_MODELS: List[str] = ["gemini-3.1-flash-lite"]
+    GEMINI_MAX_RETRIES: int = 2
+    GEMINI_RETRY_BASE_DELAY_SECONDS: float = 1.0
 
     EMBEDDING_MODEL_NAME: str = "gemini-embedding-001"
     EMBEDDING_DIMENSIONS: int = 768
