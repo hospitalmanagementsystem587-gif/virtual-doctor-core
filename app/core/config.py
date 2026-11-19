@@ -15,6 +15,8 @@ class Settings(BaseSettings):
         "http://localhost:8000",
         "http://127.0.0.1:8000",
         "http://localhost:8010",
+        "https://hospital-management-system.hms-core.workers.dev",
+        "https://sastahospital.in",
     ]
 
     LLM_PROVIDER: str = "gemini"  # "gemini" | "mock"
