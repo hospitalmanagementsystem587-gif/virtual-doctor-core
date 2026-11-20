@@ -6,6 +6,7 @@ Immediately halts if red flags are detected during any turn.
 """
 
 import uuid
+import re
 from datetime import datetime, timezone
 from typing import Dict, Optional, List
 
@@ -82,6 +83,10 @@ class MultiTurnInterviewEngine:
         now_iso = datetime.now(timezone.utc).isoformat()
         state.messages.append(ChatMessage(sender="patient", text=req.message, timestamp=now_iso))
 
+        # Detect Hindi/Hinglish language if present in patient message
+        if re.search(r"[\u0900-\u097F]", req.message) or any(w in req.message.lower() for w in ["dard", "bukhar", "khansi", "seene", "pet", "ulti", "chakkar", "hai", "nahi", "raha"]):
+            state.language = "hi"
+
         # Check Red Flags immediately on EVERY incoming message
         check_input = SymptomEncounterInput(
             patient=state.patient,
@@ -111,14 +116,20 @@ class MultiTurnInterviewEngine:
             )
 
         # Step Progression
+        is_hi = state.language in ("hi", "hi_en")
+
         if state.step == 1:
             state.encounter.chief_complaint = req.message
             state.step = 2
+            opts = (
+                ["आज अचानक / Sudden onset today", "2-3 दिन से / Gradual over days", "पुरानी समस्या / Chronic recurring"]
+                if is_hi else ["Sudden onset today", "Gradual over few days", "Chronic recurring"]
+            )
             next_q = ClarificationQuestion(
                 question_id="Q_ONSET_CHAR",
                 question_text="When did this start (e.g., sudden vs gradual, hours/days ago), and how does the discomfort feel (sharp, dull, burning, or throbbing)?",
                 question_category="OPQRST_ONSET",
-                suggested_options=["Sudden onset today", "Gradual over few days", "Chronic recurring"],
+                suggested_options=opts,
             )
             state.messages.append(ChatMessage(sender="doctor", text=next_q.question_text, timestamp=now_iso))
 
@@ -134,11 +145,15 @@ class MultiTurnInterviewEngine:
             state.encounter.onset = req.message
             state.encounter.quality_character = req.message
             state.step = 3
+            opts = (
+                ["हल्का / Mild (1-3)", "मध्यम / Moderate (4-6)", "तेज़ / Severe (7-10)"]
+                if is_hi else ["Mild (1-3)", "Moderate (4-6)", "Severe (7-10)"]
+            )
             next_q = ClarificationQuestion(
                 question_id="Q_SEVERITY_RAD",
                 question_text="On a scale of 1 to 10, how severe is this discomfort, and does it spread or radiate anywhere else (e.g., back, neck, or limbs)?",
                 question_category="SEVERITY",
-                suggested_options=["Mild (1-3)", "Moderate (4-6)", "Severe (7-10)"],
+                suggested_options=opts,
             )
             state.messages.append(ChatMessage(sender="doctor", text=next_q.question_text, timestamp=now_iso))
 
@@ -151,19 +166,27 @@ class MultiTurnInterviewEngine:
             )
 
         elif state.step == 3:
-            # Parse severity integer if present
-            words = req.message.split()
-            for w in words:
-                if w.isdigit() and 1 <= int(w) <= 10:
-                    state.encounter.severity_scale = int(w)
-                    break
+            # Parse severity
+            num_match = re.search(r"\b([1-9]|10)\b", req.message)
+            if num_match:
+                state.encounter.severity_scale = int(num_match.group(1))
+            elif any(w in req.message.lower() for w in ["severe", "high", "तेज़", "बहुत"]):
+                state.encounter.severity_scale = 8
+            elif any(w in req.message.lower() for w in ["moderate", "medium", "मध्यम"]):
+                state.encounter.severity_scale = 5
+            elif any(w in req.message.lower() for w in ["mild", "low", "हल्का"]):
+                state.encounter.severity_scale = 3
             state.encounter.radiation = req.message
             state.step = 4
+            opts = (
+                ["बुखार है / Fever present", "उल्टी/मितली है / Nausea present", "कोई बुखार-उल्टी नहीं / No fever or vomiting"]
+                if is_hi else ["Fever present", "Nausea present", "No fever or vomiting"]
+            )
             next_q = ClarificationQuestion(
                 question_id="Q_ASSOC_NEG",
                 question_text="Are there any other associated symptoms (like fever, nausea, dizziness)? Also, are there any key symptoms you specifically DO NOT have (e.g., no vomiting, no chest pain)?",
                 question_category="ASSOCIATED",
-                suggested_options=["Fever present", "Nausea present", "No fever or vomiting"],
+                suggested_options=opts,
             )
             state.messages.append(ChatMessage(sender="doctor", text=next_q.question_text, timestamp=now_iso))
 
