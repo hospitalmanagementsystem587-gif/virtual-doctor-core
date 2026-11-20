@@ -181,6 +181,12 @@ REQUIRED JSON STRUCTURE:
       "clinical_purpose": "Purpose"
     }}
   ],
+  "recommended_precautions": [
+    "Immediate home care / fluid management",
+    "Key medication or activity warning / safety contraindication",
+    "Hygiene or dietary guidance",
+    "When to seek emergency help"
+  ],
   "recommended_specialty_clinic": "Target specialty name"
 }}
 """

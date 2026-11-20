@@ -20,6 +20,8 @@ from app.schemas.encounter import (
 from app.rules.red_flags import RedFlagRuleEngine
 from app.rag.retriever import MedicalVectorRetriever
 from app.services.gemini_reasoner import GeminiClinicalReasoner
+from app.data.disease_precautions import get_precautions_for_condition
+from app.services.severity_scorer import SymptomSeverityScorer
 from app.core.config import settings
 
 
@@ -32,6 +34,12 @@ class ClinicalDiagnosticEngine:
         encounter_id = f"ENC-{uuid.uuid4().hex[:10].upper()}"
         now_iso = datetime.now(timezone.utc).isoformat()
 
+        # Step 0: Objective Symptom Severity Scoring (Kaggle Weighting Matrix)
+        severity_info = SymptomSeverityScorer.evaluate(
+            f"{encounter.chief_complaint} {encounter.onset or ''} {encounter.quality_character or ''}",
+            encounter.associated_symptoms
+        )
+
         # Step 1: Immediate Red Flag Hard Rule Check (Deterministic Safety Layer)
         is_critical, red_flag, triage_level = RedFlagRuleEngine.evaluate(encounter)
 
@@ -40,14 +48,14 @@ class ClinicalDiagnosticEngine:
         retrieved_docs = self.retriever.retrieve(search_query, top_k=3)
 
         if is_critical and red_flag:
-            return self._build_emergency_response(encounter_id, now_iso, encounter, red_flag, retrieved_docs)
+            return self._build_emergency_response(encounter_id, now_iso, encounter, red_flag, retrieved_docs, severity_info)
 
         # Step 3: LLM Cognitive Layer (Gemini 2.5 with RAG Context)
         if self.gemini_reasoner.is_available:
             llm_result = await self.gemini_reasoner.reason(encounter, retrieved_docs, triage_level)
             if llm_result:
                 try:
-                    return self._build_llm_response(encounter_id, now_iso, triage_level, llm_result)
+                    return self._build_llm_response(encounter_id, now_iso, triage_level, llm_result, severity_info)
                 except Exception:
                     pass  # Fall back gracefully to deterministic clinical synthesizer
 
@@ -58,6 +66,7 @@ class ClinicalDiagnosticEngine:
             encounter=encounter,
             triage_level=triage_level,
             retrieved_docs=retrieved_docs,
+            severity_info=severity_info,
         )
 
     def _build_llm_response(
@@ -66,6 +75,7 @@ class ClinicalDiagnosticEngine:
         timestamp: str,
         triage_level: TriageLevel,
         data: Dict[str, Any],
+        severity_info: Optional[Dict[str, Any]] = None,
     ) -> VirtualDoctorAssessmentResponse:
         soap = SoapClinicalSummary(
             subjective=data["soap_note"]["subjective"],
@@ -98,6 +108,14 @@ class ClinicalDiagnosticEngine:
             for w in data.get("recommended_workup", [])
         ]
 
+        # Precautions: use LLM generated or fallback to verified clinical dataset
+        primary_dx = differentials[0].diagnosis_name if differentials else ""
+        precautions = data.get("recommended_precautions")
+        if not precautions or len(precautions) < 2:
+            precautions = get_precautions_for_condition(primary_dx, triage_level.value)
+
+        sev_score = severity_info.get("score", 5) if severity_info else None
+
         return VirtualDoctorAssessmentResponse(
             encounter_id=encounter_id,
             timestamp=timestamp,
@@ -107,6 +125,8 @@ class ClinicalDiagnosticEngine:
             differential_diagnoses=differentials,
             recommended_workup=workup,
             recommended_specialty_clinic=data.get("recommended_specialty_clinic", "General Medicine"),
+            recommended_precautions=precautions,
+            severity_score=sev_score,
         )
 
     def _build_emergency_response(
@@ -116,6 +136,7 @@ class ClinicalDiagnosticEngine:
         encounter: SymptomEncounterInput,
         red_flag: RedFlagAlert,
         retrieved_docs: Optional[List[Dict[str, Any]]] = None,
+        severity_info: Optional[Dict[str, Any]] = None,
     ) -> VirtualDoctorAssessmentResponse:
         soap = SoapClinicalSummary(
             subjective=(
@@ -181,6 +202,9 @@ class ClinicalDiagnosticEngine:
             ),
         ]
 
+        precautions = get_precautions_for_condition(red_flag.risk_category, "EMERGENCY_RED")
+        sev_score = max(8, severity_info.get("score", 9)) if severity_info else 9
+
         return VirtualDoctorAssessmentResponse(
             encounter_id=encounter_id,
             timestamp=timestamp,
@@ -190,6 +214,8 @@ class ClinicalDiagnosticEngine:
             differential_diagnoses=differentials,
             recommended_workup=workup,
             recommended_specialty_clinic="Emergency Medicine / Acute Resuscitation Unit",
+            recommended_precautions=precautions,
+            severity_score=sev_score,
         )
 
     def _synthesize_clinical_assessment(
@@ -199,6 +225,7 @@ class ClinicalDiagnosticEngine:
         encounter: SymptomEncounterInput,
         triage_level: TriageLevel,
         retrieved_docs: List[Dict[str, Any]],
+        severity_info: Optional[Dict[str, Any]] = None,
     ) -> VirtualDoctorAssessmentResponse:
         primary_match = retrieved_docs[0] if retrieved_docs else None
         secondary_match = retrieved_docs[1] if len(retrieved_docs) > 1 else None
@@ -298,6 +325,10 @@ class ClinicalDiagnosticEngine:
             ),
         )
 
+        primary_name = primary_match["topic"] if primary_match else ""
+        precautions = get_precautions_for_condition(primary_name, triage_level.value)
+        sev_score = severity_info.get("score", 5) if severity_info else None
+
         return VirtualDoctorAssessmentResponse(
             encounter_id=encounter_id,
             timestamp=timestamp,
@@ -307,4 +338,6 @@ class ClinicalDiagnosticEngine:
             differential_diagnoses=differentials,
             recommended_workup=workup,
             recommended_specialty_clinic=target_specialty,
+            recommended_precautions=precautions,
+            severity_score=sev_score,
         )
