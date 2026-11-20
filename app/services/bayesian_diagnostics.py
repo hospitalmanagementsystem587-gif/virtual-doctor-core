@@ -17,8 +17,8 @@ MODEL_PATH = os.path.join(BASE_DIR, "knowledge_base", "kaggle_data", "bayesian_d
 # Multilingual Symptom Extraction Patterns (English, Hinglish, Hindi) -> List of Canonical Symptom Keys
 MULTILINGUAL_SYMPTOM_PATTERNS: List[Tuple[re.Pattern, List[str]]] = [
     # 1. Fevers & Tropical
-    (re.compile(r"(high\s+fever|tez\s+bukhar|तेज़\s+बुखार|severe\s+fever|102|103|104|very\s+hot|acute\s+fever|spiking\s+fever)", re.I), ["high_fever"]),
     (re.compile(r"(mild\s+fever|halka\s+bukhar|हल्का\s+बुखार|low\s+grade\s+fever)", re.I), ["mild_fever"]),
+    (re.compile(r"(high\s+fever|tez\s+bukhar|तेज़\s+बुखार|severe\s+fever|102|103|104|very\s+hot|acute\s+fever|spiking\s+fever|step\s+ladder|badhta\s+bukhar|\bbukhar\b|\bfever\b|\btap\b|\bjwar\b|बुखार)", re.I), ["high_fever"]),
     (re.compile(r"(shivering|kapkapi|कांपना|कंपकंपी|trembling|rigors|shaking)", re.I), ["chills"]),
     (re.compile(r"(chills|thand\s+lag|ठंड\s+लग|feeling\s+cold|sardi\s+lag)", re.I), ["chills"]),
     (re.compile(r"(sweating|pasina|paseena|पसीना|drenching\s+sweat|night\s+sweat|cold\s+sweat)", re.I), ["sweating"]),
@@ -65,7 +65,7 @@ MULTILINGUAL_SYMPTOM_PATTERNS: List[Tuple[re.Pattern, List[str]]] = [
     (re.compile(r"(vomiting|ulti|vomit|उल्टी|kai)", re.I), ["vomiting"]),
     (re.compile(r"(diarrh(o)?ea|loose\s+motions|dast|दस्ते?|पतले\s+दस्त|watery\s+stool)", re.I), ["diarrhoea"]),
     (re.compile(r"(constipation|kabz|pet\s+saaf\s+na\s+hona|कब्ज)", re.I), ["constipation"]),
-    (re.compile(r"(loss\s+of\s+appetite|anorexia|bhookh\s+na\s+lagna|भूख\s+न\s+लगना|not\s+hungry)", re.I), ["loss_of_appetite"]),
+    (re.compile(r"(loss\s+of\s+appetite|anorexia|bhookh?\s*(na|nahi|kam|bilkul\s*nahi)\s*lag|भूख\s*(न|नहीं|कम|बिल्कुल\s*नहीं)\s*लग|not\s+hungry|kam\s+bhookh)", re.I), ["loss_of_appetite"]),
     (re.compile(r"(\bpeeli\b.*(twacha|aankh|skin|eyes)|(twacha|aankh|skin|eyes).*\bpeeli\b|dark\s+yellow|yellowish|jaundice|piliya|पीलिया|पीली)", re.I), ["yellowish_skin", "yellowing_of_eyes", "dark_urine"]),
     (re.compile(r"(dark\s+urine|peela\s+peshab|kala\s+peshab|गहरा\s+पीला\s+पेशाब|yellow_urine)", re.I), ["dark_urine", "yellow_urine"]),
 

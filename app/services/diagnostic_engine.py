@@ -38,10 +38,16 @@ class ClinicalDiagnosticEngine:
         now_iso = datetime.now(timezone.utc).isoformat()
 
         # Step 0: Objective Symptom Severity Scoring (Kaggle Weighting Matrix)
+        all_symptoms = list(encounter.associated_symptoms)
+        if hasattr(encounter, "symptoms") and encounter.symptoms:
+            for s in encounter.symptoms:
+                if s not in all_symptoms:
+                    all_symptoms.append(s)
+
         text_corpus = f"{encounter.chief_complaint} {encounter.onset or ''} {encounter.quality_character or ''}"
         severity_info = SymptomSeverityScorer.evaluate(
             text_corpus,
-            encounter.associated_symptoms
+            all_symptoms
         )
 
         # Step 1: Immediate Red Flag Hard Rule Check (Deterministic Safety Layer)
@@ -49,8 +55,8 @@ class ClinicalDiagnosticEngine:
 
         # Step 2: Bayesian Probabilistic Diagnostic Inference (Trained on 4,920 Kaggle cases)
         present_symptoms, negated_symptoms = self.bayesian_engine.extract_symptoms(
-            text_corpus=f"{text_corpus} {' '.join(encounter.associated_symptoms)}",
-            reported_symptoms=encounter.associated_symptoms,
+            text_corpus=f"{text_corpus} {' '.join(all_symptoms)}",
+            reported_symptoms=all_symptoms,
             negatives_text=" ".join(encounter.pertinent_negatives) if encounter.pertinent_negatives else None
         )
         bayesian_differentials = self.bayesian_engine.diagnose(
@@ -62,7 +68,7 @@ class ClinicalDiagnosticEngine:
 
         # Step 3: Okapi BM25 + Vector RAG Retrieval of Guidelines & ICD-10 Protocols
         search_terms = [encounter.chief_complaint, encounter.quality_character or ""]
-        search_terms.extend(encounter.associated_symptoms)
+        search_terms.extend(all_symptoms)
         if bayesian_differentials:
             search_terms.append(bayesian_differentials[0]["diagnosis_name"])
             search_terms.append(bayesian_differentials[0]["icd10_code"])

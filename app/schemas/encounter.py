@@ -42,6 +42,7 @@ class SymptomEncounterInput(BaseModel):
     severity_scale: Optional[int] = Field(None, ge=1, le=10, description="Pain or distress scale 1 to 10")
     timing_frequency: Optional[str] = Field(None, description="Constant, intermittent, episodic")
     associated_symptoms: List[str] = Field(default_factory=list, description="Associated symptoms (fever, nausea, dyspnea, etc.)")
+    symptoms: List[str] = Field(default_factory=list, description="Direct symptom keys or alias for associated_symptoms")
     pertinent_negatives: List[str] = Field(default_factory=list, description="Symptoms patient denies (no fever, no hemoptysis)")
 
 
