@@ -110,13 +110,18 @@
     "specialty": "Pulmonology",
     "organ_system": "Respiratory",
     "keywords": [
+      "allergens",
       "asthma",
-      "wheezing",
       "breathlessness",
-      "cough",
+      "bronchial asthma",
       "bronchospasm",
       "chest tightness",
-      "allergens"
+      "cough",
+      "family history",
+      "fatigue",
+      "high fever",
+      "mucoid sputum",
+      "wheezing"
     ],
     "red_flags": [
       "silent chest",
@@ -178,13 +183,20 @@
     "specialty": "Pulmonology / Infectious Disease",
     "organ_system": "Respiratory",
     "keywords": [
-      "pneumonia",
+      "breathlessness",
+      "chest pain",
+      "chills",
+      "cough",
+      "crackles",
+      "fast heart rate",
+      "fatigue",
       "fever",
+      "high fever",
+      "pleuritic chest pain",
+      "pneumonia",
       "productive cough",
       "purulent sputum",
-      "chills",
-      "pleuritic chest pain",
-      "crackles"
+      "rusty sputum"
     ],
     "red_flags": [
       "CURB-65 >= 3",
@@ -246,14 +258,20 @@
     "specialty": "Gastroenterology",
     "organ_system": "Gastrointestinal",
     "keywords": [
-      "heartburn",
       "acid reflux",
+      "acidity",
+      "chest pain",
+      "cough",
+      "epigastric",
       "gerd",
+      "heartburn",
+      "postprandial",
+      "pyrosis",
       "regurgitation",
       "sour taste",
-      "pyrosis",
-      "postprandial",
-      "epigastric"
+      "stomach pain",
+      "ulcers on tongue",
+      "vomiting"
     ],
     "red_flags": [
       "progressive dysphagia",
@@ -280,14 +298,21 @@
     "specialty": "Gastroenterology",
     "organ_system": "Gastrointestinal",
     "keywords": [
-      "peptic ulcer",
-      "gastric ulcer",
+      "abdominal pain",
       "duodenal ulcer",
+      "dyspepsia",
       "epigastric pain",
+      "gastric ulcer",
       "gnawing pain",
-      "nsaids",
       "h pylori",
-      "dyspepsia"
+      "indigestion",
+      "internal itching",
+      "loss of appetite",
+      "nsaids",
+      "passage of gases",
+      "peptic ulcer",
+      "peptic ulcer diseae",
+      "vomiting"
     ],
     "red_flags": [
       "hematemesis (coffee ground emesis)",
@@ -410,13 +435,15 @@
     "specialty": "General Medicine / Gastroenterology",
     "organ_system": "Gastrointestinal",
     "keywords": [
+      "dehydration",
       "diarrhea",
-      "vomiting",
-      "loose motions",
-      "stomach cramps",
+      "diarrhoea",
       "food poisoning",
       "gastroenteritis",
-      "dehydration"
+      "loose motions",
+      "stomach cramps",
+      "sunken eyes",
+      "vomiting"
     ],
     "red_flags": [
       "severe dehydration (sunken eyes, delayed skin turgor, anuria)",
@@ -444,14 +471,19 @@
     "specialty": "Urology / Nephrology",
     "organ_system": "Genitourinary",
     "keywords": [
-      "uti",
+      "bladder discomfort",
+      "burning micturition",
+      "burning urination",
+      "continuous feel of urine",
       "cystitis",
       "dysuria",
-      "burning urination",
+      "foul smell of urine",
       "frequency",
-      "urgency",
       "suprapubic pain",
-      "urine infection"
+      "urgency",
+      "urinary tract infection",
+      "urine infection",
+      "uti"
     ],
     "red_flags": [
       "high fever with rigors",
@@ -515,11 +547,11 @@
     "organ_system": "Endocrine / Metabolic",
     "keywords": [
       "diabetes",
-      "high sugar",
-      "polyuria",
-      "polydipsia",
-      "frequent urination",
       "excessive thirst",
+      "frequent urination",
+      "high sugar",
+      "polydipsia",
+      "polyuria",
       "unexplained weight loss"
     ],
     "red_flags": [
@@ -548,15 +580,22 @@
     "specialty": "Endocrinology",
     "organ_system": "Endocrine / Metabolic",
     "keywords": [
-      "thyroid",
-      "hypothyroidism",
-      "weight gain",
-      "fatigue",
+      "abnormal menstruation",
+      "bradycardia",
+      "brittle nails",
+      "cold hands and feets",
       "cold intolerance",
       "constipation",
-      "hair loss",
+      "depression",
       "dry skin",
-      "bradycardia"
+      "enlarged thyroid",
+      "fatigue",
+      "hair loss",
+      "hypothyroidism",
+      "irritability",
+      "swollen extremeties",
+      "thyroid",
+      "weight gain"
     ],
     "red_flags": [
       "myxedema coma (hypothermia, severe bradycardia, hypoventilation, altered sensorium)"
@@ -582,14 +621,21 @@
     "specialty": "Neurology",
     "organ_system": "Neurological",
     "keywords": [
-      "migraine",
+      "acidity",
+      "blurred and distorted vision",
+      "depression",
+      "excessive hunger",
       "headache",
-      "unilateral headache",
-      "throbbing",
-      "pulsating",
-      "photophobia",
+      "indigestion",
+      "irritability",
+      "migraine",
+      "nausea",
       "phonophobia",
-      "nausea"
+      "photophobia",
+      "pulsating",
+      "stiff neck",
+      "throbbing",
+      "unilateral headache"
     ],
     "red_flags": [
       "SNOOP criteria: Systemic fever, Neurological focal deficits, Onset thunderclap (peak < 1 min), Older age > 50, Papilledema/positional change"
@@ -685,13 +731,20 @@
     "specialty": "ENT / Neurology",
     "organ_system": "Vestibular / Neurological",
     "keywords": [
-      "vertigo",
-      "spinning sensation",
-      "dizziness",
+      "(vertigo) paroymsal  positional vertigo",
       "bppv",
+      "dizziness",
+      "headache",
+      "loss of balance",
+      "nausea",
+      "nystagmus",
       "positional dizziness",
+      "spinning movements",
+      "spinning sensation",
       "turning in bed",
-      "nystagmus"
+      "unsteadiness",
+      "vertigo",
+      "vomiting"
     ],
     "red_flags": [
       "HINTS exam showing central vertigo (normal head impulse, skew deviation, direction-changing nystagmus)",
@@ -873,13 +926,21 @@
     "specialty": "Infectious Disease / General Medicine",
     "organ_system": "Infectious / Hematology",
     "keywords": [
-      "dengue",
+      "back pain",
       "breakbone fever",
-      "retro-orbital pain",
-      "thrombocytopenia",
+      "chills",
+      "dengue",
+      "headache",
+      "joint pain",
+      "loss of appetite",
+      "mosquito",
+      "nausea",
+      "pain behind the eyes",
       "petechiae",
       "platelet count",
-      "mosquito"
+      "retro-orbital pain",
+      "skin rash",
+      "thrombocytopenia"
     ],
     "red_flags": [
       "WHO warning signs: severe abdominal pain, persistent vomiting, mucosal bleeding (epistaxis/gum bleed), clinical fluid accumulation (ascites/pleural effusion), lethargy, rapid drop in platelets with rising hematocrit"
@@ -2378,7 +2439,7 @@
     "clinical_hallmarks": [
       "generalized tonic-clonic seizure",
       "duration <15 minutes, single episode within 24 hours",
-      "associated with fever (≥38°C), age 6 months to 5 years"
+      "associated with fever (\u226538\u00b0C), age 6 months to 5 years"
     ],
     "pertinent_negatives": [
       "absence of focal neurological deficits",
@@ -2386,7 +2447,7 @@
       "absence of prior afebrile seizures",
       "absence of meningeal signs"
     ],
-    "content": "Simple febrile seizures are common, benign events occurring in children aged 6 months to 5 years, associated with a fever (≥38°C) not caused by an intracranial infection or metabolic imbalance. They are typically generalized tonic-clonic, brief (<15 minutes), and occur as a single episode within 24 hours. The physical examination should focus on identifying the source of fever and ruling out signs of central nervous system infection (meningitis/encephalitis) or other neurological abnormalities. Pertinent rule-outs include complex febrile seizures, afebrile seizures, and CNS infections. Lumbar puncture is indicated if meningeal signs are present, in infants <12 months, or if immunization status is incomplete. EEG and neuroimaging are not routinely recommended for simple febrile seizures. Management involves fever control and parental reassurance, with emphasis on recognizing red flags for urgent evaluation."
+    "content": "Simple febrile seizures are common, benign events occurring in children aged 6 months to 5 years, associated with a fever (\u226538\u00b0C) not caused by an intracranial infection or metabolic imbalance. They are typically generalized tonic-clonic, brief (<15 minutes), and occur as a single episode within 24 hours. The physical examination should focus on identifying the source of fever and ruling out signs of central nervous system infection (meningitis/encephalitis) or other neurological abnormalities. Pertinent rule-outs include complex febrile seizures, afebrile seizures, and CNS infections. Lumbar puncture is indicated if meningeal signs are present, in infants <12 months, or if immunization status is incomplete. EEG and neuroimaging are not routinely recommended for simple febrile seizures. Management involves fever control and parental reassurance, with emphasis on recognizing red flags for urgent evaluation."
   },
   {
     "id": "ICD10-B08.4",
@@ -2523,11 +2584,11 @@
       "absence of systemic vasculitis",
       "absence of chronic kidney disease history"
     ],
-    "content": "Post-Streptococcal Glomerulonephritis (PSGN) is an immune-mediated renal disease occurring 1-3 weeks after Group A Streptococcus infection (pharyngitis or impetigo). It presents acutely with edema (often periorbital), hypertension, gross hematuria (cola-colored urine), and oliguria. Physical examination focuses on blood pressure, edema, and signs of fluid overload. Pertinent rule-outs include IgA nephropathy, Henoch-Schönlein Purpura nephritis, and other causes of acute kidney injury. Diagnostic workup involves urinalysis (RBC casts, proteinuria), serum creatinine, BUN, electrolytes, C3 complement (typically low), ASO titer, and anti-DNase B titer. Renal biopsy is usually not required unless the presentation is atypical or there's progressive renal dysfunction. Management is supportive, including fluid and salt restriction, antihypertensives, and diuretics to manage symptoms and prevent complications, adhering to national nephrology guidelines."
+    "content": "Post-Streptococcal Glomerulonephritis (PSGN) is an immune-mediated renal disease occurring 1-3 weeks after Group A Streptococcus infection (pharyngitis or impetigo). It presents acutely with edema (often periorbital), hypertension, gross hematuria (cola-colored urine), and oliguria. Physical examination focuses on blood pressure, edema, and signs of fluid overload. Pertinent rule-outs include IgA nephropathy, Henoch-Sch\u00f6nlein Purpura nephritis, and other causes of acute kidney injury. Diagnostic workup involves urinalysis (RBC casts, proteinuria), serum creatinine, BUN, electrolytes, C3 complement (typically low), ASO titer, and anti-DNase B titer. Renal biopsy is usually not required unless the presentation is atypical or there's progressive renal dysfunction. Management is supportive, including fluid and salt restriction, antihypertensives, and diuretics to manage symptoms and prevent complications, adhering to national nephrology guidelines."
   },
   {
     "id": "ICD10-D69.0",
-    "topic": "Henoch-Schönlein Purpura (IgA Vasculitis)",
+    "topic": "Henoch-Sch\u00f6nlein Purpura (IgA Vasculitis)",
     "icd10": "D69.0",
     "specialty": "Pediatrics",
     "organ_system": "Pediatric / Immunological / Dermatological",
@@ -2556,7 +2617,7 @@
       "absence of other systemic vasculitis signs (e.g., ANCA-associated)",
       "absence of significant coagulopathy"
     ],
-    "content": "Henoch-Schönlein Purpura (HSP), now termed IgA vasculitis, is the most common vasculitis in children, characterized by IgA deposition. The classic clinical tetrad includes palpable purpura (non-thrombocytopenic) on dependent areas, arthritis/arthralgia (large joints), colicky abdominal pain (potentially with GI bleeding or intussusception), and renal involvement (hematuria, proteinuria). Physical examination should assess skin, joints, abdomen, and urine. Pertinent rule-outs include ITP (thrombocytopenia), other vasculitides, and sepsis with purpura. Diagnostic workup includes CBC (normal platelets), ESR/CRP (elevated), urinalysis, stool occult blood, and renal function tests. Skin biopsy showing IgA deposition is confirmatory but often not needed. Management is supportive; corticosteroids may be used for severe abdominal pain or progressive renal disease, following international consensus guidelines."
+    "content": "Henoch-Sch\u00f6nlein Purpura (HSP), now termed IgA vasculitis, is the most common vasculitis in children, characterized by IgA deposition. The classic clinical tetrad includes palpable purpura (non-thrombocytopenic) on dependent areas, arthritis/arthralgia (large joints), colicky abdominal pain (potentially with GI bleeding or intussusception), and renal involvement (hematuria, proteinuria). Physical examination should assess skin, joints, abdomen, and urine. Pertinent rule-outs include ITP (thrombocytopenia), other vasculitides, and sepsis with purpura. Diagnostic workup includes CBC (normal platelets), ESR/CRP (elevated), urinalysis, stool occult blood, and renal function tests. Skin biopsy showing IgA deposition is confirmatory but often not needed. Management is supportive; corticosteroids may be used for severe abdominal pain or progressive renal disease, following international consensus guidelines."
   },
   {
     "id": "ICD10-M30.3",
@@ -2588,7 +2649,7 @@
       "absence of other clear infectious source for fever",
       "absence of other causes for rash/lymphadenopathy"
     ],
-    "content": "Kawasaki Disease is an acute systemic vasculitis primarily affecting medium-sized arteries, notably the coronary arteries, in young children. Diagnosis requires fever lasting ≥5 days plus at least four of five principal clinical features: bilateral non-exudative conjunctivitis, oral changes (strawberry tongue, cracked lips), peripheral extremity changes (erythema, edema, desquamation), polymorphous rash, and cervical lymphadenopathy. Physical examination involves a meticulous assessment of all criteria and cardiac auscultation. Pertinent rule-outs include measles, scarlet fever, adenovirus, and drug reactions. Diagnostic workup includes CBC (leukocytosis, thrombocytosis), ESR/CRP (elevated), LFTs, urinalysis, and crucially, an echocardiogram to assess for coronary artery aneurysms. Management with intravenous immunoglobulin (IVIG) and high-dose aspirin is critical to prevent cardiac complications, guided by American Heart Association and Indian Academy of Pediatrics protocols."
+    "content": "Kawasaki Disease is an acute systemic vasculitis primarily affecting medium-sized arteries, notably the coronary arteries, in young children. Diagnosis requires fever lasting \u22655 days plus at least four of five principal clinical features: bilateral non-exudative conjunctivitis, oral changes (strawberry tongue, cracked lips), peripheral extremity changes (erythema, edema, desquamation), polymorphous rash, and cervical lymphadenopathy. Physical examination involves a meticulous assessment of all criteria and cardiac auscultation. Pertinent rule-outs include measles, scarlet fever, adenovirus, and drug reactions. Diagnostic workup includes CBC (leukocytosis, thrombocytosis), ESR/CRP (elevated), LFTs, urinalysis, and crucially, an echocardiogram to assess for coronary artery aneurysms. Management with intravenous immunoglobulin (IVIG) and high-dose aspirin is critical to prevent cardiac complications, guided by American Heart Association and Indian Academy of Pediatrics protocols."
   },
   {
     "id": "ICD10-R10.84",
@@ -3185,7 +3246,7 @@
       "absence of septic joint (unless co-occurring)",
       "absence of psoriasis or inflammatory bowel disease"
     ],
-    "content": "Seropositive Rheumatoid Arthritis (RA) presents with insidious onset of symmetrical polyarthritis, predominantly affecting the small joints of the hands and feet, wrists, and knees. Patients experience prolonged morning stiffness (>30 minutes), fatigue, and joint swelling. Physical examination reveals tender, swollen joints, limited range of motion, and in chronic cases, characteristic deformities like ulnar deviation, boutonnière, or swan neck deformities. Key rule-outs include other inflammatory arthropathies (e.g., psoriatic arthritis, SLE), osteoarthritis, and septic arthritis. Diagnostic workup includes elevated ESR and CRP, positive Rheumatoid Factor (RF), and Anti-CCP antibodies (highly specific). Plain radiographs of hands and feet show periarticular erosions and joint space narrowing. Ultrasound or MRI can detect early synovitis and erosions, guiding early diagnosis and treatment according to ACR/EULAR criteria and Indian rheumatology guidelines."
+    "content": "Seropositive Rheumatoid Arthritis (RA) presents with insidious onset of symmetrical polyarthritis, predominantly affecting the small joints of the hands and feet, wrists, and knees. Patients experience prolonged morning stiffness (>30 minutes), fatigue, and joint swelling. Physical examination reveals tender, swollen joints, limited range of motion, and in chronic cases, characteristic deformities like ulnar deviation, boutonni\u00e8re, or swan neck deformities. Key rule-outs include other inflammatory arthropathies (e.g., psoriatic arthritis, SLE), osteoarthritis, and septic arthritis. Diagnostic workup includes elevated ESR and CRP, positive Rheumatoid Factor (RF), and Anti-CCP antibodies (highly specific). Plain radiographs of hands and feet show periarticular erosions and joint space narrowing. Ultrasound or MRI can detect early synovitis and erosions, guiding early diagnosis and treatment according to ACR/EULAR criteria and Indian rheumatology guidelines."
   },
   {
     "id": "ICD10-M45.0-Ankylosing-Spondylitis",
@@ -4096,7 +4157,7 @@
     ],
     "clinical_hallmarks": [
       "persistently elevated creatinine/BUN",
-      "decreased eGFR (<45 mL/min/1.73m²)",
+      "decreased eGFR (<45 mL/min/1.73m\u00b2)",
       "anemia of chronic disease",
       "peripheral edema"
     ],
@@ -4196,7 +4257,7 @@
       "chills"
     ],
     "red_flags": [
-      "high fever (>39°C) with rigors",
+      "high fever (>39\u00b0C) with rigors",
       "septic shock (hypotension, tachycardia)",
       "severe flank pain with persistent vomiting",
       "signs of urinary obstruction (anuria, severe hydronephrosis)",
@@ -4727,7 +4788,7 @@
       "severe self-neglect"
     ],
     "clinical_hallmarks": [
-      "Mania: distinct period of elevated, expansive, or irritable mood and increased activity/energy, lasting ≥1 week, with ≥3 other symptoms (e.g., grandiosity, decreased need for sleep, pressured speech, flight of ideas, distractibility, impulsivity).",
+      "Mania: distinct period of elevated, expansive, or irritable mood and increased activity/energy, lasting \u22651 week, with \u22653 other symptoms (e.g., grandiosity, decreased need for sleep, pressured speech, flight of ideas, distractibility, impulsivity).",
       "Depression: as per MDD criteria."
     ],
     "pertinent_negatives": [
@@ -4885,7 +4946,7 @@
       "absence of localized pain (r/o cholecystitis, diverticulitis)",
       "absence of recent abdominal surgery or instrumentation"
     ],
-    "content": "Spontaneous bacterial peritonitis (SBP) is an acute infection of ascitic fluid without an obvious intra-abdominal source, predominantly seen in patients with cirrhosis. Presentation often includes fever, new or worsening abdominal pain, altered mental status, and worsening renal function. Physical examination may reveal diffuse abdominal tenderness, signs of ascites, and stigmata of chronic liver disease. It is crucial to rule out secondary peritonitis (e.g., perforated viscus, abscess) which requires surgical intervention. Diagnostic workup involves urgent diagnostic paracentesis (ascitic fluid PMN count > 250 cells/mm³ is diagnostic, with positive culture confirming SBP), blood cultures, LFTs, renal function. Empiric broad-spectrum antibiotics (e.g., third-generation cephalosporins) are initiated immediately."
+    "content": "Spontaneous bacterial peritonitis (SBP) is an acute infection of ascitic fluid without an obvious intra-abdominal source, predominantly seen in patients with cirrhosis. Presentation often includes fever, new or worsening abdominal pain, altered mental status, and worsening renal function. Physical examination may reveal diffuse abdominal tenderness, signs of ascites, and stigmata of chronic liver disease. It is crucial to rule out secondary peritonitis (e.g., perforated viscus, abscess) which requires surgical intervention. Diagnostic workup involves urgent diagnostic paracentesis (ascitic fluid PMN count > 250 cells/mm\u00b3 is diagnostic, with positive culture confirming SBP), blood cultures, LFTs, renal function. Empiric broad-spectrum antibiotics (e.g., third-generation cephalosporins) are initiated immediately."
   },
   {
     "id": "ICD10-K72.90",
@@ -5177,14 +5238,22 @@
     "specialty": "Infectious Disease",
     "organ_system": "Respiratory",
     "keywords": [
-      "tuberculosis",
-      "tb",
-      "ptb",
+      "blood in sputum",
+      "chest pain",
       "cough",
       "hemoptysis",
+      "loss of appetite",
+      "malaise",
+      "mild fever",
+      "mycobacterium",
       "night sweats",
+      "phlegm",
+      "ptb",
+      "swelled lymph nodes",
+      "tb",
+      "tuberculosis",
       "weight loss",
-      "mycobacterium"
+      "yellowing of eyes"
     ],
     "red_flags": [
       "hemoptysis",
@@ -5468,15 +5537,24 @@
     "specialty": "Infectious Disease / Dermatology / Pulmonology",
     "organ_system": "Dermatologic / Systemic / Respiratory",
     "keywords": [
-      "chickenpox",
-      "varicella",
-      "vzv",
-      "rash",
-      "vesicles",
-      "pruritus",
-      "immunocompromised",
       "adults",
-      "pneumonia"
+      "chicken pox",
+      "chickenpox",
+      "fatigue",
+      "headache",
+      "high fever",
+      "immunocompromised",
+      "itching",
+      "lethargy",
+      "malaise",
+      "pneumonia",
+      "pruritus",
+      "rash",
+      "red spots over body",
+      "skin rash",
+      "varicella",
+      "vesicles",
+      "vzv"
     ],
     "red_flags": [
       "varicella pneumonia",
@@ -5555,7 +5633,7 @@
       "gonorrhea"
     ],
     "red_flags": [
-      "high fever (>101°F/38.3°C)",
+      "high fever (>101\u00b0F/38.3\u00b0C)",
       "severe lower abdominal pain with rebound tenderness",
       "hemodynamic instability",
       "tubo-ovarian abscess (TOA) suspicion",
@@ -5871,7 +5949,7 @@
       "absence of significant weight loss (type 1 dm)",
       "absence of ketonuria (unless severe uncontrolled)"
     ],
-    "content": "Gestational Diabetes Mellitus (GDM) is glucose intolerance first recognized during pregnancy, typically screened between 24-28 weeks. In India, the DIPSI (Diabetes in Pregnancy Study Group India) criteria recommend a single-step 75g oral glucose tolerance test (OGTT) with a 2-hour post-glucose value ≥140 mg/dL (7.8 mmol/L) for diagnosis. Most women are asymptomatic. Risk factors include obesity, family history of diabetes, previous GDM, and advanced maternal age. Physical exam is usually unremarkable, but fundal height may be larger than expected due to macrosomia. Rule out pre-existing Type 1 or Type 2 diabetes. Diagnostic workup involves the OGTT. Management includes medical nutrition therapy, regular exercise, and blood glucose monitoring. Insulin therapy or oral hypoglycemic agents (e.g., metformin, glyburide) may be initiated if glycemic targets are not met. Close fetal surveillance is essential to prevent complications like macrosomia, shoulder dystocia, and neonatal hypoglycemia. Postpartum screening for persistent diabetes is crucial."
+    "content": "Gestational Diabetes Mellitus (GDM) is glucose intolerance first recognized during pregnancy, typically screened between 24-28 weeks. In India, the DIPSI (Diabetes in Pregnancy Study Group India) criteria recommend a single-step 75g oral glucose tolerance test (OGTT) with a 2-hour post-glucose value \u2265140 mg/dL (7.8 mmol/L) for diagnosis. Most women are asymptomatic. Risk factors include obesity, family history of diabetes, previous GDM, and advanced maternal age. Physical exam is usually unremarkable, but fundal height may be larger than expected due to macrosomia. Rule out pre-existing Type 1 or Type 2 diabetes. Diagnostic workup involves the OGTT. Management includes medical nutrition therapy, regular exercise, and blood glucose monitoring. Insulin therapy or oral hypoglycemic agents (e.g., metformin, glyburide) may be initiated if glycemic targets are not met. Close fetal surveillance is essential to prevent complications like macrosomia, shoulder dystocia, and neonatal hypoglycemia. Postpartum screening for persistent diabetes is crucial."
   },
   {
     "id": "ICD10-F53.0",
@@ -6887,7 +6965,7 @@
       "absence of peripheral edema",
       "normal JVP"
     ],
-    "content": "HFpEF is characterized by symptoms and signs of heart failure with a preserved left ventricular ejection fraction (EF ≥50%), primarily due to impaired diastolic relaxation and increased LV stiffness. Patients present similarly to HFrEF, with exertional dyspnea, orthopnea, PND, and peripheral edema, often in the context of hypertension, diabetes, or obesity. Physical examination may reveal an S4 gallop, elevated JVP, and pulmonary crackles or peripheral edema. Pertinent negatives include a reduced EF on echocardiography. Diagnostic workup includes BNP/NT-proBNP, renal function, electrolytes, and thyroid function. Echocardiography confirms normal EF, assesses LV hypertrophy, and evaluates diastolic function parameters. Rule out HFrEF and significant valvular disease. Management focuses on controlling comorbidities (hypertension, diabetes, AF) and symptom relief with diuretics, with SGLT2 inhibitors now recommended, aligning with international and national guidelines."
+    "content": "HFpEF is characterized by symptoms and signs of heart failure with a preserved left ventricular ejection fraction (EF \u226550%), primarily due to impaired diastolic relaxation and increased LV stiffness. Patients present similarly to HFrEF, with exertional dyspnea, orthopnea, PND, and peripheral edema, often in the context of hypertension, diabetes, or obesity. Physical examination may reveal an S4 gallop, elevated JVP, and pulmonary crackles or peripheral edema. Pertinent negatives include a reduced EF on echocardiography. Diagnostic workup includes BNP/NT-proBNP, renal function, electrolytes, and thyroid function. Echocardiography confirms normal EF, assesses LV hypertrophy, and evaluates diastolic function parameters. Rule out HFrEF and significant valvular disease. Management focuses on controlling comorbidities (hypertension, diabetes, AF) and symptom relief with diuretics, with SGLT2 inhibitors now recommended, aligning with international and national guidelines."
   },
   {
     "id": "ICD10-AS",
@@ -7412,7 +7490,7 @@
       "absence of chronic thromboembolic disease",
       "absence of other systemic diseases causing PH"
     ],
-    "content": "Pulmonary Arterial Hypertension (PAH, Group 1) is a rare, progressive disease characterized by remodeling of small pulmonary arteries, leading to increased pulmonary vascular resistance and right ventricular failure. WHO Functional Class III-IV indicates significant limitation of physical activity or inability to carry out any physical activity without symptoms. Patients present with progressive exertional dyspnea, fatigue, chest pain, and syncope. Physical exam reveals signs of right heart failure: jugular venous distension (JVD), peripheral edema, hepatomegaly, and a loud P2 heart sound. Rule out left heart disease, significant lung disease, chronic thromboembolic pulmonary hypertension (CTEPH), and other causes of pulmonary hypertension. Diagnostic workup includes echocardiography (screening for RV dysfunction and estimated PH), PFTs (to rule out lung disease), V/Q scan (to rule out CTEPH), and right heart catheterization (RHC), which is diagnostic, confirming mean pulmonary arterial pressure > 20 mmHg, pulmonary artery wedge pressure ≤ 15 mmHg, and pulmonary vascular resistance > 2 Wood units. Vasoreactivity testing during RHC guides treatment."
+    "content": "Pulmonary Arterial Hypertension (PAH, Group 1) is a rare, progressive disease characterized by remodeling of small pulmonary arteries, leading to increased pulmonary vascular resistance and right ventricular failure. WHO Functional Class III-IV indicates significant limitation of physical activity or inability to carry out any physical activity without symptoms. Patients present with progressive exertional dyspnea, fatigue, chest pain, and syncope. Physical exam reveals signs of right heart failure: jugular venous distension (JVD), peripheral edema, hepatomegaly, and a loud P2 heart sound. Rule out left heart disease, significant lung disease, chronic thromboembolic pulmonary hypertension (CTEPH), and other causes of pulmonary hypertension. Diagnostic workup includes echocardiography (screening for RV dysfunction and estimated PH), PFTs (to rule out lung disease), V/Q scan (to rule out CTEPH), and right heart catheterization (RHC), which is diagnostic, confirming mean pulmonary arterial pressure > 20 mmHg, pulmonary artery wedge pressure \u2264 15 mmHg, and pulmonary vascular resistance > 2 Wood units. Vasoreactivity testing during RHC guides treatment."
   },
   {
     "id": "ICD10-C92.00",
@@ -7474,7 +7552,7 @@
     ],
     "clinical_hallmarks": [
       "massive splenomegaly",
-      "persistent marked leukocytosis (often >100,000/µL) with myeloid left shift",
+      "persistent marked leukocytosis (often >100,000/\u00b5L) with myeloid left shift",
       "fatigue, weight loss"
     ],
     "pertinent_negatives": [
@@ -7543,7 +7621,7 @@
     ],
     "clinical_hallmarks": [
       "painless, firm, rubbery lymphadenopathy (often cervical/supraclavicular)",
-      "B-symptoms (unexplained fever >38°C, drenching night sweats, >10% weight loss in 6 months)",
+      "B-symptoms (unexplained fever >38\u00b0C, drenching night sweats, >10% weight loss in 6 months)",
       "pruritus"
     ],
     "pertinent_negatives": [
@@ -7551,7 +7629,7 @@
       "no circulating blasts",
       "no lytic bone lesions"
     ],
-    "content": "Hodgkin Lymphoma typically presents with painless, firm, rubbery lymphadenopathy, most commonly in the cervical, supraclavicular, axillary, or mediastinal regions. B-symptoms (unexplained fever >38°C, drenching night sweats, >10% weight loss in 6 months) and pruritus are common. Alcohol-induced lymph node pain can occur. Physical examination reveals palpable lymphadenopathy; hepatosplenomegaly is less common than in NHL. Rule-outs include Non-Hodgkin lymphoma, infectious mononucleosis, tuberculosis, sarcoidosis, and metastatic carcinoma. Diagnostic workup requires an excisional lymph node biopsy to identify Reed-Sternberg cells. CBC, ESR, LDH, liver/renal function tests, HIV, and hepatitis serology are also performed. Staging involves PET/CT scan and CT of the neck, chest, abdomen, and pelvis. Bone marrow biopsy is considered for advanced stages or cytopenias."
+    "content": "Hodgkin Lymphoma typically presents with painless, firm, rubbery lymphadenopathy, most commonly in the cervical, supraclavicular, axillary, or mediastinal regions. B-symptoms (unexplained fever >38\u00b0C, drenching night sweats, >10% weight loss in 6 months) and pruritus are common. Alcohol-induced lymph node pain can occur. Physical examination reveals palpable lymphadenopathy; hepatosplenomegaly is less common than in NHL. Rule-outs include Non-Hodgkin lymphoma, infectious mononucleosis, tuberculosis, sarcoidosis, and metastatic carcinoma. Diagnostic workup requires an excisional lymph node biopsy to identify Reed-Sternberg cells. CBC, ESR, LDH, liver/renal function tests, HIV, and hepatitis serology are also performed. Staging involves PET/CT scan and CT of the neck, chest, abdomen, and pelvis. Bone marrow biopsy is considered for advanced stages or cytopenias."
   },
   {
     "id": "ICD10-C83.30",
@@ -7605,7 +7683,7 @@
     ],
     "red_flags": [
       "severe active bleeding (GI, intracranial)",
-      "platelet count <10,000/µL with bleeding",
+      "platelet count <10,000/\u00b5L with bleeding",
       "new neurological symptoms",
       "hemodynamic instability"
     ],
@@ -7720,8 +7798,8 @@
       "altered mental status"
     ],
     "clinical_hallmarks": [
-      "oral temperature ≥38.3°C (101°F) or ≥38.0°C (100.4°F) sustained for >1 hour",
-      "absolute neutrophil count (ANC) <500 cells/µL or expected to fall <500 cells/µL within 48 hours"
+      "oral temperature \u226538.3\u00b0C (101\u00b0F) or \u226538.0\u00b0C (100.4\u00b0F) sustained for >1 hour",
+      "absolute neutrophil count (ANC) <500 cells/\u00b5L or expected to fall <500 cells/\u00b5L within 48 hours"
     ],
     "pertinent_negatives": [
       "absence of other clear causes of fever (e.g., drug fever, transfusion reaction)",
@@ -8172,7 +8250,7 @@
       "absence of acute monoarthritis",
       "absence of severe systemic lupus features"
     ],
-    "content": "Rheumatoid Arthritis (RA) presents with symmetrical polyarthritis, predominantly affecting small joints of hands and feet, characterized by morning stiffness lasting over 30 minutes. Physical examination reveals swollen, tender joints, often with ulnar deviation, swan-neck, or boutonnière deformities. Rheumatoid nodules may be present. Pertinent rule-outs include psoriatic arthritis, SLE, gout, and viral arthritis. Diagnostic workup involves serology (Rheumatoid Factor, anti-CCP antibodies), inflammatory markers (ESR, CRP), and imaging (X-rays of hands/feet to assess erosions and joint space narrowing). Ultrasound and MRI can detect early synovitis and erosions. Classification criteria (ACR/EULAR) guide diagnosis. Treatment aims for remission, often with DMARDs, aligned with Indian and international hospital guidelines."
+    "content": "Rheumatoid Arthritis (RA) presents with symmetrical polyarthritis, predominantly affecting small joints of hands and feet, characterized by morning stiffness lasting over 30 minutes. Physical examination reveals swollen, tender joints, often with ulnar deviation, swan-neck, or boutonni\u00e8re deformities. Rheumatoid nodules may be present. Pertinent rule-outs include psoriatic arthritis, SLE, gout, and viral arthritis. Diagnostic workup involves serology (Rheumatoid Factor, anti-CCP antibodies), inflammatory markers (ESR, CRP), and imaging (X-rays of hands/feet to assess erosions and joint space narrowing). Ultrasound and MRI can detect early synovitis and erosions. Classification criteria (ACR/EULAR) guide diagnosis. Treatment aims for remission, often with DMARDs, aligned with Indian and international hospital guidelines."
   },
   {
     "id": "ICD10-M32.10",
@@ -8332,7 +8410,7 @@
   },
   {
     "id": "ICD10-M35.00",
-    "topic": "Sjögren's Syndrome (Keratoconjunctivitis Sicca & Xerostomia)",
+    "topic": "Sj\u00f6gren's Syndrome (Keratoconjunctivitis Sicca & Xerostomia)",
     "icd10": "M35.00",
     "specialty": "Rheumatology",
     "organ_system": "Glandular / Immune / Systemic",
@@ -8365,7 +8443,7 @@
       "absence of primary infection of salivary glands",
       "absence of significant malignancy (other than lymphoma risk)"
     ],
-    "content": "Sjögren's Syndrome is a chronic autoimmune disease primarily affecting exocrine glands, leading to keratoconjunctivitis sicca (dry eyes) and xerostomia (dry mouth). Patients often report gritty sensation in eyes, difficulty swallowing dry food, and dental caries. Fatigue and arthralgia are common systemic symptoms. Physical examination may reveal parotid gland enlargement, dental decay, and ocular signs of dryness (e.g., reduced tear film, corneal staining). Rule-outs include medication-induced dryness, sarcoidosis, and other autoimmune diseases. Diagnostic workup includes autoantibodies (ANA, RF, anti-Ro/SSA, anti-La/SSB), Schirmer's test (tear production), and salivary flow rate. Lip biopsy showing focal lymphocytic sialadenitis is confirmatory. Management focuses on symptomatic relief, preventing complications, and monitoring for lymphoma development, aligned with Indian and international hospital guidelines."
+    "content": "Sj\u00f6gren's Syndrome is a chronic autoimmune disease primarily affecting exocrine glands, leading to keratoconjunctivitis sicca (dry eyes) and xerostomia (dry mouth). Patients often report gritty sensation in eyes, difficulty swallowing dry food, and dental caries. Fatigue and arthralgia are common systemic symptoms. Physical examination may reveal parotid gland enlargement, dental decay, and ocular signs of dryness (e.g., reduced tear film, corneal staining). Rule-outs include medication-induced dryness, sarcoidosis, and other autoimmune diseases. Diagnostic workup includes autoantibodies (ANA, RF, anti-Ro/SSA, anti-La/SSB), Schirmer's test (tear production), and salivary flow rate. Lip biopsy showing focal lymphocytic sialadenitis is confirmatory. Management focuses on symptomatic relief, preventing complications, and monitoring for lymphoma development, aligned with Indian and international hospital guidelines."
   },
   {
     "id": "ICD10-M10.00",
@@ -8463,7 +8541,7 @@
       "cauda equina syndrome"
     ],
     "clinical_hallmarks": [
-      "chronic widespread pain (WPI ≥ 7 and SS scale ≥ 5, or WPI 3-6 and SS scale ≥ 9)",
+      "chronic widespread pain (WPI \u2265 7 and SS scale \u2265 5, or WPI 3-6 and SS scale \u2265 9)",
       "fatigue",
       "unrefreshing sleep",
       "cognitive difficulties (\"fibro fog\")",
@@ -8665,7 +8743,7 @@
       "normal gag reflex",
       "normal 20WBCT"
     ],
-    "content": "Elapid envenomation (e.g., Krait, Cobra) primarily causes neurotoxicity with minimal local reaction. Patients present with progressive descending flaccid paralysis, starting with ptosis, ophthalmoplegia, and diplopia, followed by dysphagia, dysarthria, and ultimately respiratory muscle paralysis leading to respiratory failure. Altered mental status is less common unless hypoxia is severe. Physical exam reveals progressive cranial nerve palsies and muscle weakness. Pertinent rule-outs include other causes of acute flaccid paralysis (e.g., Guillain-Barré Syndrome, botulism, myasthenia gravis crisis) and stroke. Diagnostic workup includes serial neurological assessments, spirometry (FVC), ABG, and a 20WBCT (typically normal) to differentiate from viperine bites. Management involves prompt administration of specific antivenom and aggressive airway management, including mechanical ventilation if respiratory failure ensues."
+    "content": "Elapid envenomation (e.g., Krait, Cobra) primarily causes neurotoxicity with minimal local reaction. Patients present with progressive descending flaccid paralysis, starting with ptosis, ophthalmoplegia, and diplopia, followed by dysphagia, dysarthria, and ultimately respiratory muscle paralysis leading to respiratory failure. Altered mental status is less common unless hypoxia is severe. Physical exam reveals progressive cranial nerve palsies and muscle weakness. Pertinent rule-outs include other causes of acute flaccid paralysis (e.g., Guillain-Barr\u00e9 Syndrome, botulism, myasthenia gravis crisis) and stroke. Diagnostic workup includes serial neurological assessments, spirometry (FVC), ABG, and a 20WBCT (typically normal) to differentiate from viperine bites. Management involves prompt administration of specific antivenom and aggressive airway management, including mechanical ventilation if respiratory failure ensues."
   },
   {
     "id": "ICD10-T63.2",
@@ -8839,12 +8917,12 @@
     "red_flags": [
       "altered mental status (confusion, delirium, coma)",
       "seizures",
-      "core body temperature > 40°C (104°F)",
+      "core body temperature > 40\u00b0C (104\u00b0F)",
       "hypotension",
       "acute kidney injury"
     ],
     "clinical_hallmarks": [
-      "core body temperature > 40°C",
+      "core body temperature > 40\u00b0C",
       "altered mental status",
       "hot dry skin (classic) or sweating (exertional)",
       "tachycardia"
@@ -8855,7 +8933,7 @@
       "absence of neurological deficits",
       "stable vital signs"
     ],
-    "content": "Heat stroke is a life-threatening condition characterized by a core body temperature >40°C (104°F) and central nervous system dysfunction (e.g., altered mental status, seizures, delirium, coma). Heat exhaustion involves similar symptoms but without significant CNS impairment and with a core temperature typically <40°C. Patients present with headache, dizziness, nausea, vomiting, muscle cramps, and profound weakness. Skin may be hot and dry (classic) or profusely sweating (exertional). Physical exam reveals hyperthermia, tachycardia, hypotension, and neurological deficits in heat stroke. Pertinent rule-outs include sepsis, meningitis, thyroid storm, and drug-induced hyperthermia. Diagnostic workup includes rectal core temperature, electrolytes, renal and liver function tests, CK, coagulation profile, ABG, and ECG. Rapid cooling is paramount, along with fluid resuscitation and supportive care."
+    "content": "Heat stroke is a life-threatening condition characterized by a core body temperature >40\u00b0C (104\u00b0F) and central nervous system dysfunction (e.g., altered mental status, seizures, delirium, coma). Heat exhaustion involves similar symptoms but without significant CNS impairment and with a core temperature typically <40\u00b0C. Patients present with headache, dizziness, nausea, vomiting, muscle cramps, and profound weakness. Skin may be hot and dry (classic) or profusely sweating (exertional). Physical exam reveals hyperthermia, tachycardia, hypotension, and neurological deficits in heat stroke. Pertinent rule-outs include sepsis, meningitis, thyroid storm, and drug-induced hyperthermia. Diagnostic workup includes rectal core temperature, electrolytes, renal and liver function tests, CK, coagulation profile, ABG, and ECG. Rapid cooling is paramount, along with fluid resuscitation and supportive care."
   },
   {
     "id": "ICD10-T75.4XXA",
@@ -9206,7 +9284,7 @@
     ],
     "red_flags": [
       "worsening right lower quadrant pain",
-      "high fever (>38.5°C)",
+      "high fever (>38.5\u00b0C)",
       "generalized guarding or rigidity",
       "rebound tenderness",
       "signs of peritonitis (diffuse tenderness)",
@@ -9299,7 +9377,7 @@
       "absence of pre-existing renal disease",
       "absence of other neurological deficits"
     ],
-    "content": "Severe preeclampsia presents with new-onset hypertension (systolic ≥160 mmHg or diastolic ≥110 mmHg) on two occasions at least four hours apart, accompanied by proteinuria or signs of end-organ damage (e.g., severe headache, visual disturbances, epigastric pain, elevated liver enzymes, thrombocytopenia, renal insufficiency, pulmonary edema). Eclampsia is the occurrence of new-onset grand mal seizures in a woman with preeclampsia. Physical examination includes blood pressure monitoring, assessment for edema, hyperreflexia, clonus, and fundoscopy. Pertinent rule-outs include chronic hypertension, HELLP syndrome, TTP, and neurological events like stroke. Diagnostic workup involves CBC, LFTs, creatinine, uric acid, 24-hour urine protein or protein/creatinine ratio, and fetal monitoring. Immediate management includes magnesium sulfate for seizure prophylaxis/treatment, antihypertensives, and timely delivery, often after maternal stabilization, guided by gestational age and severity."
+    "content": "Severe preeclampsia presents with new-onset hypertension (systolic \u2265160 mmHg or diastolic \u2265110 mmHg) on two occasions at least four hours apart, accompanied by proteinuria or signs of end-organ damage (e.g., severe headache, visual disturbances, epigastric pain, elevated liver enzymes, thrombocytopenia, renal insufficiency, pulmonary edema). Eclampsia is the occurrence of new-onset grand mal seizures in a woman with preeclampsia. Physical examination includes blood pressure monitoring, assessment for edema, hyperreflexia, clonus, and fundoscopy. Pertinent rule-outs include chronic hypertension, HELLP syndrome, TTP, and neurological events like stroke. Diagnostic workup involves CBC, LFTs, creatinine, uric acid, 24-hour urine protein or protein/creatinine ratio, and fetal monitoring. Immediate management includes magnesium sulfate for seizure prophylaxis/treatment, antihypertensives, and timely delivery, often after maternal stabilization, guided by gestational age and severity."
   },
   {
     "id": "ICD10-O14.2",
@@ -9335,7 +9413,7 @@
       "absence of other causes of thrombocytopenia",
       "absence of severe bleeding diathesis unrelated to platelets"
     ],
-    "content": "HELLP syndrome is a severe variant of preeclampsia characterized by Hemolysis, Elevated Liver enzymes, and Low Platelets. Patients typically present with severe right upper quadrant or epigastric pain, nausea, vomiting, malaise, and sometimes jaundice. Headache and visual disturbances may also occur. Physical examination reveals abdominal tenderness, possibly jaundice, and signs of preeclampsia. Pertinent rule-outs include acute fatty liver of pregnancy, TTP, HUS, and severe preeclampsia without HELLP. Diagnostic workup confirms the triad: LDH >600 U/L, indirect bilirubin >1.2 mg/dL, schistocytes on smear (hemolysis); AST/ALT >70 U/L (elevated liver enzymes); and platelet count <100,000/µL (low platelets). Coagulation profile and renal function tests are also crucial. Management involves immediate stabilization, corticosteroids for fetal lung maturity if preterm, and prompt delivery, regardless of gestational age, to prevent maternal and fetal morbidity."
+    "content": "HELLP syndrome is a severe variant of preeclampsia characterized by Hemolysis, Elevated Liver enzymes, and Low Platelets. Patients typically present with severe right upper quadrant or epigastric pain, nausea, vomiting, malaise, and sometimes jaundice. Headache and visual disturbances may also occur. Physical examination reveals abdominal tenderness, possibly jaundice, and signs of preeclampsia. Pertinent rule-outs include acute fatty liver of pregnancy, TTP, HUS, and severe preeclampsia without HELLP. Diagnostic workup confirms the triad: LDH >600 U/L, indirect bilirubin >1.2 mg/dL, schistocytes on smear (hemolysis); AST/ALT >70 U/L (elevated liver enzymes); and platelet count <100,000/\u00b5L (low platelets). Coagulation profile and renal function tests are also crucial. Management involves immediate stabilization, corticosteroids for fetal lung maturity if preterm, and prompt delivery, regardless of gestational age, to prevent maternal and fetal morbidity."
   },
   {
     "id": "ICD10-O72.1",
@@ -9361,7 +9439,7 @@
       "altered mental status"
     ],
     "clinical_hallmarks": [
-      "cumulative blood loss ≥1000 mL or signs of hypovolemia within 24 hours of birth",
+      "cumulative blood loss \u22651000 mL or signs of hypovolemia within 24 hours of birth",
       "soft, boggy uterus",
       "persistent vaginal bleeding"
     ],
@@ -9370,7 +9448,7 @@
       "absence of retained placental tissue",
       "absence of genital tract lacerations"
     ],
-    "content": "Postpartum hemorrhage (PPH) is defined as cumulative blood loss ≥1000 mL or blood loss accompanied by signs/symptoms of hypovolemia within 24 hours of birth. Uterine atony is the most common cause. Patients present with heavy vaginal bleeding, often with a soft, boggy uterus. Signs of hypovolemic shock (tachycardia, hypotension, pallor, altered mental status) may develop rapidly. Physical examination involves uterine palpation for tone, fundal height, and a thorough genital tract inspection for lacerations or retained placental tissue. Pertinent rule-outs include retained placenta, genital tract trauma, and coagulopathy. Diagnostic workup includes CBC, type & screen, and coagulation studies. Initial management focuses on uterine massage, uterotonics (oxytocin, carboprost, methylergonovine), bimanual compression, and intrauterine balloon tamponade (e.g., Bakri balloon). Surgical interventions like B-Lynch sutures or hysterectomy may be necessary for refractory cases."
+    "content": "Postpartum hemorrhage (PPH) is defined as cumulative blood loss \u22651000 mL or blood loss accompanied by signs/symptoms of hypovolemia within 24 hours of birth. Uterine atony is the most common cause. Patients present with heavy vaginal bleeding, often with a soft, boggy uterus. Signs of hypovolemic shock (tachycardia, hypotension, pallor, altered mental status) may develop rapidly. Physical examination involves uterine palpation for tone, fundal height, and a thorough genital tract inspection for lacerations or retained placental tissue. Pertinent rule-outs include retained placenta, genital tract trauma, and coagulopathy. Diagnostic workup includes CBC, type & screen, and coagulation studies. Initial management focuses on uterine massage, uterotonics (oxytocin, carboprost, methylergonovine), bimanual compression, and intrauterine balloon tamponade (e.g., Bakri balloon). Surgical interventions like B-Lynch sutures or hysterectomy may be necessary for refractory cases."
   },
   {
     "id": "ICD10-O44.1",
@@ -9460,7 +9538,7 @@
     ],
     "red_flags": [
       "confirmed rupture of membranes before 37 weeks",
-      "maternal fever >100.4°F (38°C)",
+      "maternal fever >100.4\u00b0F (38\u00b0C)",
       "uterine tenderness",
       "foul-smelling amniotic fluid",
       "maternal/fetal tachycardia"
@@ -9476,7 +9554,7 @@
       "absence of vaginal discharge (e.g., candidiasis)",
       "absence of cervical mucus plug loss without fluid leakage"
     ],
-    "content": "PPROM is the rupture of amniotic membranes before 37 weeks gestation and prior to the onset of labor. Patients typically report a sudden gush or continuous leakage of clear or yellowish fluid from the vagina. Chorioamnionitis, an intra-amniotic infection, is a serious complication. Signs of chorioamnionitis include maternal fever (>100.4°F/38°C), uterine tenderness, foul-smelling amniotic fluid, and maternal/fetal tachycardia. Physical examination involves a sterile speculum exam to confirm membrane rupture (pooling, nitrazine test, ferning) and assess for cervical dilation; digital exams are avoided unless in active labor. Pertinent rule-outs include urinary incontinence and normal vaginal discharge. Diagnostic workup includes ultrasound for amniotic fluid index, CBC, CRP, and cultures (GBS, STIs). Management involves expectant management with antibiotics, corticosteroids for fetal lung maturity, and close monitoring for infection. Delivery is indicated if chorioamnionitis or fetal compromise develops."
+    "content": "PPROM is the rupture of amniotic membranes before 37 weeks gestation and prior to the onset of labor. Patients typically report a sudden gush or continuous leakage of clear or yellowish fluid from the vagina. Chorioamnionitis, an intra-amniotic infection, is a serious complication. Signs of chorioamnionitis include maternal fever (>100.4\u00b0F/38\u00b0C), uterine tenderness, foul-smelling amniotic fluid, and maternal/fetal tachycardia. Physical examination involves a sterile speculum exam to confirm membrane rupture (pooling, nitrazine test, ferning) and assess for cervical dilation; digital exams are avoided unless in active labor. Pertinent rule-outs include urinary incontinence and normal vaginal discharge. Diagnostic workup includes ultrasound for amniotic fluid index, CBC, CRP, and cultures (GBS, STIs). Management involves expectant management with antibiotics, corticosteroids for fetal lung maturity, and close monitoring for infection. Delivery is indicated if chorioamnionitis or fetal compromise develops."
   },
   {
     "id": "ICD10-O66.0",
@@ -9561,7 +9639,7 @@
       "sirs"
     ],
     "red_flags": [
-      "maternal fever >100.4°F (38°C) on two occasions after 24h postpartum",
+      "maternal fever >100.4\u00b0F (38\u00b0C) on two occasions after 24h postpartum",
       "severe pelvic pain",
       "foul-smelling lochia",
       "chills",
@@ -9581,7 +9659,7 @@
       "normal lochia characteristics",
       "absence of other infection sources (e.g., mastitis, UTI)"
     ],
-    "content": "Puerperal sepsis, commonly endometritis, is a bacterial infection of the uterus occurring postpartum, often following cesarean section or prolonged labor. It presents with maternal fever (>100.4°F/38°C) on two occasions after the first 24 hours postpartum, severe pelvic pain, uterine tenderness, and foul-smelling lochia. Chills, malaise, and tachycardia are common. Physical examination includes abdominal palpation for uterine tenderness and involution, speculum exam to assess lochia characteristics, and inspection of any surgical wounds. Pertinent rule-outs include urinary tract infection, mastitis, wound infection, and DVT. Diagnostic workup involves CBC, CRP, blood cultures, urine culture, and possibly endometrial/wound cultures. Imaging (ultrasound, CT) may be used to rule out retained products or abscesses. Management requires prompt initiation of broad-spectrum intravenous antibiotics, supportive care, and surgical drainage if an abscess forms."
+    "content": "Puerperal sepsis, commonly endometritis, is a bacterial infection of the uterus occurring postpartum, often following cesarean section or prolonged labor. It presents with maternal fever (>100.4\u00b0F/38\u00b0C) on two occasions after the first 24 hours postpartum, severe pelvic pain, uterine tenderness, and foul-smelling lochia. Chills, malaise, and tachycardia are common. Physical examination includes abdominal palpation for uterine tenderness and involution, speculum exam to assess lochia characteristics, and inspection of any surgical wounds. Pertinent rule-outs include urinary tract infection, mastitis, wound infection, and DVT. Diagnostic workup involves CBC, CRP, blood cultures, urine culture, and possibly endometrial/wound cultures. Imaging (ultrasound, CT) may be used to rule out retained products or abscesses. Management requires prompt initiation of broad-spectrum intravenous antibiotics, supportive care, and surgical drainage if an abscess forms."
   },
   {
     "id": "ICD10-N83.1",
@@ -9729,7 +9807,7 @@
       "absence of head trauma",
       "absence of migraine history with similar severity"
     ],
-    "content": "Subarachnoid hemorrhage (SAH) from aneurysmal rupture classically presents with a 'thunderclap headache' – the sudden, severe 'worst headache of life,' often accompanied by nausea, vomiting, photophobia, and nuchal rigidity. Altered consciousness or focal neurological deficits may occur. Physical examination focuses on meningeal signs, cranial nerve function, and level of consciousness. Urgent non-contrast CT head is the initial diagnostic test. If CT is negative but suspicion remains high, a lumbar puncture for xanthochromia is indicated. Pertinent rule-outs include meningitis, migraine, and cervical artery dissection. Subsequent CTA, MRA, or digital subtraction angiography (DSA) is performed to localize the aneurysm. Management includes ABCs, blood pressure control, nimodipine for vasospasm prevention, and neurosurgical/neurointerventional consultation for aneurysm securing, following established protocols."
+    "content": "Subarachnoid hemorrhage (SAH) from aneurysmal rupture classically presents with a 'thunderclap headache' \u2013 the sudden, severe 'worst headache of life,' often accompanied by nausea, vomiting, photophobia, and nuchal rigidity. Altered consciousness or focal neurological deficits may occur. Physical examination focuses on meningeal signs, cranial nerve function, and level of consciousness. Urgent non-contrast CT head is the initial diagnostic test. If CT is negative but suspicion remains high, a lumbar puncture for xanthochromia is indicated. Pertinent rule-outs include meningitis, migraine, and cervical artery dissection. Subsequent CTA, MRA, or digital subtraction angiography (DSA) is performed to localize the aneurysm. Management includes ABCs, blood pressure control, nimodipine for vasospasm prevention, and neurosurgical/neurointerventional consultation for aneurysm securing, following established protocols."
   },
   {
     "id": "ICD10-I67.6",
@@ -9771,7 +9849,7 @@
   },
   {
     "id": "ICD10-G61.0",
-    "topic": "Guillain-Barré Syndrome (Acute Inflammatory Demyelinating Polyradiculoneuropathy)",
+    "topic": "Guillain-Barr\u00e9 Syndrome (Acute Inflammatory Demyelinating Polyradiculoneuropathy)",
     "icd10": "G61.0",
     "specialty": "Neurology",
     "organ_system": "Neurological",
@@ -9804,7 +9882,7 @@
       "absence of upper motor neuron signs",
       "absence of acute trauma"
     ],
-    "content": "Guillain-Barré Syndrome (GBS) is an acute, immune-mediated polyradiculoneuropathy characterized by rapidly progressive, symmetric ascending weakness, often preceded by a viral or bacterial infection. Areflexia is a hallmark. Physical examination focuses on motor strength, reflexes, and cranial nerve function, with close monitoring for respiratory and bulbar involvement. Pertinent rule-outs include transverse myelitis, botulism, critical illness polyneuropathy, and tick paralysis. Diagnostic workup includes CSF analysis (albuminocytologic dissociation) and nerve conduction studies/electromyography (NCS/EMG). Management involves close monitoring of vital capacity and bulbar function, ventilatory support if needed, and immunomodulatory therapy with intravenous immunoglobulin (IVIG) or plasma exchange (PLEX), as per international and Indian guidelines."
+    "content": "Guillain-Barr\u00e9 Syndrome (GBS) is an acute, immune-mediated polyradiculoneuropathy characterized by rapidly progressive, symmetric ascending weakness, often preceded by a viral or bacterial infection. Areflexia is a hallmark. Physical examination focuses on motor strength, reflexes, and cranial nerve function, with close monitoring for respiratory and bulbar involvement. Pertinent rule-outs include transverse myelitis, botulism, critical illness polyneuropathy, and tick paralysis. Diagnostic workup includes CSF analysis (albuminocytologic dissociation) and nerve conduction studies/electromyography (NCS/EMG). Management involves close monitoring of vital capacity and bulbar function, ventilatory support if needed, and immunomodulatory therapy with intravenous immunoglobulin (IVIG) or plasma exchange (PLEX), as per international and Indian guidelines."
   },
   {
     "id": "ICD10-G70.0",
@@ -10205,7 +10283,7 @@
       "normal mental status",
       "normal coagulation (rules out ALF)"
     ],
-    "content": "Acute liver failure (ALF) is defined by severe acute liver injury with encephalopathy and coagulopathy (INR ≥1.5) in a patient without pre-existing liver disease, occurring within 26 weeks of symptom onset. Common etiologies include acetaminophen overdose, viral hepatitis, and idiosyncratic drug reactions. Patients present with jaundice, nausea, vomiting, and rapidly progressive hepatic encephalopathy (confusion, asterixis, coma). Physical examination reveals jaundice, signs of encephalopathy, and potentially cerebral edema. Pertinent rule-outs include acute exacerbation of chronic liver disease, sepsis, and metabolic encephalopathies. Diagnostic workup includes LFTs (markedly elevated transaminases, bilirubin), coagulation profile (elevated INR), ammonia, glucose, and viral hepatitis serologies. Imaging (ultrasound, CT) assesses liver size and morphology. Kings College Criteria guide prognosis and liver transplant candidacy. Management focuses on supportive care, managing complications (cerebral edema, infection, renal failure), and urgent evaluation for liver transplantation."
+    "content": "Acute liver failure (ALF) is defined by severe acute liver injury with encephalopathy and coagulopathy (INR \u22651.5) in a patient without pre-existing liver disease, occurring within 26 weeks of symptom onset. Common etiologies include acetaminophen overdose, viral hepatitis, and idiosyncratic drug reactions. Patients present with jaundice, nausea, vomiting, and rapidly progressive hepatic encephalopathy (confusion, asterixis, coma). Physical examination reveals jaundice, signs of encephalopathy, and potentially cerebral edema. Pertinent rule-outs include acute exacerbation of chronic liver disease, sepsis, and metabolic encephalopathies. Diagnostic workup includes LFTs (markedly elevated transaminases, bilirubin), coagulation profile (elevated INR), ammonia, glucose, and viral hepatitis serologies. Imaging (ultrasound, CT) assesses liver size and morphology. Kings College Criteria guide prognosis and liver transplant candidacy. Management focuses on supportive care, managing complications (cerebral edema, infection, renal failure), and urgent evaluation for liver transplantation."
   },
   {
     "id": "ICD10-A04.71",
@@ -11752,12 +11830,18 @@
     "specialty": "Dermatology / Rheumatology",
     "organ_system": "Dermatological Autoimmune",
     "keywords": [
-      "psoriasis",
-      "silvery scales",
-      "red patches with white scales",
       "auspitz sign",
+      "inflammatory nails",
+      "joint pain",
       "koebner phenomenon",
-      "psoriatic arthritis"
+      "psoriasis",
+      "psoriatic arthritis",
+      "red patches with white scales",
+      "silver like dusting",
+      "silvery scales",
+      "skin peeling",
+      "skin rash",
+      "small dents in nails"
     ],
     "red_flags": [
       "erythrodermic psoriasis (> 90% body surface area involvement with hypothermia and high-output heart failure)",
@@ -12531,7 +12615,7 @@
   },
   {
     "id": "ICD10-H81.0",
-    "topic": "Ménière's Disease (Endolymphatic Hydrops)",
+    "topic": "M\u00e9ni\u00e8re's Disease (Endolymphatic Hydrops)",
     "icd10": "H81.0",
     "specialty": "ENT / Audiology",
     "organ_system": "Vestibular / Inner Ear",
@@ -12871,13 +12955,20 @@
     "specialty": "Vascular Surgery / Dermatology",
     "organ_system": "Vascular",
     "keywords": [
+      "bruising",
       "chronic venous insufficiency",
-      "varicose veins",
-      "venous stasis ulcer",
-      "stasis dermatitis",
+      "cramps",
+      "fatigue",
       "hemosiderin staining",
       "lipodermatosclerosis",
-      "medial malleolus ulcer"
+      "medial malleolus ulcer",
+      "obesity",
+      "prominent veins on calf",
+      "stasis dermatitis",
+      "swollen blood vessels",
+      "swollen legs",
+      "varicose veins",
+      "venous stasis ulcer"
     ],
     "red_flags": [
       "secondary bacterial cellulitis",
@@ -14598,7 +14689,7 @@
   },
   {
     "id": "ICD10-M35.2",
-    "topic": "Behçet's Disease (Recurrent Aphthous Ulcers & Pathergy Test)",
+    "topic": "Beh\u00e7et's Disease (Recurrent Aphthous Ulcers & Pathergy Test)",
     "icd10": "M35.2",
     "specialty": "Rheumatology / Ophthalmology / Dermatology",
     "organ_system": "Systemic Variable Vessel Vasculitis",
@@ -14683,7 +14774,7 @@
     "clinical_hallmarks": [
       "chronic, symmetric, inflammatory polyarthritis characteristically targeting the SMALL JOINTS OF HANDS AND FEET: Metacarpophalangeal (MCP), Proximal Interphalangeal (PIP), and wrist joints (STRICTLY SPARING THE DIP JOINTS)",
       "prolonged morning stiffness lasting GREATER THAN 60 MINUTES that improves with movement and warmth",
-      "pathognomonic hand deformities in established disease: 1. Ulnar deviation of fingers at MCP joints; 2. Swan-neck deformity (hyperextension of PIP with flexion of DIP); 3. Boutonnière deformity (flexion of PIP with hyperextension of DIP); 4. Z-deformity of thumb",
+      "pathognomonic hand deformities in established disease: 1. Ulnar deviation of fingers at MCP joints; 2. Swan-neck deformity (hyperextension of PIP with flexion of DIP); 3. Boutonni\u00e8re deformity (flexion of PIP with hyperextension of DIP); 4. Z-deformity of thumb",
       "subcutaneous firm, non-tender Rheumatoid Nodules over extensor surfaces (elbows)",
       "laboratory hallmarks: Anti-Citrullinated Protein Antibodies (Anti-CCP / ACPA: high specificity > 95-98%, correlates with aggressive erosive disease) and Rheumatoid Factor (RF 70-80%); Elevated ESR and CRP"
     ],
@@ -16666,7 +16757,7 @@
   },
   {
     "id": "ICD10-B57.0",
-    "topic": "Chagas Disease (Trypanosoma Cruzi - Romaña Sign & Megadisease)",
+    "topic": "Chagas Disease (Trypanosoma Cruzi - Roma\u00f1a Sign & Megadisease)",
     "icd10": "B57.0",
     "specialty": "Infectious Disease / Cardiology / Gastroenterology",
     "organ_system": "Protozoal Zoonosis",
@@ -16687,7 +16778,7 @@
     ],
     "clinical_hallmarks": [
       "transmission via feces of infected triatomine bugs ('kissing bugs' / reduviid bugs) in endemic regions (Latin America) or congenital/transfusion spread",
-      "ACUTE CHAGAS (in 5%): PATHOGNOMONIC ROMAÑA'S SIGN (unilateral, painless, brawny, purplish periorbital edema with conjunctivitis and preauricular lymphadenopathy developing when bug feces is rubbed into eye) OR Chagoma (erythematous subcutaneous skin nodule at bite site)",
+      "ACUTE CHAGAS (in 5%): PATHOGNOMONIC ROMA\u00d1A'S SIGN (unilateral, painless, brawny, purplish periorbital edema with conjunctivitis and preauricular lymphadenopathy developing when bug feces is rubbed into eye) OR Chagoma (erythematous subcutaneous skin nodule at bite site)",
       "CHRONIC CHAGAS (develops decades after initial silent infection in 20-30%):",
       "1. CARDIAC CHAGAS: progressive Dilated Cardiomyopathy with biventricular heart failure, Right Bundle Branch Block (RBBB) + Left Anterior Fascicular Block (LAFB) on ECG, malignant ventricular arrhythmias, and PATHOGNOMONIC THIN-WALLED APICAL LEFT VENTRICULAR ANEURYSM (apical thinning with mural thrombus formation and high stroke risk);",
       "2. GASTROINTESTINAL CHAGAS: progressive destruction of the enteric myenteric plexus of Auerbach leading to 'MEGADISEASE': MEGAESOPHAGUS (severe progressive dysphagia and regurgitation mimicking achalasia) and MEGACOLON (intractable severe constipation, fecaloma, and sigmoid volvulus)"
@@ -16776,13 +16867,21 @@
     "specialty": "Gastroenterology / Hepatology / Obstetrics / Infectious Disease",
     "organ_system": "Viral Enteric Hepatic",
     "keywords": [
-      "hepatitis e",
+      "abdominal pain",
       "acute hepatitis e",
-      "waterborne hepatitis epidemic",
-      "pregnancy high mortality hepatitis e",
-      "fulminant hepatic failure third trimester",
       "anti hev igm",
-      "fecal oral sewage contamination"
+      "coma",
+      "fatigue",
+      "fecal oral sewage contamination",
+      "fulminant hepatic failure third trimester",
+      "hepatitis e",
+      "joint pain",
+      "loss of appetite",
+      "pregnancy high mortality hepatitis e",
+      "stomach bleeding",
+      "vomiting",
+      "waterborne hepatitis epidemic",
+      "yellowing of eyes"
     ],
     "red_flags": [
       "FULMINANT HEPATIC FAILURE IN PREGNANCY (case fatality rate 20-25% in third trimester)",
@@ -17246,13 +17345,18 @@
     "specialty": "Dermatology",
     "organ_system": "Pilosebaceous Inflammatory",
     "keywords": [
-      "acne vulgaris",
-      "nodulocystic acne",
+      "acne",
       "acne conglobata",
-      "isotretinoin accutane protocol",
-      "comedones papules pustules nodules",
+      "acne vulgaris",
+      "blackheads",
       "burrowing sinus tracts acne",
-      "ipledge pregnancy teratogenic"
+      "comedones papules pustules nodules",
+      "ipledge pregnancy teratogenic",
+      "isotretinoin accutane protocol",
+      "nodulocystic acne",
+      "pus filled pimples",
+      "scurring",
+      "skin rash"
     ],
     "red_flags": [
       "Acne Fulminans (sudden painful ulcerating nodules with fever, leukocytosis, and polyarthritis)",
@@ -17407,5 +17511,798 @@
       "DO NOT SQUEEZE THE HONEYBEE STINGER (scrape it off sideways with a fingernail or credit card to avoid expressing venom sac contents)"
     ],
     "content": "Type I immediate hypersensitivity reaction mediated by venom-specific IgE antibodies bound to tissue mast cells and basophils, releasing histamine, leukotrienes, and tryptase upon venom re-exposure. STAT Life-Saving Protocol: 1. FIRST-LINE DRUG OF CHOICE: INTRAMUSCULAR EPINEPHRINE (1:1,000 / 1 mg/mL): 0.3 - 0.5 mg IM (0.01 mg/kg in children, max 0.3 mg) INJECTED STAT INTO THE ANTEROLATERAL THIGH (VASTUS LATERALIS); REPEAT EVERY 5-15 MINUTES IF SYMPTOMS PERSIST; 2. High-flow oxygen, aggressive IV fluid bolus (1-2 L Normal Saline for shock); 3. Second-line adjuncts: IV H1-antihistamine (Diphenhydramine 50 mg) + IV H2-blocker (Famotidine 20 mg) + IV Methylprednisolone (1-2 mg/kg); 4. Discharge with two Epinephrine Autoinjectors (EpiPen 0.3 mg) and referral for Venom Immunotherapy (VIT - achieves > 95% protection against future stings)."
+  },
+  {
+    "id": "ICD10-B20",
+    "topic": "Human Immunodeficiency Virus (HIV) Disease / AIDS",
+    "icd10": "B20",
+    "specialty": "Infectious Diseases / Internal Medicine",
+    "organ_system": "Infectious Diseases",
+    "keywords": [
+      "aids",
+      "b20",
+      "extra marital contacts",
+      "high fever",
+      "human immunodeficiency virus (hiv) disease / aids",
+      "infectious diseases / internal medicine",
+      "muscle wasting",
+      "patches in throat"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: high fever, muscle wasting, patches in throat, extra marital contacts",
+      "Immediate care precautions: Avoid open cuts, Wear ppe if possible, Consult doctor"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Human Immunodeficiency Virus (HIV) Disease / AIDS (ICD-10: B20) is managed under Infectious Diseases / Internal Medicine. AIDS (Acquired Immunodeficiency Syndrome) is a disease caused by HIV that weakens the immune system. Key clinical features include high fever, muscle wasting, patches in throat, extra marital contacts. Verified therapeutic interventions: Antiretroviral drugs, Protease inhibitors, Integrase inhibitors, Entry inhibitors. Nutritional recommendations: Balanced Diet, Protein-rich foods, Fruits and vegetables, Whole grains. Home care and precautions: Avoid open cuts, Wear ppe if possible, Consult doctor, Follow up."
+  },
+  {
+    "id": "ICD10-K70.1",
+    "topic": "Alcoholic Hepatitis & Steatohepatitis",
+    "icd10": "K70.1",
+    "specialty": "Gastroenterology / Hepatology",
+    "organ_system": "Gastroenterology",
+    "keywords": [
+      "abdominal pain",
+      "alcoholic hepatitis",
+      "alcoholic hepatitis & steatohepatitis",
+      "distention of abdomen",
+      "fluid overload",
+      "gastroenterology / hepatology",
+      "history of alcohol consumption",
+      "k70.1",
+      "swelling of stomach",
+      "vomiting",
+      "yellowish skin"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: vomiting, yellowish skin, abdominal pain, fluid overload",
+      "Immediate care precautions: Stop alcohol consumption, Consult doctor, Medication"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Alcoholic Hepatitis & Steatohepatitis (ICD-10: K70.1) is managed under Gastroenterology / Hepatology. Alcoholic hepatitis is inflammation of the liver due to alcohol consumption. Key clinical features include vomiting, yellowish skin, abdominal pain, fluid overload, swelling of stomach, distention of abdomen. Verified therapeutic interventions: Antibiotics, Isoniazid, Rifampin, Ethambutol. Nutritional recommendations: Liver-Healthy Diet, Low-fat Diet, Fruits and vegetables, Whole grains. Home care and precautions: Stop alcohol consumption, Consult doctor, Medication, Follow up."
+  },
+  {
+    "id": "ICD10-T78.4",
+    "topic": "Allergic Rhinitis & Hypersensitivity Reaction",
+    "icd10": "T78.40",
+    "specialty": "Allergy & Immunology / General Medicine",
+    "organ_system": "Allergy & Immunology",
+    "keywords": [
+      "allergic rhinitis & hypersensitivity reaction",
+      "allergy",
+      "allergy & immunology / general medicine",
+      "chills",
+      "continuous sneezing",
+      "shivering",
+      "t78.40",
+      "watering from eyes"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: continuous sneezing, shivering, chills, watering from eyes",
+      "Immediate care precautions: Apply calamine, Cover area with bandage, Use ice to compress itching"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Allergic Rhinitis & Hypersensitivity Reaction (ICD-10: T78.40) is managed under Allergy & Immunology / General Medicine. Allergy is an immune system reaction to a substance in the environment. Key clinical features include continuous sneezing, shivering, chills, watering from eyes. Verified therapeutic interventions: Antihistamines, Decongestants, Epinephrine, Corticosteroids. Nutritional recommendations: Elimination Diet, Omega-3-rich foods, Vitamin C-rich foods, Quercetin-rich foods. Home care and precautions: Apply calamine, Cover area with bandage, Use ice to compress itching."
+  },
+  {
+    "id": "ICD10-M19.9",
+    "topic": "Inflammatory Arthritis & Joint Effusion",
+    "icd10": "M19.90",
+    "specialty": "Rheumatology / Orthopedics",
+    "organ_system": "Rheumatology",
+    "keywords": [
+      "arthritis",
+      "inflammatory arthritis & joint effusion",
+      "m19.90",
+      "movement stiffness",
+      "muscle weakness",
+      "painful walking",
+      "rheumatology / orthopedics",
+      "stiff neck",
+      "swelling joints"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: muscle weakness, stiff neck, swelling joints, movement stiffness",
+      "Immediate care precautions: Exercise, Use hot and cold therapy, Try acupuncture"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Inflammatory Arthritis & Joint Effusion (ICD-10: M19.90) is managed under Rheumatology / Orthopedics. Arthritis is inflammation of one or more joints, causing pain and stiffness. Key clinical features include muscle weakness, stiff neck, swelling joints, movement stiffness, painful walking. Verified therapeutic interventions: Vestibular rehabilitation, Canalith repositioning, Medications for nausea, Surgery. Nutritional recommendations: Arthritis Diet, Anti-Inflammatory Diet, Omega-3-rich foods, Fruits and vegetables. Home care and precautions: Exercise, Use hot and cold therapy, Try acupuncture, Massage."
+  },
+  {
+    "id": "ICD10-M47",
+    "topic": "Cervical Spondylosis & Cervical Radiculopathy",
+    "icd10": "M47.812",
+    "specialty": "Orthopedics / Neurology",
+    "organ_system": "Orthopedics",
+    "keywords": [
+      "back pain",
+      "cervical spondylosis",
+      "cervical spondylosis & cervical radiculopathy",
+      "dizziness",
+      "loss of balance",
+      "m47.812",
+      "neck pain",
+      "orthopedics / neurology",
+      "weakness in limbs"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: neck pain, dizziness, loss of balance, back pain",
+      "Immediate care precautions: Use heating pad or cold pack, Exercise, Take otc pain reliver"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Cervical Spondylosis & Cervical Radiculopathy (ICD-10: M47.812) is managed under Orthopedics / Neurology. Cervical spondylosis is a degenerative condition of the cervical spine. Key clinical features include neck pain, dizziness, loss of balance, back pain, weakness in limbs. Verified therapeutic interventions: Pain relievers, Muscle relaxants, Physical therapy, Neck braces. Nutritional recommendations: Arthritis Diet, Anti-Inflammatory Diet, Omega-3-rich foods, Fruits and vegetables. Home care and precautions: Use heating pad or cold pack, Exercise, Take otc pain reliver, Consult doctor."
+  },
+  {
+    "id": "ICD10-K83.1",
+    "topic": "Chronic Cholestasis & Biliary Stasis",
+    "icd10": "K83.1",
+    "specialty": "Gastroenterology / Hepatology",
+    "organ_system": "Gastroenterology",
+    "keywords": [
+      "abdominal pain",
+      "chronic cholestasis",
+      "chronic cholestasis & biliary stasis",
+      "gastroenterology / hepatology",
+      "itching",
+      "k83.1",
+      "loss of appetite",
+      "nausea",
+      "vomiting",
+      "yellowing of eyes",
+      "yellowish skin"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: itching, vomiting, yellowish skin, nausea",
+      "Immediate care precautions: Cold baths, Anti itch medicine, Consult doctor"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Chronic Cholestasis & Biliary Stasis (ICD-10: K83.1) is managed under Gastroenterology / Hepatology. Chronic cholestasis is a condition where bile flow from the liver is reduced for a prolonged period. Key clinical features include itching, vomiting, yellowish skin, nausea, loss of appetite, abdominal pain. Verified therapeutic interventions: Ursodeoxycholic acid, Cholestyramine, Methotrexate, Corticosteroids. Nutritional recommendations: Low-Fat Diet, High-Fiber Diet, Lean proteins, Whole grains. Home care and precautions: Cold baths, Anti itch medicine, Consult doctor, Eat healthy."
+  },
+  {
+    "id": "ICD10-J00",
+    "topic": "Acute Nasopharyngitis (Common Cold)",
+    "icd10": "J00",
+    "specialty": "General Medicine / Family Medicine",
+    "organ_system": "General Medicine",
+    "keywords": [
+      "acute nasopharyngitis (common cold)",
+      "chest pain",
+      "common cold",
+      "congestion",
+      "general medicine / family medicine",
+      "j00",
+      "loss of smell",
+      "phlegm",
+      "redness of eyes",
+      "runny nose",
+      "sinus pressure",
+      "throat irritation"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: phlegm, throat irritation, redness of eyes, sinus pressure",
+      "Immediate care precautions: Drink vitamin c rich drinks, Take vapour, Avoid cold food"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Acute Nasopharyngitis (Common Cold) (ICD-10: J00) is managed under General Medicine / Family Medicine. Common Cold is a viral infection of the upper respiratory tract. Key clinical features include phlegm, throat irritation, redness of eyes, sinus pressure, runny nose, congestion. Verified therapeutic interventions: Antibiotics, Antiviral drugs, Antifungal drugs, IV fluids. Nutritional recommendations: Cold Diet, Hydration, Warm fluids, Rest. Home care and precautions: Drink vitamin c rich drinks, Take vapour, Avoid cold food, Keep fever in check."
+  },
+  {
+    "id": "ICD10-K64",
+    "topic": "Hemorrhoids (Piles) - Internal & External",
+    "icd10": "K64.9",
+    "specialty": "General Surgery / Proctology",
+    "organ_system": "General Surgery",
+    "keywords": [
+      "bloody stool",
+      "constipation",
+      "dimorphic hemmorhoids(piles)",
+      "general surgery / proctology",
+      "hemorrhoids (piles) - internal & external",
+      "irritation in anus",
+      "k64.9",
+      "pain during bowel movements",
+      "pain in anal region"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: constipation, pain during bowel movements, pain in anal region, bloody stool",
+      "Immediate care precautions: Avoid fatty spicy food, Consume witch hazel, Warm bath with epsom salt"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Hemorrhoids (Piles) - Internal & External (ICD-10: K64.9) is managed under General Surgery / Proctology. Dimorphic hemmorhoids(piles) is a condition characterized by swollen blood vessels in the rectum. Key clinical features include constipation, pain during bowel movements, pain in anal region, bloody stool, irritation in anus. Verified therapeutic interventions: Nitroglycerin, Aspirin, Beta-blockers, Calcium channel blockers. Nutritional recommendations: Hemorrhoids Diet, High-Fiber Diet, Hydration, Warm baths. Home care and precautions: Avoid fatty spicy food, Consume witch hazel, Warm bath with epsom salt, Consume alovera juice."
+  },
+  {
+    "id": "ICD10-L27.0",
+    "topic": "Adverse Cutaneous Drug Reaction / Drug Eruption",
+    "icd10": "L27.0",
+    "specialty": "Dermatology / Clinical Pharmacology",
+    "organ_system": "Dermatology",
+    "keywords": [
+      "adverse cutaneous drug reaction / drug eruption",
+      "burning micturition",
+      "dermatology / clinical pharmacology",
+      "drug reaction",
+      "itching",
+      "l27.0",
+      "skin rash",
+      "spotting  urination",
+      "stomach pain"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: itching, skin rash, stomach pain, burning micturition",
+      "Immediate care precautions: Stop irritation, Consult nearest hospital, Stop taking drug"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Adverse Cutaneous Drug Reaction / Drug Eruption (ICD-10: L27.0) is managed under Dermatology / Clinical Pharmacology. Drug Reaction occurs when the body reacts adversely to a medication. Key clinical features include itching, skin rash, stomach pain, burning micturition, spotting  urination. Verified therapeutic interventions: Antihistamines, Epinephrine, Corticosteroids, Antibiotics. Nutritional recommendations: Antihistamine Diet, Omega-3-rich foods, Vitamin C-rich foods, Quercetin-rich foods. Home care and precautions: Stop irritation, Consult nearest hospital, Stop taking drug, Follow up."
+  },
+  {
+    "id": "ICD10-B35",
+    "topic": "Superficial Fungal Infection (Tinea / Cutaneous Dermatophytosis)",
+    "icd10": "B35.9",
+    "specialty": "Dermatology",
+    "organ_system": "Dermatology",
+    "keywords": [
+      "b35.9",
+      "dermatology",
+      "dischromic  patches",
+      "fungal infection",
+      "itching",
+      "nodal skin eruptions",
+      "skin rash",
+      "superficial fungal infection (tinea / cutaneous dermatophytosis)"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: itching, skin rash, nodal skin eruptions, dischromic  patches",
+      "Immediate care precautions: Bath twice, Use detol or neem in bathing water, Keep infected area dry"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Superficial Fungal Infection (Tinea / Cutaneous Dermatophytosis) (ICD-10: B35.9) is managed under Dermatology. Fungal infection is a common skin condition caused by fungi. Key clinical features include itching, skin rash, nodal skin eruptions, dischromic  patches. Verified therapeutic interventions: Antifungal Cream, Fluconazole, Terbinafine, Clotrimazole. Nutritional recommendations: Antifungal Diet, Probiotics, Garlic, Coconut oil. Home care and precautions: Bath twice, Use detol or neem in bathing water, Keep infected area dry, Use clean cloths."
+  },
+  {
+    "id": "ICD10-I21",
+    "topic": "Acute Myocardial Infarction (STEMI / NSTEMI / ACS)",
+    "icd10": "I21.9",
+    "specialty": "Cardiology / Emergency Medicine",
+    "organ_system": "Cardiology",
+    "keywords": [
+      "acute myocardial infarction (stemi / nstemi / acs)",
+      "breathlessness",
+      "cardiology / emergency medicine",
+      "chest pain",
+      "heart attack",
+      "i21.9",
+      "sweating",
+      "vomiting"
+    ],
+    "red_flags": [
+      "hemodynamic instability / cardiogenic shock",
+      "altered mental status / coma",
+      "acute respiratory failure",
+      "stat critical resuscitation protocol required"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: chest pain, vomiting, breathlessness, sweating",
+      "Immediate care precautions: Call ambulance, Chew or swallow asprin, Keep calm"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Acute Myocardial Infarction (STEMI / NSTEMI / ACS) (ICD-10: I21.9) is managed under Cardiology / Emergency Medicine. Heart attack is a sudden and severe reduction in blood flow to the heart muscle. Key clinical features include chest pain, vomiting, breathlessness, sweating. Verified therapeutic interventions: Compression stockings, Exercise, Elevating the legs, Sclerotherapy. Nutritional recommendations: Heart-Healthy Diet, Low-sodium foods, Fruits and vegetables, Whole grains. Home care and precautions: Call ambulance, Chew or swallow asprin, Keep calm."
+  },
+  {
+    "id": "ICD10-B16",
+    "topic": "Acute / Chronic Viral Hepatitis B",
+    "icd10": "B16.9",
+    "specialty": "Gastroenterology / Hepatology",
+    "organ_system": "Gastroenterology",
+    "keywords": [
+      "acute / chronic viral hepatitis b",
+      "b16.9",
+      "fatigue",
+      "gastroenterology / hepatology",
+      "hepatitis b",
+      "itching",
+      "lethargy",
+      "malaise",
+      "receiving blood transfusion",
+      "receiving unsterile injections",
+      "yellowing of eyes",
+      "yellowish skin"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: yellowing of eyes, malaise, receiving blood transfusion, receiving unsterile injections",
+      "Immediate care precautions: Consult nearest hospital, Vaccination, Eat healthy"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Acute / Chronic Viral Hepatitis B (ICD-10: B16.9) is managed under Gastroenterology / Hepatology. Hepatitis B is a viral infection that attacks the liver. Key clinical features include yellowing of eyes, malaise, receiving blood transfusion, receiving unsterile injections, itching, fatigue. Verified therapeutic interventions: Antiviral drugs, IV fluids, Blood transfusions, Platelet transfusions. Nutritional recommendations: Hepatitis B Diet, High-Calorie Diet, Soft and bland foods, Hydration. Home care and precautions: Consult nearest hospital, Vaccination, Eat healthy, Medication."
+  },
+  {
+    "id": "ICD10-B18.2",
+    "topic": "Viral Hepatitis C (HCV Infection)",
+    "icd10": "B18.2",
+    "specialty": "Gastroenterology / Hepatology",
+    "organ_system": "Gastroenterology",
+    "keywords": [
+      "b18.2",
+      "family history",
+      "fatigue",
+      "gastroenterology / hepatology",
+      "hepatitis c",
+      "loss of appetite",
+      "nausea",
+      "viral hepatitis c (hcv infection)",
+      "yellowing of eyes",
+      "yellowish skin"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: fatigue, yellowish skin, nausea, loss of appetite",
+      "Immediate care precautions: Consult nearest hospital, Vaccination, Eat healthy"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Viral Hepatitis C (HCV Infection) (ICD-10: B18.2) is managed under Gastroenterology / Hepatology. Hepatitis C is a viral infection that causes liver inflammation. Key clinical features include fatigue, yellowish skin, nausea, loss of appetite, family history, yellowing of eyes. Verified therapeutic interventions: Antiviral drugs, IV fluids, Blood transfusions, Platelet transfusions. Nutritional recommendations: Hepatitis C Diet, High-Calorie Diet, Soft and bland foods, Hydration. Home care and precautions: Consult nearest hospital, Vaccination, Eat healthy, Medication."
+  },
+  {
+    "id": "ICD10-B17.0",
+    "topic": "Hepatitis D (Delta Agent Superinfection)",
+    "icd10": "B17.0",
+    "specialty": "Gastroenterology / Hepatology",
+    "organ_system": "Gastroenterology",
+    "keywords": [
+      "abdominal pain",
+      "b17.0",
+      "dark urine",
+      "fatigue",
+      "gastroenterology / hepatology",
+      "hepatitis d",
+      "hepatitis d (delta agent superinfection)",
+      "joint pain",
+      "loss of appetite",
+      "nausea",
+      "vomiting",
+      "yellowish skin"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: joint pain, vomiting, fatigue, yellowish skin",
+      "Immediate care precautions: Consult doctor, Medication, Eat healthy"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Hepatitis D (Delta Agent Superinfection) (ICD-10: B17.0) is managed under Gastroenterology / Hepatology. Hepatitis D is a serious liver disease caused by the hepatitis D virus. Key clinical features include joint pain, vomiting, fatigue, yellowish skin, dark urine, nausea. Verified therapeutic interventions: Antiviral drugs, IV fluids, Blood transfusions, Platelet transfusions. Nutritional recommendations: Hepatitis D Diet, High-Calorie Diet, Soft and bland foods, Hydration. Home care and precautions: Consult doctor, Medication, Eat healthy, Follow up."
+  },
+  {
+    "id": "ICD10-I10",
+    "topic": "Essential (Primary) Hypertension & Cardiovascular Risk",
+    "icd10": "I10",
+    "specialty": "Cardiology / Internal Medicine",
+    "organ_system": "Cardiology",
+    "keywords": [
+      "cardiology / internal medicine",
+      "essential (primary) hypertension & cardiovascular risk",
+      "hypertension",
+      "i10"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: "
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Essential (Primary) Hypertension & Cardiovascular Risk (ICD-10: I10) is managed under Cardiology / Internal Medicine. Clinical protocol for Essential (Primary) Hypertension & Cardiovascular Risk. Key clinical features include . Verified therapeutic interventions: Specialty guided therapy. Nutritional recommendations: Standard balanced diet. Home care and precautions: ."
+  },
+  {
+    "id": "ICD10-E05",
+    "topic": "Hyperthyroidism & Thyrotoxicosis",
+    "icd10": "E05.9",
+    "specialty": "Endocrinology",
+    "organ_system": "Endocrinology",
+    "keywords": [
+      "abnormal menstruation",
+      "e05.9",
+      "endocrinology",
+      "fatigue",
+      "hyperthyroidism",
+      "hyperthyroidism & thyrotoxicosis",
+      "irritability",
+      "mood swings",
+      "muscle weakness",
+      "restlessness",
+      "sweating",
+      "weight loss"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: muscle weakness, irritability, abnormal menstruation, fatigue",
+      "Immediate care precautions: Eat healthy, Massage, Use lemon balm"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Hyperthyroidism & Thyrotoxicosis (ICD-10: E05.9) is managed under Endocrinology. Hyperthyroidism is a condition where the thyroid gland produces too much thyroid hormone. Key clinical features include muscle weakness, irritability, abnormal menstruation, fatigue, mood swings, weight loss. Verified therapeutic interventions: Glucose tablets, Candy or juice, Glucagon injection, IV dextrose. Nutritional recommendations: Hyperthyroidism Diet, Low-Iodine Diet, Calcium-rich foods, Selenium-rich foods. Home care and precautions: Eat healthy, Massage, Use lemon balm, Take radioactive iodine treatment."
+  },
+  {
+    "id": "ICD10-E16.2",
+    "topic": "Acute Hypoglycemia & Neuroglycopenic Triage",
+    "icd10": "E16.2",
+    "specialty": "Endocrinology / Emergency Medicine",
+    "organ_system": "Endocrinology",
+    "keywords": [
+      "acute hypoglycemia & neuroglycopenic triage",
+      "anxiety",
+      "e16.2",
+      "endocrinology / emergency medicine",
+      "excessive hunger",
+      "fatigue",
+      "hypoglycemia",
+      "irritability",
+      "palpitations",
+      "slurred speech",
+      "sweating",
+      "vomiting"
+    ],
+    "red_flags": [
+      "hemodynamic instability / cardiogenic shock",
+      "altered mental status / coma",
+      "acute respiratory failure",
+      "stat critical resuscitation protocol required"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: excessive hunger, slurred speech, irritability, palpitations",
+      "Immediate care precautions: Lie down on side, Check in pulse, Drink sugary drinks"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Acute Hypoglycemia & Neuroglycopenic Triage (ICD-10: E16.2) is managed under Endocrinology / Emergency Medicine. Hypoglycemia is a condition characterized by abnormally low blood sugar levels. Key clinical features include excessive hunger, slurred speech, irritability, palpitations, vomiting, fatigue. Verified therapeutic interventions: Pain relievers, Exercise, Hot and cold packs, Joint protection. Nutritional recommendations: Hypoglycemia Diet, Complex carbohydrates, Protein-rich snacks, Fiber-rich foods. Home care and precautions: Lie down on side, Check in pulse, Drink sugary drinks, Consult doctor."
+  },
+  {
+    "id": "ICD10-L01.0",
+    "topic": "Impetigo Contagiosa (Non-bullous / Bullous)",
+    "icd10": "L01.0",
+    "specialty": "Dermatology / Pediatrics",
+    "organ_system": "Dermatology",
+    "keywords": [
+      "blister",
+      "dermatology / pediatrics",
+      "high fever",
+      "impetigo",
+      "impetigo contagiosa (non-bullous / bullous)",
+      "l01.0",
+      "red sore around nose",
+      "skin rash",
+      "yellow crust ooze"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: skin rash, blister, red sore around nose, yellow crust ooze",
+      "Immediate care precautions: Soak affected area in warm water, Use antibiotics, Remove scabs with wet compressed cloth"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Impetigo Contagiosa (Non-bullous / Bullous) (ICD-10: L01.0) is managed under Dermatology / Pediatrics. Impetigo is a highly contagious skin infection causing red sores that can break open. Key clinical features include skin rash, blister, red sore around nose, yellow crust ooze, high fever. Verified therapeutic interventions: Topical antibiotics, Oral antibiotics, Antiseptics, Ointments. Nutritional recommendations: Impetigo Diet, Antibiotic treatment, Fruits and vegetables, Hydration. Home care and precautions: Soak affected area in warm water, Use antibiotics, Remove scabs with wet compressed cloth, Consult doctor."
+  },
+  {
+    "id": "ICD10-R17",
+    "topic": "Jaundice & Acute Hyperbilirubinemia",
+    "icd10": "R17",
+    "specialty": "Gastroenterology / Internal Medicine",
+    "organ_system": "Gastroenterology",
+    "keywords": [
+      "abdominal pain",
+      "dark urine",
+      "fatigue",
+      "gastroenterology / internal medicine",
+      "high fever",
+      "itching",
+      "jaundice",
+      "jaundice & acute hyperbilirubinemia",
+      "r17",
+      "vomiting",
+      "weight loss",
+      "yellowish skin"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: itching, vomiting, fatigue, weight loss",
+      "Immediate care precautions: Drink plenty of water, Consume milk thistle, Eat fruits and high fiberous food"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Jaundice & Acute Hyperbilirubinemia (ICD-10: R17) is managed under Gastroenterology / Internal Medicine. Jaundice is a yellow discoloration of the skin and eyes, often indicating liver problems. Key clinical features include itching, vomiting, fatigue, weight loss, high fever, yellowish skin. Verified therapeutic interventions: IV fluids, Blood transfusions, Liver transplant, Medications for itching. Nutritional recommendations: Liver-Healthy Diet, Low-fat Diet, Fruits and vegetables, Whole grains. Home care and precautions: Drink plenty of water, Consume milk thistle, Eat fruits and high fiberous food, Medication."
+  },
+  {
+    "id": "ICD10-B54",
+    "topic": "Malaria (Plasmodium Vivax / Falciparum / Mixed)",
+    "icd10": "B54",
+    "specialty": "Infectious Diseases / Internal Medicine",
+    "organ_system": "Infectious Diseases",
+    "keywords": [
+      "b54",
+      "chills",
+      "diarrhoea",
+      "headache",
+      "high fever",
+      "infectious diseases / internal medicine",
+      "malaria",
+      "malaria (plasmodium vivax / falciparum / mixed)",
+      "muscle pain",
+      "nausea",
+      "sweating",
+      "vomiting"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: muscle pain, chills, vomiting, high fever",
+      "Immediate care precautions: Consult nearest hospital, Avoid oily food, Avoid non veg food"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Malaria (Plasmodium Vivax / Falciparum / Mixed) (ICD-10: B54) is managed under Infectious Diseases / Internal Medicine. Malaria is a mosquito-borne infectious disease affecting humans and other animals. Key clinical features include muscle pain, chills, vomiting, high fever, sweating, headache. Verified therapeutic interventions: Antimalarial drugs, Antipyretics, Antiemetic drugs, IV fluids. Nutritional recommendations: Malaria Diet, Hydration, High-Calorie Diet, Soft and bland foods. Home care and precautions: Consult nearest hospital, Avoid oily food, Avoid non veg food, Keep mosquitos out."
+  },
+  {
+    "id": "ICD10-M19",
+    "topic": "Osteoarthritis & Degenerative Joint Disease",
+    "icd10": "M19.90",
+    "specialty": "Orthopedics / Rheumatology",
+    "organ_system": "Orthopedics",
+    "keywords": [
+      "hip joint pain",
+      "joint pain",
+      "knee pain",
+      "m19.90",
+      "neck pain",
+      "orthopedics / rheumatology",
+      "osteoarthristis",
+      "osteoarthritis & degenerative joint disease",
+      "painful walking",
+      "swelling joints"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: joint pain, neck pain, knee pain, hip joint pain",
+      "Immediate care precautions: Acetaminophen, Consult nearest hospital, Follow up"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Osteoarthritis & Degenerative Joint Disease (ICD-10: M19.90) is managed under Orthopedics / Rheumatology. Osteoarthristis is a degenerative joint disease that affects the cartilage in joints. Key clinical features include joint pain, neck pain, knee pain, hip joint pain, swelling joints, painful walking. Verified therapeutic interventions: NSAIDs, Disease-modifying antirheumatic drugs (DMARDs), Biologics, Corticosteroids. Nutritional recommendations: Arthritis Diet, Anti-Inflammatory Diet, Omega-3-rich foods, Fruits and vegetables. Home care and precautions: Acetaminophen, Consult nearest hospital, Follow up, Salt baths."
+  },
+  {
+    "id": "ICD10-I61",
+    "topic": "Intracerebral Hemorrhage (ICH) / Acute Hemorrhagic Stroke",
+    "icd10": "I61.9",
+    "specialty": "Neurology / Neurosurgery / Emergency Medicine",
+    "organ_system": "Neurology",
+    "keywords": [
+      "altered sensorium",
+      "headache",
+      "i61.9",
+      "intracerebral hemorrhage (ich) / acute hemorrhagic stroke",
+      "neurology / neurosurgery / emergency medicine",
+      "paralysis (brain hemorrhage)",
+      "vomiting",
+      "weakness of one body side"
+    ],
+    "red_flags": [
+      "hemodynamic instability / cardiogenic shock",
+      "altered mental status / coma",
+      "acute respiratory failure",
+      "stat critical resuscitation protocol required"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: altered sensorium, vomiting, headache, weakness of one body side",
+      "Immediate care precautions: Massage, Eat healthy, Exercise"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Intracerebral Hemorrhage (ICH) / Acute Hemorrhagic Stroke (ICD-10: I61.9) is managed under Neurology / Neurosurgery / Emergency Medicine. Paralysis (brain hemorrhage) refers to the loss of muscle function due to bleeding in the brain. Key clinical features include altered sensorium, vomiting, headache, weakness of one body side. Verified therapeutic interventions: Blood thinners, Clot-dissolving medications, Anticonvulsants, Physical therapy. Nutritional recommendations: Heart-Healthy Diet, Low-sodium foods, Fruits and vegetables, Whole grains. Home care and precautions: Massage, Eat healthy, Exercise, Consult doctor."
+  },
+  {
+    "id": "ICD10-A01.0",
+    "topic": "Enteric (Typhoid) Fever (Salmonella Typhi)",
+    "icd10": "A01.0",
+    "specialty": "Infectious Diseases / Internal Medicine",
+    "organ_system": "Infectious Diseases",
+    "keywords": [
+      "a01.0",
+      "abdominal pain",
+      "chills",
+      "constipation",
+      "enteric (typhoid) fever (salmonella typhi)",
+      "fatigue",
+      "headache",
+      "high fever",
+      "infectious diseases / internal medicine",
+      "nausea",
+      "typhoid",
+      "vomiting"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: chills, fatigue, high fever, vomiting",
+      "Immediate care precautions: Eat high calorie vegitables, Antiboitic therapy, Consult doctor"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Enteric (Typhoid) Fever (Salmonella Typhi) (ICD-10: A01.0) is managed under Infectious Diseases / Internal Medicine. Typhoid is a bacterial infection that can lead to a high fever and gastrointestinal symptoms. Key clinical features include chills, fatigue, high fever, vomiting, headache, nausea. Verified therapeutic interventions: Vaccination, Antiviral drugs, IV fluids, Blood transfusions. Nutritional recommendations: Typhoid Diet, High-Calorie Diet, Soft and bland foods, Hydration. Home care and precautions: Eat high calorie vegitables, Antiboitic therapy, Consult doctor, Medication."
+  },
+  {
+    "id": "ICD10-B15",
+    "topic": "Acute Viral Hepatitis A",
+    "icd10": "B15.9",
+    "specialty": "Gastroenterology / Hepatology / Infectious Diseases",
+    "organ_system": "Gastroenterology",
+    "keywords": [
+      "acute viral hepatitis a",
+      "b15.9",
+      "dark urine",
+      "gastroenterology / hepatology / infectious diseases",
+      "hepatitis a",
+      "joint pain",
+      "mild fever",
+      "muscle pain",
+      "nausea",
+      "vomiting",
+      "yellowing of eyes",
+      "yellowish skin"
+    ],
+    "red_flags": [
+      "acute worsening of symptoms or sudden onset severe pain",
+      "hemodynamic compromise or persistent vomiting",
+      "development of high fever (>102F) or altered sensorium"
+    ],
+    "clinical_hallmarks": [
+      "Hallmark symptom presentation: mild fever, yellowing of eyes, muscle pain, joint pain",
+      "Immediate care precautions: Consult nearest hospital, Wash hands through, Avoid fatty spicy food"
+    ],
+    "pertinent_negatives": [
+      "absence of focal neurological deficit unless primary intracranial process",
+      "absence of acute hemodynamic collapse"
+    ],
+    "content": "Acute Viral Hepatitis A (ICD-10: B15.9) is managed under Gastroenterology / Hepatology / Infectious Diseases. hepatitis A is a viral liver disease. Key clinical features include mild fever, yellowing of eyes, muscle pain, joint pain, vomiting, yellowish skin. Verified therapeutic interventions: Vaccination, Antiviral drugs, IV fluids, Blood transfusions. Nutritional recommendations: Hepatitis A Diet, High-Calorie Diet, Soft and bland foods, Hydration. Home care and precautions: Consult nearest hospital, Wash hands through, Avoid fatty spicy food, Medication."
   }
 ]

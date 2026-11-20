@@ -69,16 +69,19 @@ class GeminiClinicalReasoner:
         encounter: SymptomEncounterInput,
         retrieved_guidelines: List[Dict[str, Any]],
         triage_level: TriageLevel,
+        bayesian_differentials: Optional[List[Dict[str, Any]]] = None,
     ) -> Optional[Dict[str, Any]]:
         """
-        Calls Gemini with constrained clinical prompt and medical RAG context.
+        Calls Gemini with constrained clinical prompt, Bayesian probabilistic evidence, and RAG context.
         Retries transient 503/429 spikes with backoff and falls over across configured models.
         Returns validated structured dictionary or None if LLM is unavailable.
         """
         if not self.is_available:
             return None
 
-        prompt = self._build_clinical_prompt(encounter, retrieved_guidelines, triage_level)
+        prompt = self._build_clinical_prompt(
+            encounter, retrieved_guidelines, triage_level, bayesian_differentials
+        )
 
         from google.genai import types
 
@@ -121,14 +124,30 @@ class GeminiClinicalReasoner:
         encounter: SymptomEncounterInput,
         guidelines: List[Dict[str, Any]],
         triage_level: TriageLevel,
+        bayesian_differentials: Optional[List[Dict[str, Any]]] = None,
     ) -> str:
         guidelines_text = "\n\n".join([
             f"Topic: {g['topic']} (ICD-10: {g.get('icd10', 'N/A')})\nSpecialty: {g.get('specialty', 'N/A')}\nGuideline: {g['content']}"
             for g in guidelines
         ])
 
+        bayesian_evidence_text = ""
+        if bayesian_differentials:
+            entries = []
+            for b in bayesian_differentials[:3]:
+                entries.append(
+                    f"- Rank {b['probability_rank']}: {b['diagnosis_name']} (ICD-10: {b['icd10_code']}) | "
+                    f"Posterior Probability: {int(b['confidence_score'] * 100)}% | "
+                    f"Supporting Symptoms: {', '.join(b.get('supporting_symptoms', []))}"
+                )
+            bayesian_evidence_text = (
+                "BAYESIAN PROBABILISTIC EVIDENCE (TRAINED ON 4,920 CLINICAL CASES):\n"
+                + "\n".join(entries)
+                + "\n\nNote: Ground your differential diagnoses in these statistical posteriors and guidelines."
+            )
+
         return f"""You are an expert Clinical Decision Support Physician Copilot.
-Analyze this patient encounter against the provided verified clinical guidelines and output structured JSON.
+Analyze this patient encounter against the provided verified clinical guidelines and statistical evidence, then output structured JSON.
 
 PATIENT PROFILE:
 - Age: {encounter.patient.age} years | Gender: {encounter.patient.gender}
@@ -144,13 +163,15 @@ PRESENTING SYMPTOMS (OPQRST Framework):
 - Associated Symptoms: {', '.join(encounter.associated_symptoms) or 'None'}
 - Pertinent Negatives (Reported Absent): {', '.join(encounter.pertinent_negatives) or 'None'}
 
+{bayesian_evidence_text}
+
 RETRIEVED CLINICAL PRACTICE GUIDELINES (GROUNDING DATA):
 {guidelines_text}
 
 MANDATORY INSTRUCTIONS:
 1. Output valid JSON only.
-2. Ground differentials in the provided clinical guidelines.
-3. Include ICD-10 codes, confidence scores (0.0 to 1.0), pertinent positives, and pertinent negatives.
+2. Ground differentials strictly in the provided evidence and clinical guidelines.
+3. Include ICD-10 codes, calibrated confidence scores (0.0 to 1.0), pertinent positives, and pertinent negatives.
 4. Generate a professional SBAR / SOAP note for the attending physician.
 
 REQUIRED JSON STRUCTURE:
@@ -167,26 +188,25 @@ REQUIRED JSON STRUCTURE:
       "icd10_code": "Code",
       "probability_rank": 1,
       "confidence_score": 0.85,
-      "clinical_rationale": "Why this is suspected...",
-      "supporting_symptoms": ["Symptom 1"],
+      "clinical_rationale": "Why this is suspected based on hallmarks...",
+      "supporting_symptoms": ["Symptom 1", "Symptom 2"],
       "pertinent_negatives_evaluated": ["Negative 1"],
-      "citations_guidelines": ["Guideline source"]
+      "citations_guidelines": ["Clinical guideline reference"]
     }}
   ],
   "recommended_workup": [
     {{
       "investigation_type": "Laboratory",
-      "test_name": "Test name",
-      "urgency": "Stat | Same Day | Routine",
-      "clinical_purpose": "Purpose"
+      "test_name": "Specific test name",
+      "urgency": "Stat | Priority | Routine",
+      "clinical_purpose": "Reason for test"
     }}
   ],
+  "recommended_specialty_clinic": "Target specialty name",
   "recommended_precautions": [
-    "Immediate home care / fluid management",
-    "Key medication or activity warning / safety contraindication",
-    "Hygiene or dietary guidance",
-    "When to seek emergency help"
-  ],
-  "recommended_specialty_clinic": "Target specialty name"
+    "Precaution 1",
+    "Precaution 2",
+    "Precaution 3"
+  ]
 }}
 """

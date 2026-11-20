@@ -1,7 +1,8 @@
 """
 Clinical Diagnostic Reasoning Engine
-Orchestrates Red-Flag Gatekeeper, Vector RAG Retrieval, and Structured Diagnostic Synthesis.
-Outputs validated SOAP note, ranked differential diagnoses, and diagnostic workups.
+Orchestrates Red-Flag Gatekeeper, Bayesian Probabilistic Inference (4,920 cases),
+Vector RAG Retrieval (535 protocols), and Structured Diagnostic Synthesis.
+Outputs validated SOAP notes, ranked differential diagnoses, and diagnostic workups.
 """
 
 import uuid
@@ -19,6 +20,7 @@ from app.schemas.encounter import (
 )
 from app.rules.red_flags import RedFlagRuleEngine
 from app.rag.retriever import MedicalVectorRetriever
+from app.services.bayesian_diagnostics import BayesianDiagnosticEngine
 from app.services.gemini_reasoner import GeminiClinicalReasoner
 from app.data.disease_precautions import get_precautions_for_condition
 from app.services.severity_scorer import SymptomSeverityScorer
@@ -28,6 +30,7 @@ from app.core.config import settings
 class ClinicalDiagnosticEngine:
     def __init__(self):
         self.retriever = MedicalVectorRetriever()
+        self.bayesian_engine = BayesianDiagnosticEngine()
         self.gemini_reasoner = GeminiClinicalReasoner()
 
     async def assess(self, encounter: SymptomEncounterInput) -> VirtualDoctorAssessmentResponse:
@@ -35,37 +38,76 @@ class ClinicalDiagnosticEngine:
         now_iso = datetime.now(timezone.utc).isoformat()
 
         # Step 0: Objective Symptom Severity Scoring (Kaggle Weighting Matrix)
+        text_corpus = f"{encounter.chief_complaint} {encounter.onset or ''} {encounter.quality_character or ''}"
         severity_info = SymptomSeverityScorer.evaluate(
-            f"{encounter.chief_complaint} {encounter.onset or ''} {encounter.quality_character or ''}",
+            text_corpus,
             encounter.associated_symptoms
         )
 
         # Step 1: Immediate Red Flag Hard Rule Check (Deterministic Safety Layer)
         is_critical, red_flag, triage_level = RedFlagRuleEngine.evaluate(encounter)
 
-        # Step 2: Vector RAG Retrieval of Guidelines & ICD-10 Protocols
-        search_query = f"{encounter.chief_complaint} {encounter.quality_character or ''} {' '.join(encounter.associated_symptoms)}"
+        # Step 2: Bayesian Probabilistic Diagnostic Inference (Trained on 4,920 Kaggle cases)
+        present_symptoms, negated_symptoms = self.bayesian_engine.extract_symptoms(
+            text_corpus=f"{text_corpus} {' '.join(encounter.associated_symptoms)}",
+            reported_symptoms=encounter.associated_symptoms,
+            negatives_text=" ".join(encounter.pertinent_negatives) if encounter.pertinent_negatives else None
+        )
+        bayesian_differentials = self.bayesian_engine.diagnose(
+            present_symptoms=present_symptoms,
+            negated_symptoms=negated_symptoms,
+            is_complete_profile=False,
+            top_n=3
+        )
+
+        # Step 3: Okapi BM25 + Vector RAG Retrieval of Guidelines & ICD-10 Protocols
+        search_terms = [encounter.chief_complaint, encounter.quality_character or ""]
+        search_terms.extend(encounter.associated_symptoms)
+        if bayesian_differentials:
+            search_terms.append(bayesian_differentials[0]["diagnosis_name"])
+            search_terms.append(bayesian_differentials[0]["icd10_code"])
+        search_query = " ".join([t for t in search_terms if t])
         retrieved_docs = self.retriever.retrieve(search_query, top_k=3)
 
         if is_critical and red_flag:
-            return self._build_emergency_response(encounter_id, now_iso, encounter, red_flag, retrieved_docs, severity_info)
+            return self._build_emergency_response(
+                encounter_id=encounter_id,
+                timestamp=now_iso,
+                encounter=encounter,
+                red_flag=red_flag,
+                retrieved_docs=retrieved_docs,
+                bayesian_differentials=bayesian_differentials,
+                severity_info=severity_info
+            )
 
-        # Step 3: LLM Cognitive Layer (Gemini 2.5 with RAG Context)
+        # Step 4: LLM Cognitive Layer (Gemini with Bayesian Evidence and RAG Context)
         if self.gemini_reasoner.is_available:
-            llm_result = await self.gemini_reasoner.reason(encounter, retrieved_docs, triage_level)
+            llm_result = await self.gemini_reasoner.reason(
+                encounter=encounter,
+                retrieved_guidelines=retrieved_docs,
+                triage_level=triage_level,
+                bayesian_differentials=bayesian_differentials
+            )
             if llm_result:
                 try:
-                    return self._build_llm_response(encounter_id, now_iso, triage_level, llm_result, severity_info)
+                    return self._build_llm_response(
+                        encounter_id=encounter_id,
+                        timestamp=now_iso,
+                        triage_level=triage_level,
+                        data=llm_result,
+                        severity_info=severity_info
+                    )
                 except Exception:
                     pass  # Fall back gracefully to deterministic clinical synthesizer
 
-        # Step 4: Deterministic Grounded Synthesis (Reliable Baseline & Fallback)
+        # Step 5: Deterministic Grounded Synthesis (Reliable Baseline & Fallback)
         return self._synthesize_clinical_assessment(
             encounter_id=encounter_id,
             timestamp=now_iso,
             encounter=encounter,
             triage_level=triage_level,
             retrieved_docs=retrieved_docs,
+            bayesian_differentials=bayesian_differentials,
             severity_info=severity_info,
         )
 
@@ -108,7 +150,6 @@ class ClinicalDiagnosticEngine:
             for w in data.get("recommended_workup", [])
         ]
 
-        # Precautions: use LLM generated or fallback to verified clinical dataset
         primary_dx = differentials[0].diagnosis_name if differentials else ""
         precautions = data.get("recommended_precautions")
         if not precautions or len(precautions) < 2:
@@ -136,6 +177,7 @@ class ClinicalDiagnosticEngine:
         encounter: SymptomEncounterInput,
         red_flag: RedFlagAlert,
         retrieved_docs: Optional[List[Dict[str, Any]]] = None,
+        bayesian_differentials: Optional[List[Dict[str, Any]]] = None,
         severity_info: Optional[Dict[str, Any]] = None,
     ) -> VirtualDoctorAssessmentResponse:
         soap = SoapClinicalSummary(
@@ -158,22 +200,52 @@ class ClinicalDiagnosticEngine:
         )
 
         differentials = []
-        if retrieved_docs:
-            for i, doc in enumerate(retrieved_docs):
-                differentials.append(
-                    DifferentialDiagnosisItem(
-                        diagnosis_name=doc.get("topic", red_flag.risk_category),
-                        icd10_code=doc.get("icd10", "R57.9"),
-                        probability_rank=i + 1,
-                        confidence_score=max(0.70, round(0.95 - (i * 0.10), 2)),
-                        clinical_rationale=f"Evaluated in context of acute presentation: '{red_flag.trigger_symptom}'. Key hallmarks: {', '.join(doc.get('clinical_hallmarks', []))}.",
-                        supporting_symptoms=[encounter.chief_complaint, red_flag.trigger_symptom],
-                        pertinent_negatives_evaluated=doc.get("pertinent_negatives", []),
-                        citations_guidelines=["Emergency Medicine Advanced Life Support (ALS) Statutory Triage Protocol"],
-                    )
-                )
+        emergency_terms = [w.lower() for w in red_flag.risk_category.split() if len(w) > 3]
 
-        if not differentials:
+        # 1. Identify primary emergency condition matching the critical alert
+        matched_retrieved = None
+        if retrieved_docs:
+            for doc in retrieved_docs:
+                doc_topic = doc.get("topic", "").lower()
+                if any(t in doc_topic for t in emergency_terms):
+                    matched_retrieved = doc
+                    break
+
+        matched_bayes = None
+        if bayesian_differentials:
+            for b in bayesian_differentials:
+                b_topic = b.get("diagnosis_name", "").lower()
+                if any(t in b_topic for t in emergency_terms):
+                    matched_bayes = b
+                    break
+
+        if matched_retrieved:
+            differentials.append(
+                DifferentialDiagnosisItem(
+                    diagnosis_name=matched_retrieved["topic"],
+                    icd10_code=matched_retrieved.get("icd10", "R57.9"),
+                    probability_rank=1,
+                    confidence_score=0.95,
+                    clinical_rationale=f"CRITICAL RED-FLAG ALERT: Acute presentation of '{red_flag.trigger_symptom}' correlates directly with life-threatening {matched_retrieved['topic']}.",
+                    supporting_symptoms=[encounter.chief_complaint, red_flag.trigger_symptom],
+                    pertinent_negatives_evaluated=matched_retrieved.get("pertinent_negatives", []),
+                    citations_guidelines=[f"ICD-10 Emergency Protocol: {matched_retrieved.get('id', '')} - {matched_retrieved['topic']}"],
+                )
+            )
+        elif matched_bayes:
+            differentials.append(
+                DifferentialDiagnosisItem(
+                    diagnosis_name=matched_bayes["diagnosis_name"],
+                    icd10_code=matched_bayes.get("icd10_code", "R57.9"),
+                    probability_rank=1,
+                    confidence_score=0.95,
+                    clinical_rationale=f"CRITICAL RED-FLAG ALERT: Acute presentation of '{red_flag.trigger_symptom}' aligns with {matched_bayes['diagnosis_name']}.",
+                    supporting_symptoms=[encounter.chief_complaint, red_flag.trigger_symptom],
+                    pertinent_negatives_evaluated=matched_bayes.get("pertinent_negatives_evaluated", []),
+                    citations_guidelines=[f"ICD-10 Emergency Protocol: {matched_bayes.get('icd10_code', '')} - {matched_bayes['diagnosis_name']}"],
+                )
+            )
+        else:
             differentials.append(
                 DifferentialDiagnosisItem(
                     diagnosis_name=red_flag.risk_category,
@@ -186,6 +258,43 @@ class ClinicalDiagnosticEngine:
                     citations_guidelines=["Emergency Medicine Advanced Life Support (ALS) Statutory Triage Protocol"],
                 )
             )
+
+        # 2. Append secondary and tertiary differential candidates
+        candidate_docs = retrieved_docs or []
+        for doc in candidate_docs:
+            if len(differentials) >= 3:
+                break
+            if not any(d.diagnosis_name == doc["topic"] for d in differentials):
+                differentials.append(
+                    DifferentialDiagnosisItem(
+                        diagnosis_name=doc["topic"],
+                        icd10_code=doc.get("icd10", "R57.9"),
+                        probability_rank=len(differentials) + 1,
+                        confidence_score=max(0.60, round(0.85 - (len(differentials) * 0.10), 2)),
+                        clinical_rationale=f"Considered as alternative / coexisting acute pathology in emergency differential.",
+                        supporting_symptoms=[encounter.chief_complaint],
+                        pertinent_negatives_evaluated=doc.get("pertinent_negatives", []),
+                        citations_guidelines=[f"Clinical Protocol: {doc.get('id', '')}"],
+                    )
+                )
+
+        if bayesian_differentials:
+            for b in bayesian_differentials:
+                if len(differentials) >= 3:
+                    break
+                if not any(d.diagnosis_name == b["diagnosis_name"] for d in differentials):
+                    differentials.append(
+                        DifferentialDiagnosisItem(
+                            diagnosis_name=b["diagnosis_name"],
+                            icd10_code=b["icd10_code"],
+                            probability_rank=len(differentials) + 1,
+                            confidence_score=max(0.50, b["confidence_score"]),
+                            clinical_rationale=b.get("clinical_rationale", ""),
+                            supporting_symptoms=b.get("supporting_symptoms", [encounter.chief_complaint]),
+                            pertinent_negatives_evaluated=b.get("pertinent_negatives_evaluated", []),
+                            citations_guidelines=[f"ICD-10 Protocol: {b['icd10_code']}"],
+                        )
+                    )
 
         workup = [
             DiagnosticWorkupRecommendation(
@@ -225,46 +334,132 @@ class ClinicalDiagnosticEngine:
         encounter: SymptomEncounterInput,
         triage_level: TriageLevel,
         retrieved_docs: List[Dict[str, Any]],
+        bayesian_differentials: Optional[List[Dict[str, Any]]] = None,
         severity_info: Optional[Dict[str, Any]] = None,
     ) -> VirtualDoctorAssessmentResponse:
-        primary_match = retrieved_docs[0] if retrieved_docs else None
-        secondary_match = retrieved_docs[1] if len(retrieved_docs) > 1 else None
-
         differentials: List[DifferentialDiagnosisItem] = []
+        workup: List[DiagnosticWorkupRecommendation] = []
+        target_specialty = "General Medicine / Internal Medicine"
+        precautions = []
 
-        if primary_match:
+        primary_retrieved = retrieved_docs[0] if retrieved_docs else None
+        primary_bayes = bayesian_differentials[0] if bayesian_differentials else None
+
+        # Determine whether retrieved protocol or Bayesian differential takes Rank 1:
+        use_retrieved_top1 = False
+        if primary_retrieved and primary_retrieved.get("score", 0) >= 38.0:
+            if not primary_bayes or primary_bayes.get("confidence_score", 0) < 0.75:
+                use_retrieved_top1 = True
+            else:
+                r_top = primary_retrieved.get("topic", "").lower()
+                cardinal_surgical_or_acute = [
+                    "appendicitis", "cholecystitis", "gastroenteritis", "nephrolithiasis",
+                    "congestive heart failure", "anaphylaxis", "pulmonary embolism",
+                    "sciatica", "radiculopathy", "asthma", "angina"
+                ]
+                if any(term in r_top for term in cardinal_surgical_or_acute):
+                    use_retrieved_top1 = True
+
+        if use_retrieved_top1 and primary_retrieved:
+            target_specialty = primary_retrieved.get("specialty", "General Medicine / Internal Medicine")
             differentials.append(
                 DifferentialDiagnosisItem(
-                    diagnosis_name=primary_match["topic"],
-                    icd10_code=primary_match["icd10"],
+                    diagnosis_name=primary_retrieved["topic"],
+                    icd10_code=primary_retrieved.get("icd10", "R69"),
                     probability_rank=1,
-                    confidence_score=0.82,
-                    clinical_rationale=(
-                        f"Patient presentation of {encounter.chief_complaint} aligns closely with {primary_match['topic']}. "
-                        f"Features duration: {encounter.onset or 'unspecified'}, character: {encounter.quality_character or 'characteristic'}."
-                    ),
+                    confidence_score=min(0.95, round(0.70 + (primary_retrieved.get("score", 0) / 300.0), 2)),
+                    clinical_rationale=f"Patient presentation of {encounter.chief_complaint} correlates with clinical hallmarks of {primary_retrieved['topic']}.",
                     supporting_symptoms=[encounter.chief_complaint] + encounter.associated_symptoms[:2],
                     pertinent_negatives_evaluated=encounter.pertinent_negatives[:2],
-                    citations_guidelines=[f"ICD-10 Guidelines: {primary_match['id']} - {primary_match['topic']}"],
+                    citations_guidelines=[f"ICD-10 Protocol: {primary_retrieved.get('id', '')} - {primary_retrieved['topic']}"],
                 )
             )
+            if len(retrieved_docs) > 1 and retrieved_docs[1].get("score", 0) >= 30.0:
+                d2 = retrieved_docs[1]
+                differentials.append(
+                    DifferentialDiagnosisItem(
+                        diagnosis_name=d2["topic"],
+                        icd10_code=d2.get("icd10", "R69"),
+                        probability_rank=2,
+                        confidence_score=max(0.50, round(0.70 - (1 * 0.15), 2)),
+                        clinical_rationale=f"Alternative differential consideration: {d2['topic']}.",
+                        supporting_symptoms=[encounter.chief_complaint],
+                        pertinent_negatives_evaluated=encounter.pertinent_negatives[:2],
+                        citations_guidelines=[f"Clinical Protocol: {d2.get('id', '')}"],
+                    )
+                )
+            if primary_bayes and not any(d.diagnosis_name == primary_bayes["diagnosis_name"] for d in differentials):
+                differentials.append(
+                    DifferentialDiagnosisItem(
+                        diagnosis_name=primary_bayes["diagnosis_name"],
+                        icd10_code=primary_bayes["icd10_code"],
+                        probability_rank=len(differentials) + 1,
+                        confidence_score=max(0.40, primary_bayes["confidence_score"]),
+                        clinical_rationale=primary_bayes["clinical_rationale"],
+                        supporting_symptoms=primary_bayes["supporting_symptoms"],
+                        pertinent_negatives_evaluated=primary_bayes["pertinent_negatives_evaluated"],
+                        citations_guidelines=[f"Bayesian Evidence: {primary_bayes['icd10_code']}"],
+                    )
+                )
+            # Include disease-specific workup from primary retrieved doc if available
+            workup = [
+                DiagnosticWorkupRecommendation(
+                    investigation_type="Specialized Clinical",
+                    test_name=f"Focused Clinical Examination by {target_specialty}",
+                    urgency="Priority" if triage_level == TriageLevel.URGENT_YELLOW else "Routine",
+                    clinical_purpose=f"Correlate clinical presentation with physical signs of {primary_retrieved['topic']}.",
+                ),
+                DiagnosticWorkupRecommendation(
+                    investigation_type="Laboratory",
+                    test_name="Complete Blood Count (CBC) with Differential & Inflammatory Markers",
+                    urgency="Priority" if triage_level == TriageLevel.URGENT_YELLOW else "Routine",
+                    clinical_purpose="Assess leukocytosis and systemic inflammatory kinetics.",
+                )
+            ]
+        elif bayesian_differentials:
+            top_b = bayesian_differentials[0]
+            target_specialty = top_b["specialty"]
+            for b in bayesian_differentials[:3]:
+                differentials.append(
+                    DifferentialDiagnosisItem(
+                        diagnosis_name=b["diagnosis_name"],
+                        icd10_code=b["icd10_code"],
+                        probability_rank=b["probability_rank"],
+                        confidence_score=b["confidence_score"],
+                        clinical_rationale=b["clinical_rationale"],
+                        supporting_symptoms=b["supporting_symptoms"],
+                        pertinent_negatives_evaluated=b["pertinent_negatives_evaluated"],
+                        citations_guidelines=[f"ICD-10 Protocol: {b['icd10_code']} - {b['diagnosis_name']}"],
+                    )
+                )
+            for w in top_b.get("recommended_workup", []):
+                workup.append(
+                    DiagnosticWorkupRecommendation(
+                        investigation_type=w.get("investigation_type", "Laboratory"),
+                        test_name=w.get("test_name", ""),
+                        urgency=w.get("urgency", "Routine"),
+                        clinical_purpose=w.get("clinical_purpose", ""),
+                    )
+                )
+            precautions = top_b.get("recommended_precautions", [])
 
-        if secondary_match:
-            differentials.append(
-                DifferentialDiagnosisItem(
-                    diagnosis_name=secondary_match["topic"],
-                    icd10_code=secondary_match["icd10"],
-                    probability_rank=2,
-                    confidence_score=0.64,
-                    clinical_rationale=(
-                        f"Alternative differential consideration: {secondary_match['topic']} must be ruled out "
-                        f"given shared presentation characteristics."
-                    ),
-                    supporting_symptoms=[encounter.chief_complaint],
-                    pertinent_negatives_evaluated=encounter.pertinent_negatives,
-                    citations_guidelines=[f"Clinical Protocol: {secondary_match['id']}"],
+        elif retrieved_docs:
+            primary_match = retrieved_docs[0]
+            target_specialty = primary_match.get("specialty", "General Medicine / Internal Medicine")
+
+            for i, doc in enumerate(retrieved_docs[:2]):
+                differentials.append(
+                    DifferentialDiagnosisItem(
+                        diagnosis_name=doc["topic"],
+                        icd10_code=doc.get("icd10", "R69"),
+                        probability_rank=i + 1,
+                        confidence_score=max(0.50, round(0.85 - (i * 0.20), 2)),
+                        clinical_rationale=f"Patient presentation of {encounter.chief_complaint} correlates with {doc['topic']}.",
+                        supporting_symptoms=[encounter.chief_complaint] + encounter.associated_symptoms[:2],
+                        pertinent_negatives_evaluated=encounter.pertinent_negatives[:2],
+                        citations_guidelines=[f"Clinical Protocol: {doc['id']}"],
+                    )
                 )
-            )
 
         if not differentials:
             differentials.append(
@@ -280,24 +475,25 @@ class ClinicalDiagnosticEngine:
                 )
             )
 
-        # Specialty Assignment
-        target_specialty = primary_match["specialty"] if primary_match else "General Medicine / Internal Medicine"
+        if not workup:
+            workup = [
+                DiagnosticWorkupRecommendation(
+                    investigation_type="Laboratory",
+                    test_name="Complete Blood Count (CBC) with Differential & ESR/CRP",
+                    urgency="Same Day" if triage_level == TriageLevel.URGENT_YELLOW else "Routine",
+                    clinical_purpose="Evaluate for systemic inflammatory reaction, acute infection, or anemia.",
+                ),
+                DiagnosticWorkupRecommendation(
+                    investigation_type="Specialized Clinical",
+                    test_name=f"Focused Clinical Examination by {target_specialty}",
+                    urgency="Priority" if triage_level == TriageLevel.URGENT_YELLOW else "Routine",
+                    clinical_purpose="Correlate clinical history with physical examination signs and targeted diagnostic markers.",
+                ),
+            ]
 
-        # Diagnostic Workup Recommendations
-        workup = [
-            DiagnosticWorkupRecommendation(
-                investigation_type="Laboratory",
-                test_name="Complete Blood Count (CBC) with Differential & ESR/CRP",
-                urgency="Same Day" if triage_level == TriageLevel.URGENT_YELLOW else "Routine",
-                clinical_purpose="Evaluate for systemic inflammatory reaction, acute infection, or anemia.",
-            ),
-            DiagnosticWorkupRecommendation(
-                investigation_type="Specialized Clinical",
-                test_name=f"Focused Clinical Examination by {target_specialty}",
-                urgency="Priority" if triage_level == TriageLevel.URGENT_YELLOW else "Routine",
-                clinical_purpose="Correlate clinical history with physical examination signs and targeted diagnostic markers.",
-            ),
-        ]
+        if not precautions:
+            primary_name = differentials[0].diagnosis_name if differentials else ""
+            precautions = get_precautions_for_condition(primary_name, triage_level.value)
 
         # Clinical SOAP Note
         soap = SoapClinicalSummary(
@@ -325,8 +521,6 @@ class ClinicalDiagnosticEngine:
             ),
         )
 
-        primary_name = primary_match["topic"] if primary_match else ""
-        precautions = get_precautions_for_condition(primary_name, triage_level.value)
         sev_score = severity_info.get("score", 5) if severity_info else None
 
         return VirtualDoctorAssessmentResponse(
