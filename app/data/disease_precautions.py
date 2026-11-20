@@ -70,7 +70,7 @@ DISEASE_PRECAUTIONS: Dict[str, List[str]] = {
     ],
 
     # --- Cardiovascular & Vascular Conditions ---
-    "acute coronary syndrome": [
+    "acute coronary syndrome / myocardial infarction / heart attack": [
         "EMERGENCY: Call 108 immediately or transfer to nearest cardiac catheterization / emergency hospital",
         "Chew an unbuffered Aspirin 300 mg STAT if advised by emergency dispatcher and not allergic",
         "Stop all physical exertion immediately; sit or recline in comfortable resting position with loosened clothing",
@@ -223,9 +223,18 @@ def get_precautions_for_condition(condition_name: str, triage_level: Optional[st
 
     c_lower = condition_name.lower().strip()
 
-    # 1. Exact or partial keyword match against verified Kaggle / clinical database
+    # 1. Exact phrase match against verified database
     for key, precautions in DISEASE_PRECAUTIONS.items():
-        if key in c_lower or any(word in c_lower for word in key.split() if len(word) > 4):
+        if key in c_lower or c_lower in key:
+            return precautions
+
+    # 2. Distinctive condition keyword match (excluding generic qualifiers like 'acute', 'severe', 'syndrome')
+    generic_qualifiers = {"acute", "chronic", "severe", "disease", "syndrome", "infection", "disorder", "mild", "triage", "with", "signs"}
+    c_words = set(w for w in c_lower.replace("/", " ").replace("-", " ").replace("(", " ").replace(")", " ").split() if len(w) > 3 and w not in generic_qualifiers)
+
+    for key, precautions in DISEASE_PRECAUTIONS.items():
+        k_words = set(w for w in key.replace("/", " ").replace("-", " ").replace("(", " ").replace(")", " ").split() if len(w) > 3 and w not in generic_qualifiers)
+        if c_words and k_words and (c_words & k_words):
             return precautions
 
     # 2. Specialty / Symptom cluster category fallbacks
